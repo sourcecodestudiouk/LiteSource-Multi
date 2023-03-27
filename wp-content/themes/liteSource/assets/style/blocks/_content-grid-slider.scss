@@ -1,0 +1,48 @@
+.content-grid-slider{
+    @include breakout();
+    min-height:600px;
+    padding:65px 0;
+    .container:not(.outter-container){
+      display:flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom:40px;
+      flex-wrap: wrap;
+      h4{
+        @include media("<=sm") {
+          width:100%;
+        }
+      }
+    }
+    .content-grid{
+      margin-top:30px;
+      .container{
+        display:flex;
+        justify-content: flex-start;
+        align-items: stretch;
+        flex-wrap: wrap;
+        gap:16px;
+        .content-card{
+            width:calc(100% / 3 - 12px);
+            //min-width:352px;
+            @include media("<=md") {
+              width:calc(100% / 2 - 12px);
+              min-width:auto;
+            }
+            @include media("<=sm") {
+              min-width:auto;
+              width:100%;
+            }
+          }
+      }
+    }
+    .slider-container{
+        .content-card{
+            width:300px;
+        }
+    }
+}
+
+.testimonial-block{
+    min-height:800px;
+}  

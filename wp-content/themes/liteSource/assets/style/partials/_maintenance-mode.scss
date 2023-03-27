@@ -1,0 +1,296 @@
+//////////////////////////////////////////////////////////////////////
+// Font Imports
+//////////////////////////////////////////////////////////////////////
+.roboto{
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.playfair{
+  font-family: 'Playfair Display', serif;
+}
+
+.indie{
+  font-family: 'Indie Flower', cursive;
+}
+
+.shadows{
+  font-family: 'Shadows Into Light', cursive;
+}
+
+.cinzel{
+  font-family: 'Cinzel', serif;
+}
+
+//////////////////////////////////////////////////////////////////////
+// Functions
+//////////////////////////////////////////////////////////////////////
+.preloader{
+  position: absolute;
+  top:0;
+  left:0;
+  height:100%;
+  width:100%;
+  z-index:9999999999;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon{
+  border: 5px solid #f3f3f3; /* Light grey */
+  border-top: 5px solid #333; /* Blue */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1.5s linear infinite;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-two{
+  border: 5px solid #f3f3f3; /* Light grey */
+  border-top: 5px solid #333; /* Blue */
+  border-radius: 50%;
+  width: 60px;
+  height: 30px;
+  animation: spin 1.5s linear infinite;
+}
+
+.load-fade{
+  animation: fade 1s 1.5s linear forwards;
+}
+
+@keyframes icon-fade{
+  0%{
+    opacity:1;
+  }
+  100%{
+    opacity:0;
+  }
+}
+
+@keyframes fade{
+  0%{
+    opacity:1;
+  }
+  100%{
+    opacity:0;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(-360deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(90deg); }
+  75% { transform: rotate(360deg); }
+}
+
+//////////////////////////////////////////////////////////////////////
+// Holding Page Template
+//////////////////////////////////////////////////////////////////////
+.holding-template{
+  .half-image{
+    display:flex;
+    height:100vh;
+    width:100vw;
+    background-size: cover;
+    @include media("<=md") {
+      flex-direction: column;
+    }
+    .content{
+      width:calc(50% - 100px);
+      padding:50px;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      @include media("<=md") {
+        width:calc(100% - 100px);
+        padding:150px 50px;
+
+      }
+      .site-logo{
+        width:200px;
+        height:auto;
+        margin-bottom:49px;
+      }
+      h1{
+        margin-bottom:0px;
+      }
+      p{
+      }
+      .wpcf7{
+        width:50%;
+        input[type="text"], input[type="email"]{
+          width:100%;
+          height:35px;
+          border-radius:4px;
+          border:1px solid white;
+          margin-top:5px;
+        }
+        input[type="submit"]{
+          height:35px;
+          background-color:transparent;
+          border:2px solid white;
+          border-radius:4px;
+          min-width:150px;
+          color:white;
+          &:hover{
+            background-color:white;
+            cursor: pointer;
+            color:#333;
+          }
+        }
+        label{
+          text-align: left;
+          width:100%;
+        }
+        textarea{
+          width:100%;
+          border-radius:4px;
+          border:1px solid white;
+          margin-top:5px;
+          height:100px;
+          resize: none;
+        }
+      }
+    }
+    .image{
+      width:50%;
+      background-color:#eee;
+      background-size:cover;
+      background-position: center;
+      @include media("<=md") {
+        width:100%;
+        min-height:300px;
+      }
+    }
+  }
+  .full-image{
+    .content{
+      width:100vw;
+      height:100vh;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction:column;
+      background-size:cover;
+      background-position: center;
+      .site-logo{
+        width:200px;
+        height:auto;margin-bottom:50px;
+        z-index: 99;
+      }
+      h1, p, .wpcf7{
+        z-index: 99;
+      }
+      .wpcf7{
+        width:50%;
+        max-width:500px;
+        input[type="text"], input[type="email"]{
+          width:100%;
+          height:35px;
+          border-radius:4px;
+          border:1px solid white;
+          margin-top:5px;
+        }
+        input[type="submit"]{
+          height:35px;
+          background-color:transparent;
+          border:2px solid white;
+          border-radius:4px;
+          min-width:150px;
+          color:white;
+          &:hover{
+            background-color:white;
+            cursor: pointer;
+            color:#333;
+          }
+        }
+        label{
+          text-align: left;
+          width:100%;
+        }
+        textarea{
+          width:100%;
+          border-radius:4px;
+          border:1px solid white;
+          margin-top:5px;
+          height:100px;
+          resize: none;
+        }
+      }
+    }
+    .background-color{
+      position: absolute;
+      opacity:0.8;
+      left:0;
+      right:0;
+      top:0;
+      bottom:0;
+      z-index:98;
+    }
+  }
+  .block-color{
+    .content{
+      width:100vw;
+      height:100vh;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction:column;
+      background-size:cover;
+      background-position: center;
+      .site-logo{
+        width:200px;
+        height:auto;margin-bottom:50px;
+        z-index: 99;
+      }
+      h1, p, .wpcf7{
+        z-index: 99;
+      }
+      .wpcf7{
+        width:50%;
+        max-width:500px;
+        input[type="text"], input[type="email"]{
+          width:100%;
+          height:35px;
+          border-radius:4px;
+          border:1px solid white;
+          margin-top:5px;
+        }
+        input[type="submit"]{
+          height:35px;
+          background-color:transparent;
+          border:2px solid white;
+          border-radius:4px;
+          min-width:150px;
+          color:white;
+          &:hover{
+            background-color:white;
+            cursor: pointer;
+            color:#333;
+          }
+        }
+        label{
+          text-align: left;
+          width:100%;
+        }
+        textarea{
+          width:100%;
+          border-radius:4px;
+          border:1px solid white;
+          margin-top:5px;
+          height:100px;
+          resize: none;
+        }
+      }
+    }
+  }
+}
+
+//////////////////////////////////////////////////////////////////////
+// Maintenance Page Template
+//////////////////////////////////////////////////////////////////////

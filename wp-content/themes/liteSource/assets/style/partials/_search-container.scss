@@ -1,0 +1,112 @@
+.search-container{
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    @include media("<=lg") {
+      width:50%;
+      &.show{
+        width:85%;
+      }
+    }
+    .search-toggle{
+      width:25px;
+      height:25px;
+      margin-left:15px;
+      z-index: 999;
+      position: relative;
+      @include media("<=lg") {
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        margin-left:0;
+        width:100%;
+      }
+      i{
+        color:white;
+        @include media("<=lg") {
+          margin-left:10px;
+          color:white;
+        }
+        &:hover{
+          cursor: pointer;
+          color:white;
+        }
+        &.fa-xmark{
+          display:none;
+        }
+      }
+      .label{
+        margin-bottom:0;
+        @include media(">lg") {
+          display:none;
+        }
+      }
+    }
+    form{
+      margin-right:10px;
+      position: absolute;
+      right:0;
+      opacity: 0;
+      width:0;
+      //z-index: -99;
+      display:flex;
+      justify-content: space-between;
+      @include media("<=lg") {
+        left:50px;
+        right:auto;
+      }
+      &.show{
+        width:320px;
+        opacity: 1;
+        -webkit-transition: all .5s linear;
+        -moz-transition: all .5s linear;
+        -o-transition: all .5s linear;
+        transition: all .5s linear;
+        z-index: 1;
+        @include media("<=lg") {
+          width:425px;
+        }
+        @include media("<=sm") {
+          width:100%;
+        }
+      }
+      input{
+        width:100%;
+        height:25px;
+        border:0;
+        padding:0 12px 0 0;
+        font-size:13px;
+        background-color:transparent;
+        color:white!important;
+        border-bottom:1px solid white;
+        &::placeholder{ /* Chrome, Firefox, Opera, Safari 10.1+ */
+          color:white!important;
+        }
+        @include media("<=lg") {
+          height:40px;
+        }
+        &:focus{
+          outline:0!important;
+        }
+      }
+      button{
+        top:0px;
+        border:0;
+        background-color:rgba(#fff,0);
+        z-index: 33;
+        color:white;
+        margin-left:15px;
+        padding:0!important;
+        visibility: hidden;
+        @include media("<=lg") {
+          visibility: visible;
+          z-index: 9999;
+          width:40px;
+        }
+        &:hover{
+          cursor: pointer;
+        }
+      }
+    }
+  }

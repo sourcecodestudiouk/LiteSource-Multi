@@ -1,0 +1,150 @@
+// SASS Variables;
+$primary: #000;
+$secondary: #000;
+$grey: #333;
+$brand: #7539A4;
+
+// Import CSS / SASS Libraries
+@import 'setup/_include-media'; // Set breakpoints within here
+@import 'setup/normalize';
+@import '../slick/slick';
+@import '../slick/slick-theme';
+@import 'mixins/_mixins';
+@import 'components/_components';
+@import 'partials/_maintenance-mode';
+
+// Breakpoint template
+// @include media("<=md") {
+//   background-color: blue;
+// }
+
+@import 'structure/_header';
+@import 'structure/_footer';
+@import 'structure/_wrapper';
+@import 'partials/_error404';
+@import 'partials/_off-canvas-menu';
+@import 'partials/_search-container';
+@import 'partials/_overflow-slider';
+
+// Blocks
+@import 'blocks/_hero-header';
+@import 'blocks/_call-to-action';
+@import 'blocks/_content-grid-slider';
+
+// Cards
+@import 'cards/_team-card';
+@import 'cards/_testimonial-card';
+@import 'cards/_event-card';
+
+
+// Single Posts
+@import 'singles/_single-event';
+
+html{
+    overflow-x: hidden;
+}
+
+body.curved-border-radius{
+  p.btn, .testimonial-card.multiple-slider, .event-card{
+      border-radius:8px;
+  }
+}
+body.rounded-border-radius{
+  p.btn, .testimonial-card.multiple-slider, .event-card{
+      border-radius:40px;
+  }
+}
+
+// // Define variables
+// $slider-height: 300px;
+// $slider-width: 100%;
+// $card-width: 300px;
+// $card-margin: 20px;
+// $button-size: 40px;
+
+// // Define styles for slider container
+// .slider-container {
+//   position: relative;
+//   height: $slider-height;
+//   width: $slider-width;
+// }
+
+// // Define styles for slider wrapper
+// .slider-wrapper {
+//   transition: transform 0.3s ease;
+// }
+
+// // Define styles for event card
+// .event-card {
+//   width: $card-width;
+//   margin-right: $card-margin;
+//   text-align: center;
+
+//   img {
+//     max-width: 100%;
+//   }
+
+//   h3 {
+//     margin-top: 20px;
+//     font-size: 24px;
+//     font-weight: bold;
+//   }
+
+//   p {
+//     margin-top: 10px;
+//     font-size: 16px;
+//     line-height: 1.5;
+//   }
+
+//   .button {
+//     display: inline-block;
+//     margin-top: 20px;
+//     padding: 10px 20px;
+//     background-color: #333;
+//     color: #fff;
+//     text-decoration: none;
+//     border-radius: 5px;
+//     transition: background-color 0.3s ease;
+
+//     &:hover {
+//       background-color: #555;
+//     }
+//   }
+// }
+// // Define styles for slider buttons
+// .slider-button {
+//   position: absolute;
+//   top: 50%;
+//   transform: translateY(-50%);
+//   z-index: 1;
+//   width: $button-size;
+//   height: $button-size;
+//   background-color: rgba(255, 255, 255, 0.7);
+//   border: none;
+//   cursor: pointer;
+//   font-size: 24px;
+//   font-weight: bold;
+//   transition: background-color 0.3s ease;
+
+//   &:hover {
+//     background-color: rgba(255, 255, 255, 0.9);
+//   }
+
+//   &-prev {
+//     left: 0;
+//   }
+
+//   &-next {
+//     right: 0;
+//   }
+// }
+
+// // Define styles for active slider button
+// .slider-button-active {
+//   background-color: #333;
+//   color: #fff;
+
+//   &:hover {
+//     background-color: #555;
+//   }
+// }

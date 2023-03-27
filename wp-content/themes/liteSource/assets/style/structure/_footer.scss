@@ -1,0 +1,157 @@
+//////////////////////////////////////////////////////////////////////
+// Footer Area
+//////////////////////////////////////////////////////////////////////
+
+.site-footer{
+  width:100%;
+  @include breakout();
+  padding:100px 0;
+  .container{
+    display:flex;
+    justify-content: space-around;
+    align-items: stretch;
+    @include media("<=md") {
+      flex-direction: column;
+    }
+    .company-information{
+      width:50%;
+      padding-right:50px;
+      flex-grow: 2;
+      @include media("<=md") {
+        width:75%;
+        padding-right:0;
+        margin:0 auto;
+      }
+      @include media("<=sm") {
+        text-align: center;
+        width:90%;
+      }
+      img{
+        width:100px;
+        height:100px;
+        object-fit: contain;
+        margin-bottom:15px;
+      }
+      a{
+        color:inherit;
+        i{
+          margin-right:7px;
+        }
+      }
+      .social-channels{
+        padding-top:15px;
+        a{
+          color:inherit;
+          i{
+            font-size:20px;
+            margin-right:10px;
+            @include media("<=sm") {
+              font-size:27px;
+              margin-bottom:15px;
+            }
+          }
+        }
+      }
+    }
+    .menus{
+      display:flex;
+      justify-content:flex-end;
+      width:50%;
+      @include media("<=md") {
+        width:75%;
+        justify-content: space-between;
+        margin:50px auto 0;
+      }
+      @include media("<=sm") {
+        flex-direction: column;
+        justify-content:center;
+        width:90%;
+      }
+      .menu-column{
+        margin-left:50px;
+        @include media("<=md") {
+          margin-left:0;
+        }
+        @include media("<=sm") {
+          margin-top:50px;
+        }
+        h5{
+          margin-bottom:30px;
+          @include media("<=sm") {
+           text-align: center;
+          }
+        }
+      }
+      .menu-container{
+        ul{
+          display:flex;
+          justify-content: flex-start;
+          align-items: flex-start;
+          flex-direction: column;
+          list-style: none;
+          padding-left:0;
+          margin-bottom:0;
+          margin-left:0;
+          @include media("<=sm") {
+            justify-content: center;
+            align-items: center;
+          }
+          li{
+            font-size:16px;
+            margin-bottom:15px;
+            @include media("<=sm") {
+             
+            }
+            a{
+              color:inherit;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.lower-footer{
+  @include breakout();
+  font-size:13px;
+  .container{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top:25px;
+    padding-bottom:25px;
+    @include media("<=md") {
+      display:flex;
+      flex-direction: column-reverse;
+      align-items: flex-end;
+    }
+    @include media("<=sm") {
+      align-items: center;
+    }
+  }
+  p{
+    margin-bottom:0;
+    @include media("<=sm") {
+      text-align:center;
+    }
+  }
+  a{
+    color:black;
+    text-decoration: underline;
+    &:hover{
+      color:#FFBAFA;
+    }
+  }
+  .legal-menu{
+    @include media("<=sm") {
+      margin-bottom:10px;
+    }
+    a{
+      margin-left:15px;
+      @include media("<=sm") {
+        text-align:center;
+      }
+    }
+  }
+}

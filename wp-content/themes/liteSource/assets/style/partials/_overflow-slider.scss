@@ -1,0 +1,37 @@
+.slider-container{
+    @include breakout();
+    .slider-content-container{
+      width:100%;
+      position: relative;
+      overflow-x:scroll;
+      min-height:450px;
+      .slider-content{
+        display:flex;
+        justify-content: flex-start;
+        align-items: stretch;
+        position:absolute;
+        padding-right:150px;
+        gap:16px;
+        left:calc(50% - (1210px / 2));
+        @include media("<=xl") {
+          left:20px;
+        }
+      }
+      @include media("<=md") {
+        min-height:410px;
+      }
+    }
+    ::-webkit-scrollbar {
+      width: 0 !important
+    }
+}
+
+.testimonial-block.multiple-slider{
+    .slider-container{
+        .slider-content-container{
+            //min-height:750px;
+        }
+    }
+}
+
+  

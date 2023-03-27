@@ -1,0 +1,207 @@
+//////////////////////////////////////////////////////////////////////
+// Header Area
+//////////////////////////////////////////////////////////////////////
+.site-header{
+  width:100%;
+  @include breakout();
+  z-index: 260;
+  background-color:white;
+  position: absolute;
+  &.fixed-header{
+    position: fixed;
+  }
+  .container{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    height:100px;
+    padding:25px 15px;
+    .logo-container{
+      height:100%;
+      .logo{
+        width:200px;
+        height:100%;
+        object-fit: contain;
+        object-position: left;
+      }
+    }
+    .desktop-navigation{
+      flex-grow: 2;
+      @include media("<=lg") {
+        display:none;
+      }
+      ul{
+        list-style:none;
+        padding-left:0;
+        display:flex;
+        justify-content: center;
+        align-items:center;
+        margin-bottom:0;
+        > li{
+          position: relative;
+          margin-left:15px;
+          p{
+            margin-bottom:0;
+            position: relative;
+            z-index: 3;
+            a{
+              color:inherit;
+              font-weight:700;
+              padding:7px 15px;
+              &:hover{
+                text-decoration: none;;
+              }
+            }
+            
+          }
+          i{
+            position: absolute;
+            top:7px;
+            bottom:0;
+            right:2px;
+            font-size:9px;
+            height:9px;
+          }
+          .sub-menu{
+            flex-direction: column;
+            position:absolute;
+            top:62px;
+            right:0;
+            width:200px;
+            display:none;
+            @include shadow();
+            &:before{
+              content:'';
+              width:100%;
+              height:50px;
+              position: absolute;
+              top:-40px;
+            }
+            li{
+              display:flex;
+              justify-content: center;
+              align-items:center;
+              width:100%;
+              margin-left:0;
+              border-bottom:1px solid;
+              a{
+                padding:15px;
+                width:100%;
+                font-size:13px;
+                .background{
+                  position: absolute;
+                  left:0;
+                  top:0;
+                  height:100%;
+                  width:0%;
+                  z-index: 2;
+                  opacity: 0.1;
+                }
+                .text{
+                  position: relative;
+                  z-index: 3;
+                }
+                &:hover{
+                  text-decoration: none;
+                  .background{
+                    width:100%;
+                  }
+                }
+              }
+              &:last-child{
+                border:0;
+              }
+            }
+          }
+          &:hover{
+            .sub-menu{
+              display:flex;
+            }
+          }
+        }
+      }
+    }
+    .btn{
+      @include media("<=lg") {
+        display:none;
+      }
+    }
+    &.row-reverse{
+      flex-direction: row-reverse;
+    }
+  }
+  &.no-cta{
+    .container{
+     .desktop-navigation{
+      ul{
+        justify-content: flex-end;
+      }
+     }
+     &.row-reverse{
+      .desktop-navigation{
+        ul{
+          justify-content: flex-start;
+        }
+      }
+     }
+    }
+  }
+}
+
+
+#scs-admin-menu{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:32px;
+  background-color:#170E28;
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  z-index:9999;
+  padding:0 15px;
+  border-bottom:1px solid white;
+  position: fixed;
+  .company-info{
+    display:flex;
+    justify-content: flex-start;
+    align-items:center;
+    img{
+      height:22px;
+      width:auto;
+      margin-right:15px;
+    }
+    p{
+      margin-right:15px;
+      i{
+        margin-right:5px;
+      }
+    }
+  }
+  .admin-info{
+    p{
+      border-left:1px solid white;
+      &.user-logout{
+        padding-left:15px;
+      }
+    }
+  }
+  p{
+    font-size:13px;
+    margin-bottom:0;
+  }
+  a{
+    color:white;
+    i{
+      color:white;
+    }
+    &:hover{
+      text-decoration: none;
+      color:#FFBAFA;
+      i{
+        color:#FFBAFA;
+      }
+    }
+  }
+}

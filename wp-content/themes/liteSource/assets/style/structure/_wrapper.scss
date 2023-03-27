@@ -1,0 +1,14 @@
+//////////////////////////////////////////////////////////////////////
+// Wrapper Template
+//////////////////////////////////////////////////////////////////////
+.wrapper{
+  *:not(.slick-track){
+    -webkit-transition: all .1s linear;
+    -moz-transition: all .1s linear;
+    -o-transition: all .1s linear;
+    transition: all .1s linear;
+  }
+  main{
+    //padding-top:100px;
+  }
+}

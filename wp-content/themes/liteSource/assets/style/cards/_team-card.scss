@@ -1,0 +1,36 @@
+.team-member-card{
+    margin-bottom:25px;
+    .image-container{
+      aspect-ratio:1/1;
+      width:100%;
+      overflow: hidden;
+      img{
+        width:100%;
+        height:100%;
+        object-fit: cover;
+        @include transition(1s);
+      }
+    }
+    h6{
+      margin-top:20px;
+    }
+    .job-title{
+      font-size:13px;
+    }
+    a{
+      color:black;
+      &:hover{
+        color:inherit;
+        text-decoration: none;
+        .image-container{
+          img{
+            margin-left:-10%;
+            margin-top:-10%;
+            width:120%;
+            height:120%;
+          }
+        }
+      }
+    }
+  }
+  

@@ -1,0 +1,32 @@
+.call-to-action-block{
+    @include breakout();
+    padding:35px 0;
+    .container{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        @include media("<=md") {
+            flex-direction: column;
+        }
+        .content{
+            max-width:75%;
+            @include media("<=md") {
+                max-width:100%;
+                text-align: center;
+                margin-bottom:25px;
+            }
+            h3{
+                margin-bottom:0;
+            }
+            p{
+                margin-bottom:0;
+                @include media("<=md") {
+                    margin-top:10px;
+                }
+            }
+        }
+        .btn{
+            margin-left:25px;
+        }
+    }
+}

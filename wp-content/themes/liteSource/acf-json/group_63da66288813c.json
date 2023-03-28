@@ -12,7 +12,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "33",
                 "class": "",
                 "id": ""
             },
@@ -21,9 +21,9 @@
                 "row-reverse": "CTA - Menu - Logo"
             },
             "default_value": "",
-            "return_format": "",
+            "return_format": "value",
             "allow_null": 0,
-            "layout": ""
+            "layout": "horizontal"
         },
         {
             "key": "field_63ef636e6a80e",
@@ -35,7 +35,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "33",
                 "class": "",
                 "id": ""
             },
@@ -43,6 +43,26 @@
             "default_value": 0,
             "ui_on_text": "",
             "ui_off_text": "",
+            "ui": 1
+        },
+        {
+            "key": "field_6421addf680b1",
+            "label": "Site Search",
+            "name": "site_search",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "34",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "On",
+            "ui_off_text": "Off",
             "ui": 1
         },
         {
@@ -126,5 +146,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1678115428
+    "modified": 1679928897
 }

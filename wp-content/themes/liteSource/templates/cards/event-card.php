@@ -4,8 +4,9 @@
     $alt = get_post_meta( get_post_thumbnail_id(), '_wp_attachment_image_alt', true );
 
     if(!$url){
-        $url = '/wp-content/themes/litesource/assets/img/user-placeholder.jpg';
-        $alt = 'Placeholder image for the team member';
+        $url = get_field('company_icon', 'options')['url'];
+        $alt = 'Placeholder image for the the event';
+        $class = 'incl-placeholder';
     }
     
     $blocks = parse_blocks( $post->post_content ); 
@@ -21,7 +22,7 @@
     }
 ?> 
 
-<div class="event-card content-card">
+<div class="event-card content-card <?= $class; ?>">
     <a href="<?= the_permalink(); ?>">
          <div class="image-container">
             <img src="<?= $url; ?>" alt="<?= $alt; ?>">

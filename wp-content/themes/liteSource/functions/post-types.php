@@ -354,4 +354,22 @@ function scs_post_types() {
 if( function_exists('acf_add_options_page') ) {
 	add_action( 'init', 'scs_post_types');
 }
+
+function scs_get_post_type($post){
+	if($post->post_name == 'news'){
+		return 'post';
+	}
+	if($post->post_name == 'services'){
+		return 'service';
+	}
+	if($post->post_name == 'projects'){
+		return 'project';
+	}
+	if($post->post_name == 'team'){
+		return 'team_member';
+	}
+	if($post->post_name == 'departments'){
+		return 'department';
+	}
+}
 ?>

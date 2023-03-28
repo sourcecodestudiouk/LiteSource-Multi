@@ -134,7 +134,7 @@ html.wp-toolbar{
   }
 
   .wp-core-ui {
-    .button{
+    .button:not(.wp-color-result){
       color:white!important;
       background-color:#170E28!important;
       border-color:#170E28!important;

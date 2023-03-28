@@ -12,12 +12,16 @@ p.btn{
   overflow:hidden;
   text-align: center;
   margin:0;
+  width:auto;
   a{
     color:inherit;
     padding:10px 25px;
     z-index: 3;
     position: relative;
     width:100%;
+    text-transform: uppercase;
+    letter-spacing:3px;
+    text-align:center;
     &:hover{
       text-decoration: none;
     }
@@ -33,6 +37,28 @@ p.btn{
   &:hover{
     .background{
       height:100%;
+    }
+  }
+  &:hover{
+    opacity: 0.9;;
+  }
+}
+
+
+//////////////////////////////////////////////////////////////////////
+// Button Group
+////////////////////////////////////////////////////////////////////// 
+
+.button-group{
+  display:flex;
+  width:100%;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  .btn{
+    margin:0 15px;
+    &.ghost{
+      border:2px solid;
     }
   }
 }

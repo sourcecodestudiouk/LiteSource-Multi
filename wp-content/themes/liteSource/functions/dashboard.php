@@ -43,7 +43,7 @@ function wpdocs_register_my_custom_menu_page() {
       __( 'Custom Menu Title', 'textdomain' ),
       'LiteSource Network',
       'manage_options',
-      network_admin_url(),
+      network_admin_url() . 'sites.php',
       '',
       'dashicons-admin-network',
       1

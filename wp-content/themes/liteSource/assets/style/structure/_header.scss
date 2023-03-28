@@ -121,6 +121,23 @@
         }
       }
     }
+    .cta-menu-search-container{
+      width:200px;
+      display:flex;
+      justify-content: flex-end;
+      align-items: center;
+      .search-button-container{
+        width:40px;
+        height:40px;
+        display:flex;
+        justify-content: center;
+        align-items:center;
+        &:hover{
+          opacity:0.86;
+          cursor: pointer;
+        }
+      }
+    }
     .btn{
       @include media("<=lg") {
         display:none;

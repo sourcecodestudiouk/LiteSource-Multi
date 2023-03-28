@@ -27,13 +27,9 @@ if( !empty($block['align']) ) {
 // Load values and assign defaults.
 $heading = get_field('header');
 $description = get_field('description');
-
 $buttons = get_field('buttons');
-
 $colours = get_field('site_colours', 'options');
-
 $background = get_field('background_options');
-
 $overlay = '#000';
 
 if($background['background_type'] == 'image' || $background['background_type'] == 'gallery' ){
@@ -69,7 +65,10 @@ else if($block == 'accent' || $overlay == 'accent'){
     <div class="container">
         <h1><?= $heading; ?></h1>
         <p><?= $description; ?></p>
-        <?php get_template_part('templates/partials/button_group'); ?>
+        <?php 
+        if($buttons){
+            get_template_part('templates/partials/button', 'group', array('buttons' => $buttons));
+        } ?>
     </div>
     <span class="overlay" style="background-color:<?= $bg; ?>"></span>
 </div>

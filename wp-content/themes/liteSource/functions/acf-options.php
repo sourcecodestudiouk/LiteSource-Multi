@@ -466,18 +466,43 @@ function my_acf_save_post( $post_id ) {
       wp_delete_post( $tPage->ID, $bypass_trash = true );
     }
 
+    $search = get_field('site_search', 'options');
+
+    if($search){
+      $post_title = 'Search Results';
+      $data = array(
+            'post_title'   => $post_title,
+            'post_status'  => 'publish',
+            'post_type'    => 'page',
+      );
+      if(!post_exists($post_title)){
+        wp_insert_post( add_magic_quotes( $data ) );
+      }
+    } else{
+      $post_title = 'Search Results';
+      $tPage = get_page_by_title($post_title);
+      wp_delete_post( $tPage->ID, $bypass_trash = true );
+    }
+
+    global $wp_rewrite;
+    $wp_rewrite->set_permalink_structure('/%postname%/');
+    $wp_rewrite->flush_rules();
 }
 
 // Add an archive state into the page, this will automatcially create archive pages.
-add_filter('display_post_states', 'wpsites_custom_post_states');
+
 function wpsites_custom_post_states($states) {
-    global $post;
+    $post = get_post();
     if( ('page'==get_post_type($post->ID) && ($post->post_name == 'services' || $post->post_name == 'departments' || $post->post_name == 'team' || $post->post_name == 'news' || $post->post_name == 'projects')) ) {
         $states[] = __('Archive');
         update_post_meta( $post->ID, '_wp_page_template', 'content-archive.php' );
     }
+    if( ('page'==get_post_type($post->ID) && ($post->post_name == 'search-results' ) )) {
+      $states[] = __('Search Results');
+  }
     return $states;
 }
+add_filter('display_post_states', 'wpsites_custom_post_states');
 
 function remove_page_attribute_support() {
   global $post;
@@ -491,12 +516,13 @@ add_action( 'admin_head-post.php', 'remove_page_attribute_support' );
 
 
 function disable_gutenberg( $can_edit, $post ) {
-    if( $post->post_type == 'page' && ($post->post_name == 'services' || $post->post_name == 'departments' || $post->post_name == 'team' || $post->post_name == 'news' || $post->post_name == 'projects')) {
+  $disabled = array('services', 'departments', 'team', 'news', 'projects');
+    if(!in_array($post->post_name, $disabled)) {
       return true;
     }
     return false;
 }
-add_filter( 'use_block_editor_for_post', 'disable_gutenberg', 10, 2 );
+//add_filter( 'use_block_editor_for_post', 'disable_gutenberg', 10, 2 );
 
 
 ?>

@@ -2,7 +2,6 @@
 
 <?php get_header(); ?>
 	<main role="main">
-		<?php the_content(); ?>
-		<p>Archive Page is here</p>
+		<?php get_template_part('templates/blocks/archive-grid'); ?>
 	</main>
 <?php get_footer(); ?>

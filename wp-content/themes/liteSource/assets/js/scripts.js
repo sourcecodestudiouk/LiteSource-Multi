@@ -14,6 +14,10 @@
 				$( "body").toggleClass("scroll-lock", 1);
 			});
 
+			$( ".search-container .close-button, .search-button-container" ).click(function() {
+				$(".search-container").toggle();
+			});
+
 			$('.off-canvas-menu .search-toggle').click(function() {
 				$('.search-form').toggleClass('show');
 				$('.search-close .search-container').toggleClass('show');

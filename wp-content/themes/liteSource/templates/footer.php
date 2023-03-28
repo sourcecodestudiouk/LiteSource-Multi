@@ -71,3 +71,22 @@
     </div>
   </div>
 </footer>
+
+<?php
+  $search = get_field('site_search', 'options');
+  if($search){ ?>
+    <div class="search-container" style="background-color:<?= $colours['primary']; ?>; color:<?= $txtCol; ?>">
+      <div class="close-button">
+        <i class="fa-solid fa-xmark"></i>
+      </div>
+      <div class="search-form-container">
+        <h4>Search Site:</h4>
+        <form action="/search-results/"  method="get" class="search-form">
+          <input type="search" placeholder="Search &hellip;" value="" name="_search" style="color:<?= $txtCol; ?>">
+          <button type="submit"><i style="color:<?= $txtCol; ?>" class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+      </div>
+    </div>
+  <?php
+  } 
+?>   

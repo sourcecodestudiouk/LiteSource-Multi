@@ -17,6 +17,8 @@ if( function_exists('acf_add_options_page') ) {
   $ctaTxt = getContrastColor($colours['secondary']);
   }
 
+  $search = get_field('site_search', 'options');
+
   $fixed = get_field('sticky_header', 'options');
 }
 ?>
@@ -29,7 +31,7 @@ if(current_user_can( 'edit_posts' )){ ?>
     <img src="<?= $icon['url']; ?>" alt="<?= $icon['alt']; ?>"/>
     <?php
     } ?>
-    <p class="dashboard"><a href="<?= get_site_url(); ?>/wp-admin"><i class="fa-solid fa-gauge"></i> Dashboard</a></p>
+    <p class="dashboard"><a href="<?= get_site_url(); ?>/wp-admin/index.php"><i class="fa-solid fa-gauge"></i> Dashboard</a></p>
     <p class="edit"><a href="<?= get_edit_post_link(); ?>"><i class="fa-solid fa-pen-to-square"></i>Edit</a></p>
   </div>
   <div class="admin-info">
@@ -49,15 +51,24 @@ if(current_user_can( 'edit_posts' )){ ?>
     } ?>
     </a>
     <?php header_nav(); ?>
-    <?php
-    if(isset($cta['add_call_to_action_button']) && $cta ["call_to_action_button"] != ''){ ?>
-       <p class="btn" style="background-color:<?= $ctaBg; ?>; color:<?= $ctaTxt; ?>"><span style="background-color:<?= $ctaTxt; ?>;" class="background"></span><a href="<?= $cta['call_to_action_button']['url'] ?>"><?= $cta['call_to_action_button']['title'] ?></a></p> 
-    <?php
-    } ?>
-    <div class="off-canvas-menu-trigger">
+    <div class="cta-menu-search-container">
+      <?php
+      if($search){ ?>
+        <div class="search-button-container">
+          <i class="fas fa-search"></i>
+        </div>
+      <?php
+      }
+      if(isset($cta['add_call_to_action_button']) && $cta ["call_to_action_button"] != ''){ ?>
+        <p class="btn" style="background-color:<?= $ctaBg; ?>; color:<?= $ctaTxt; ?>"><span style="background-color:<?= $ctaTxt; ?>;" class="background"></span><a href="<?= $cta['call_to_action_button']['url'] ?>"><?= $cta['call_to_action_button']['title'] ?></a></p> 
+      <?php
+      } ?>
+      <div class="off-canvas-menu-trigger">
         <span class="label" style="color:<?= $txtCol; ?>">Menu</span>
         <i class="fa-solid fa-bars"></i>
       </div>
+    </div>
+    
   </div>
 </header>
 

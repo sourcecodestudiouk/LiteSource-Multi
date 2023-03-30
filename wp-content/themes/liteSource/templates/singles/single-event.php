@@ -1,6 +1,10 @@
 <?php 
 $colours = get_field('site_colours', 'options');
 $txtCol = getContrastColor($colours['secondary']);
+
+$imgUrl = get_the_post_thumbnail_url();
+$imgAlt = get_post_meta( get_post_thumbnail_id(), '_wp_attachment_image_alt', true );
+
 if ( has_block( 'acf/events-information') ) {
     $blocks = parse_blocks( $post->post_content ); 
     foreach($blocks as $block){
@@ -57,6 +61,7 @@ if ( has_block( 'acf/events-information') ) {
     }?>
     <div class="events-template-container">
         <div class="events-content">
+            <img src="<?= $imgUrl; ?>" alt="<?= $imgAlt; ?>"/>
             <div class="date-location">
             <?php if(isset($dates)){ ?>
                 <div class="date-time">
@@ -91,7 +96,7 @@ if ( has_block( 'acf/events-information') ) {
         <div class="location-ticket">
             <div class="inner">
                 <?php 
-                if( isset($block['attrs']['data']['date_time_location_location']) ){ ?>
+                if( isset($block['attrs']['data']['location']) ){ ?>
                 <div class="map-container">
                     <div class="acf-map" data-zoom="16">
                         <div class="marker" data-lat="<?php echo esc_attr($lat); ?>" data-lng="<?php echo esc_attr($long); ?>"></div>
@@ -126,4 +131,5 @@ if ( has_block( 'acf/events-information') ) {
 }
 else{
     the_content();
-}
+} ?>
+

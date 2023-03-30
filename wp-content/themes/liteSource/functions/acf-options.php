@@ -383,6 +383,8 @@ add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
 add_action('acf/save_post', 'my_acf_save_post');
 function my_acf_save_post( $post_id ) {
 
+  // ADDING CONTENT TYPES
+
     $values = get_fields( $post_id );
     $postTypes = get_field('post_types', 'options');
 
@@ -494,6 +496,28 @@ function my_acf_save_post( $post_id ) {
       wp_delete_post( $tPage->ID, $bypass_trash = true );
     }
 
+////////////////////////////////////////////////////////////////////////////////////////////////
+// Modular Addons
+    $modules = get_field('modular_addons', 'admin-settings');
+    // Projects Archive
+    if(in_array('events', $modules)){
+      $post_title = 'Events';
+      $data = array(
+            'post_title'   => $post_title,
+            'post_status'  => 'publish',
+            'post_type'    => 'page',
+      );
+      if(!post_exists($post_title)){
+        wp_insert_post( add_magic_quotes( $data ) );
+      }
+    }
+    else{
+      $post_title = 'Events';
+      $tPage = get_page_by_title($post_title);
+      wp_delete_post( $tPage->ID, $bypass_trash = true );
+    }
+
+
     global $wp_rewrite;
     $wp_rewrite->set_permalink_structure('/%postname%/');
     $wp_rewrite->flush_rules();
@@ -503,7 +527,7 @@ function my_acf_save_post( $post_id ) {
 
 function wpsites_custom_post_states($states) {
     $post = get_post();
-    if( ('page'==get_post_type($post->ID) && ($post->post_name == 'services' || $post->post_name == 'departments' || $post->post_name == 'team' || $post->post_name == 'news' || $post->post_name == 'projects')) ) {
+    if( ('page'==get_post_type($post->ID) && ($post->post_name == 'events' || $post->post_name == 'services' || $post->post_name == 'departments' || $post->post_name == 'team' || $post->post_name == 'news' || $post->post_name == 'projects')) ) {
         $states[] = __('Archive');
         update_post_meta( $post->ID, '_wp_page_template', 'content-archive.php' );
     }
@@ -516,7 +540,7 @@ add_filter('display_post_states', 'wpsites_custom_post_states');
 
 function remove_page_attribute_support() {
   global $post;
-    if( ('page' == get_post_type($post->ID) && ($post->post_name == 'services' || $post->post_name == 'departments' || $post->post_name == 'team' || $post->post_name == 'news' || $post->post_name == 'projects')) ) {
+    if( ('page' == get_post_type($post->ID) && ($post->post_name == 'events' || $post->post_name == 'services' || $post->post_name == 'departments' || $post->post_name == 'team' || $post->post_name == 'news' || $post->post_name == 'projects')) ) {
       remove_post_type_support('page','page-attributes');
       remove_post_type_support('page' ,'editor');
       remove_meta_box('pageparentdiv', 'page', 'side');
@@ -526,7 +550,7 @@ add_action( 'admin_head-post.php', 'remove_page_attribute_support' );
 
 
 function disable_gutenberg( $can_edit, $post ) {
-  $disabled = array('services', 'departments', 'team', 'news', 'projects');
+  $disabled = array('services', 'departments', 'team', 'news', 'projects', 'events');
     if(!in_array($post->post_name, $disabled)) {
       return true;
     }

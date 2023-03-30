@@ -46,7 +46,7 @@ if(current_user_can( 'edit_posts' )){ ?>
   <div class="container <?= $layout; ?>">
     <a class="logo-container" href="<?php echo get_home_url(); ?>">
     <?php if(isset($logo)){ ?>
-      <img class="logo" src="<?= $logo['url']; ?>" alt="<?= $logo['alt']; ?>"/>
+      <img draggable="false" class="logo" src="<?= $logo['url']; ?>" alt="<?= $logo['alt']; ?>"/>
     <?php
     } ?>
     </a>

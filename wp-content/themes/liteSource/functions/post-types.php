@@ -371,5 +371,8 @@ function scs_get_post_type($post){
 	if($post->post_name == 'departments'){
 		return 'department';
 	}
+	if($post->post_name == 'events'){
+		return 'event';
+	}
 }
 ?>

@@ -14,7 +14,7 @@ if($theme['themes'] == 'secondary'){
     $bg = $colours['secondary'];
     $txtCol = getContrastColor($bg);
 }
-if($theme['themes'] == 'third'){
+if($theme['themes'] == 'accent'){
     $bg = $colours['accent'];
     $txtCol = getContrastColor($bg);
 }
@@ -26,8 +26,7 @@ if($theme['themes'] == 'third'){
             <img src="<?= $img['url']; ?>" alt="<?= $img['alt']; ?>"/>
         <?php
         } ?>
-        <p class="name"><?= get_field('company_person_name', get_the_ID()); ?></p>
+        <h5 class="name"><?= get_field('company_person_name', get_the_ID()); ?></h5>
         <p class="quote">"<?= get_field('quote', get_the_ID()); ?>"</p>
-        
     </div>
 </div>

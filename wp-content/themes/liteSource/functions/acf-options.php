@@ -219,6 +219,16 @@ function my_acf_init_block_types() {
         ));
 
         acf_register_block_type(array(
+          'name'              => 'Icon Blocks',
+          'title'             => __('Icon Blocks'),
+          'description'       => __('Icon Blocks Block'),
+          'render_template'   => 'templates/blocks/icon-blocks.php',
+          'category'          => 'custom-layout',
+          'icon'              => $icon,
+          'keywords'          => array( 'icons', 'features', 'page' ),
+        ));
+
+        acf_register_block_type(array(
           'name'              => 'Content Slider',
           'title'             => __('Content Slider'),
           'description'       => __('content slider block as part of the standard system.'),

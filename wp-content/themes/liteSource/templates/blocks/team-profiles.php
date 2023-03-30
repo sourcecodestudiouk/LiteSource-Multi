@@ -41,7 +41,7 @@ else{
   <?php if(!is_page('team')){ ?>
     <div class="container">
       <h4>Team Members</h4>
-      <p class="btn"><a href="/team">View All Team</a></p>
+      <p class="btn btn-small"><a href="/team">View All Team</a></p>
     </div>
 
   <?php
@@ -63,7 +63,7 @@ else{
     $post_query = new WP_Query($args);
     if($post_query->have_posts() ) {
       while($post_query->have_posts() ) { $post_query->the_post();
-        get_template_part('/templates/cards/team', 'card');
+        get_template_part('/templates/cards/team_member', 'card');
       }
     }
     wp_reset_postdata();

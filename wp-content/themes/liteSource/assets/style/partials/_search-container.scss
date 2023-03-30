@@ -36,6 +36,9 @@
       background-color:transparent;
       border-bottom:1px solid white;
       min-width:450px;
+      @include media("<=md") {
+        min-width:300px;
+     }
     }
     button{
       background-color:transparent;

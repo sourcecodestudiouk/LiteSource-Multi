@@ -30,6 +30,7 @@ $brand: #7539A4;
 @import 'blocks/_hero-header';
 @import 'blocks/_call-to-action';
 @import 'blocks/_content-grid-slider';
+@import 'blocks/_icon-blocks';
 
 // Cards
 @import 'cards/_team-card';
@@ -50,12 +51,12 @@ html{
 }
 
 body.curved-border-radius{
-  p.btn, .testimonial-card.multiple-slider, .event-card, .search-result-card, .project-card, .service-card, .post-card{
+  p.btn, .testimonial-card.multiple-slider, .testimonial-card.single-slider, .event-card, .search-result-card, .project-card, .service-card, .post-card{
       border-radius:8px;
   }
 }
 body.rounded-border-radius{
-  p.btn, .testimonial-card.multiple-slider, .event-card, .search-result-card, .project-card, .service-card, .post-card{
+  p.btn, .testimonial-card.multiple-slider, .testimonial-card.single-slider, .event-card, .search-result-card, .project-card, .service-card, .post-card{
       border-radius:40px;
   }
 }

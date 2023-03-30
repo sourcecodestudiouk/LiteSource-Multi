@@ -42,6 +42,9 @@ p.btn{
   &:hover{
     opacity: 0.9;;
   }
+  &.btn-small{
+    font-size:13px;
+  }
 }
 
 

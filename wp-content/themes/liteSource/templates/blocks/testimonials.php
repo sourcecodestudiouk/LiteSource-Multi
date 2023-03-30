@@ -58,14 +58,15 @@ $theme = get_field('theme');
   }?>
     <?php
     $currentID = get_the_ID();
-    $args = array( 'post_type' => array('testimonial') , 'post__in' => $selected, 'post__not_in' => array($currentID), 'posts_per_page' => '-1', 'order' => 'ASC', 'orderby' => 'menu_order');
-    $post_query = new WP_Query($args);
-    if($post_query->have_posts() ) {
-      while($post_query->have_posts() ) { $post_query->the_post();
-        get_template_part('/templates/cards/testimonial', 'card', array('type' => $type, 'theme' => $theme));
+    
+      $args = array( 'post_type' => array('testimonial') , 'post__in' => $selected, 'post__not_in' => array($currentID), 'posts_per_page' => '-1', 'order' => 'ASC', 'orderby' => 'menu_order');
+      $post_query = new WP_Query($args);
+      if($post_query->have_posts() ) {
+        while($post_query->have_posts() ) { $post_query->the_post();
+          get_template_part('/templates/cards/testimonial', 'card', array('type' => $type, 'theme' => $theme));
+        }
       }
-    }
-    wp_reset_postdata();
+      wp_reset_postdata();
     ?>
     <?php if($type == 'multiple-slider'){ ?>
       </div>

@@ -139,6 +139,9 @@
       }
     }
     .btn{
+      a{
+        padding:0;
+      }
       @include media("<=lg") {
         display:none;
       }

@@ -1172,6 +1172,9 @@ body main small {
   opacity: 0.86;
   cursor: pointer;
 }
+.site-header .container .btn a {
+  padding: 0;
+}
 @media (max-width: 992px) {
   .site-header .container .btn {
     display: none;

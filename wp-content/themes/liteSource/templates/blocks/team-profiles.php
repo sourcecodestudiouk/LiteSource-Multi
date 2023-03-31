@@ -41,7 +41,7 @@ else{
   <?php if(!is_page('team')){ ?>
     <div class="container">
       <h4>Team Members</h4>
-      <p class="btn btn-small"><a href="/team">View All Team</a></p>
+      <p class="btn btn-small"><a href="<?= get_site_url(); ?>/team">View All Team</a></p>
     </div>
 
   <?php

@@ -523,6 +523,7 @@ function my_acf_save_post( $post_id ) {
     $wp_rewrite->flush_rules();
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Add an archive state into the page, this will automatcially create archive pages.
 
 function wpsites_custom_post_states($states) {
@@ -530,6 +531,9 @@ function wpsites_custom_post_states($states) {
     if( ('page'==get_post_type($post->ID) && ($post->post_name == 'events' || $post->post_name == 'services' || $post->post_name == 'departments' || $post->post_name == 'team' || $post->post_name == 'news' || $post->post_name == 'projects')) ) {
         $states[] = __('Archive');
         update_post_meta( $post->ID, '_wp_page_template', 'content-archive.php' );
+    }
+    if($post->post_name == 'terms-of-service' || $post->post_name == 'privacy-policy'){
+      $states[] = __('Legal');
     }
     if( ('page'==get_post_type($post->ID) && ($post->post_name == 'search-results' ) )) {
       $states[] = __('Search Results');

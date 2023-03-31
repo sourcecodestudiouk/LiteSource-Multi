@@ -22,6 +22,8 @@ function wpse_71863_default_pages( $new_site ) {
     $default_pages = array(
         'Home',
         'Contact',
+        'Privacy Policy',
+        'Terms of Service',
     );
     
     switch_to_blog( $new_site->id );

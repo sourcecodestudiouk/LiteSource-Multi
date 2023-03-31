@@ -87,7 +87,7 @@ if ( has_block( 'acf/events-information') ) {
                 if(isset($address) ){ ?>
                 <div class="location">
                     <h3>Location</h3>
-                    <address><?= $address; ?></address>
+                    <address><a target="_blank" href="https://www.google.com/maps/dir//<?= $address; ?>"><?= $address; ?></a></address>
                 </div>
                 <?php } ?>
             </div>

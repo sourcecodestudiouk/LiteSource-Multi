@@ -34,8 +34,11 @@
 				}
 			}
 		}
-		
 		?>
+		
+		<?php
+		$icon = get_field('company_icon', 'options'); ?>
+		<link rel=icon href="<?= $icon['url']; ?>" sizes="16x16" type="image/png">
 		
 		<?php wp_head(); ?>
 	</head>

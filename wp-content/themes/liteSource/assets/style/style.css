@@ -743,7 +743,6 @@ body main small {
 }
 body a {
   color: inherit;
-  text-decoration: underline;
 }
 
 .roboto {
@@ -2415,7 +2414,7 @@ body a {
 }
 .single-event main .events-template-container .location-ticket .inner {
   position: sticky;
-  top: 125px;
+  top: 150px;
   padding-bottom: 25px;
 }
 .single-event main .events-template-container .location-ticket .inner .map-container {
@@ -2425,7 +2424,8 @@ body a {
 }
 .single-event main .events-template-container .location-ticket .inner .map-container .acf-map {
   width: 100%;
-  height: 400px;
+  height: 300px;
+  filter: grayscale(100%);
 }
 .single-event main .events-template-container .location-ticket .inner .map-container .acf-map img {
   max-width: inherit !important;

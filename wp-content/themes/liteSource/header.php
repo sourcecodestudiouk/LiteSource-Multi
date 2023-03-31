@@ -29,7 +29,7 @@
 			$addons = get_field('modular_addons', 'admin-settings');
 			if(isset($addons)){
 				if(in_array('events', $addons)){ ?>
-					<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwuAmO85Z0y59Ey2Gjn_ib39a-6mW4xhA"></script>
+					<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwuAmO85Z0y59Ey2Gjn_ib39a-6mW4xhA&callback=Function.prototype"></script>
 				<?php
 				}
 			}

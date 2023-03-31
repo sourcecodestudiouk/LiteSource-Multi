@@ -34,7 +34,7 @@ $events = get_posts(array('post_type' => 'events', 'posts_per_page' => '10', 'or
   <?php if(!is_page('team')){ ?>
     <div class="container">
       <h4>Upcoming Events</h4>
-      <p class="btn"><a href="/team">View All Events</a></p>
+      <p class="btn"><a href="/events">View All Events</a></p>
     </div>
 
   <?php

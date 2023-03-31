@@ -56,7 +56,7 @@
                 width:30%;
                 .inner{
                     position: sticky;
-                    top:125px;
+                    top:150px;
                     padding-bottom:25px;
                     .map-container{
                         height:300px;
@@ -64,8 +64,8 @@
                         background-color:#eee;
                         .acf-map {
                             width: 100%;
-                            height: 400px;
-                           
+                            height: 300px;
+                            filter:grayscale(100%);
                             
                         }
                         // Fixes potential theme css conflict.

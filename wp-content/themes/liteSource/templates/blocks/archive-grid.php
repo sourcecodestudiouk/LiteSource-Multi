@@ -35,7 +35,10 @@ if( !empty($block['align']) ) {
     $className .= ' align' . $block['align'];
 } ?>
 <div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
-    <?= $title; ?>
+    <div class="news-facets">
+        <?php //wp_dropdown_categories(); 
+        //$archive = wp_get_archives();?>
+    </div>
     <div class="content-grid">
         <div class="container">
             <?php
@@ -47,8 +50,7 @@ if( !empty($block['align']) ) {
                     get_template_part('/templates/cards/' . $type . '', 'card');
                 }
             }
-            wp_reset_postdata();
-            ?>
+            wp_reset_postdata(); ?>
         </div>
        
     </div>    

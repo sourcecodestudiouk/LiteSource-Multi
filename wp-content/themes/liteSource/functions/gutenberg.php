@@ -76,6 +76,8 @@ function allowed_block_types( $allowed_blocks, $editor_context ) {
 		'acf/call-to-action',
 		'acf/content-slider',
 		'acf/icon-blocks',
+		'acf/number-counter',
+		'acf/accordion',
 
 		// Team Content
 		'acf/team-profiles',

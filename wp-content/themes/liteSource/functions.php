@@ -193,6 +193,10 @@ include_once( get_template_directory() . '/functions/admin-notices.php' );
 // Automatic Templates Content
 include_once( get_template_directory() . '/functions/template-content.php' );
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Automatic Templates Content
+include_once( get_template_directory() . '/functions/subscription.php' );
+
 
 /**
  * Plugin Name: UFSM - Forminator Configurações Personalizadas

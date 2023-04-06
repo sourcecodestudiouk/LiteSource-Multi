@@ -1,9 +1,9 @@
 {
-    "key": "group_6422fe1ec7065",
-    "title": "BLOCK: Icon Blocks",
+    "key": "group_642ed41c31ae2",
+    "title": "BLOCK: Number Counter",
     "fields": [
         {
-            "key": "field_6422ff1f2726e",
+            "key": "field_642ed8a7f9878",
             "label": "Theme",
             "name": "theme",
             "aria-label": "",
@@ -25,11 +25,11 @@
             "prefix_name": 0
         },
         {
-            "key": "field_642ee59662bc4",
-            "label": "Theme (copy)",
-            "name": "theme_copy",
+            "key": "field_642ed54369c5d",
+            "label": "Title",
+            "name": "title",
             "aria-label": "",
-            "type": "clone",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -38,18 +38,16 @@
                 "class": "",
                 "id": ""
             },
-            "clone": [
-                "field_6408ad13ba71f"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         },
         {
-            "key": "field_6422fe1f44c00",
-            "label": "Icon Blocks",
-            "name": "icon_blocks",
+            "key": "field_642ed41cc6797",
+            "label": "Counters",
+            "name": "counters",
             "aria-label": "",
             "type": "repeater",
             "instructions": "",
@@ -63,13 +61,13 @@
             "layout": "block",
             "pagination": 0,
             "min": 0,
-            "max": 0,
+            "max": 4,
             "collapsed": "",
-            "button_label": "Add Row",
+            "button_label": "Add Counter",
             "rows_per_page": 20,
             "sub_fields": [
                 {
-                    "key": "field_6422fe3344c01",
+                    "key": "field_642ed442c679a",
                     "label": "Icon",
                     "name": "icon",
                     "aria-label": "",
@@ -78,7 +76,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "30",
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
@@ -96,35 +94,37 @@
                     "enqueue_fa": 1,
                     "fa_live_preview": "",
                     "choices": [],
-                    "parent_repeater": "field_6422fe1f44c00"
+                    "parent_repeater": "field_642ed41cc6797"
                 },
                 {
-                    "key": "field_6422fedb1a724",
-                    "label": "Title",
-                    "name": "title",
+                    "key": "field_642ed43ac6799",
+                    "label": "Number",
+                    "name": "number",
                     "aria-label": "",
-                    "type": "text",
+                    "type": "number",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "70",
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
                     "default_value": "",
-                    "maxlength": "",
+                    "min": "",
+                    "max": "",
                     "placeholder": "",
+                    "step": "",
                     "prepend": "",
                     "append": "",
-                    "parent_repeater": "field_6422fe1f44c00"
+                    "parent_repeater": "field_642ed41cc6797"
                 },
                 {
-                    "key": "field_6422fef51a725",
-                    "label": "Description",
-                    "name": "description",
+                    "key": "field_642ed42cc6798",
+                    "label": "Label",
+                    "name": "label",
                     "aria-label": "",
-                    "type": "textarea",
+                    "type": "text",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -133,14 +133,55 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "Limited to 135 characters.",
-                    "maxlength": 135,
-                    "rows": 3,
+                    "default_value": "",
+                    "maxlength": "",
                     "placeholder": "",
-                    "new_lines": "wpautop",
-                    "parent_repeater": "field_6422fe1f44c00"
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_642ed41cc6797"
+                },
+                {
+                    "key": "field_642ed44ac679b",
+                    "label": "Description",
+                    "name": "description",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_642ed41cc6797"
                 }
             ]
+        },
+        {
+            "key": "field_642ed58069c5e",
+            "label": "Description",
+            "name": "description",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -148,7 +189,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/icon-blocks"
+                "value": "acf\/number-counter"
             }
         ]
     ],
@@ -161,5 +202,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1680795033
+    "modified": 1680791758
 }

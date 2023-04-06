@@ -19,7 +19,7 @@ html.wp-toolbar{
     &:hover{
       a{
         &:after{
-          color:red!important;
+        	color:red!important;
         }
       }
     }
@@ -217,4 +217,29 @@ html.wp-toolbar{
       }
     }
   }
+}
+
+.acf-button-group{
+  label:not(.selected){
+    &:hover{
+      color:$primary!important;
+      border-color:$primary!important;
+    }
+  }
+  .selected{
+    background-color:$primary!important;
+    border-color:$primary!important;
+  }
+}
+
+
+.edit-post-header a.components-button svg{
+	display: none!important;
+}
+/* adds a custom image */
+.edit-post-header a.components-button:before{
+	background-image: url( '/wp-content/themes/litesource/assets/img/lite-source-icon.png' );
+	background-size: 90%;
+  background-repeat: no-repeat;
+  background-position: center;
 }

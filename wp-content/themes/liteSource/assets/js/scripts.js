@@ -26,28 +26,6 @@
 				$('.off-canvas-menu .search-toggle .label, .off-canvas-menu .search-toggle .fa-search, .off-canvas-menu .search-toggle .fa-xmark').toggle();
 			});
 
-			$('.testslider').slick({
-				arrows: true,
-				prevArrow: '.slider-button-prev',
-				nextArrow: '.slider-button-next',
-				slidesToShow: 4,
-				slidesToScroll: 1,
-				centerMode: true,
-				centerPadding:0,
-				responsive: [
-				  {
-					breakpoint: 768,
-					settings: {
-					  slidesToShow: 1,
-					  slidesToScroll: 1,
-					  variableWidth: false,
-					  centerMode: false
-					}
-				  }
-				]
-			  });
-			  
-
 			/////////////////////////////////////////////////////////////////////////////////
 			// Mobile Menu
 			/////////////////////////////////////////////////////////////////////////////////
@@ -97,6 +75,24 @@
 			});
 
 			/////////////////////////////////////////////////////////////////////////////////
+			// Accordion Block
+			/////////////////////////////////////////////////////////////////////////////////
+			$(".accordion-container .information-container:first-of-type .title, .accordion-container .information-container:first-of-type .description").addClass('open');
+			$(".accordion-container .information-container:first-of-type .title .plus").css('display', 'none');
+			$(".accordion-container .information-container:first-of-type .title .minus").css('display', 'block');
+
+
+			$(".information-container").click(function() {
+				$('.title, .description').removeClass('open');
+				$('.plus').css('display', 'block');
+				$('.minus').css('display', 'none');
+
+				$(this).find('.title').addClass('open');
+				$(this).find('.description').addClass('open');
+				$(this).find('.title .plus, .title .minus').toggle();
+			});
+
+			/////////////////////////////////////////////////////////////////////////////////
 			// Sliders
 			/////////////////////////////////////////////////////////////////////////////////
 
@@ -107,7 +103,7 @@
 				slidesToShow:1,
 				arrows:true,
 				dots:false,
-			})
+			});
 
 			$('.slider-gallery').slick({
 			  infinite: false,
@@ -142,6 +138,16 @@
 			    // settings: "unslick"
 			    // instead of a settings object
 			  ]
+			});
+
+			$('.slider-background').slick({
+				infinite: true,
+				autoplay: true,
+				autoplaySpeed: 5000,
+				slidesToShow:1,
+				arrows:true,
+				dots:true,
+				appendDots: $('.slider-background-dots'),
 			});
 
 			/////////////////////////////////////////////////////////////////////////////////

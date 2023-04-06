@@ -25,12 +25,16 @@ $brand: #7539A4;
 @import 'partials/_off-canvas-menu';
 @import 'partials/_search-container';
 @import 'partials/_overflow-slider';
+@import 'partials/_sublapsed';
 
 // Blocks
 @import 'blocks/_hero-header';
 @import 'blocks/_call-to-action';
 @import 'blocks/_content-grid-slider';
 @import 'blocks/_icon-blocks';
+@import 'blocks/_page-header';
+@import 'blocks/_number-counter';
+@import 'blocks/_accordion';
 
 // Cards
 @import 'cards/_team-card';
@@ -51,12 +55,12 @@ html{
 }
 
 body.curved-border-radius{
-  p.btn, .testimonial-card.multiple-slider, .testimonial-card.single-slider, .event-card, .search-result-card, .project-card, .service-card, .post-card{
+  p.btn, .testimonial-card.multiple-slider, .testimonial-card.single-slider, .event-card, .search-result-card, .project-card, .service-card, .post-card, .accordion-container .information-container{
       border-radius:8px;
   }
 }
 body.rounded-border-radius{
-  p.btn, .testimonial-card.multiple-slider, .testimonial-card.single-slider, .event-card, .search-result-card, .project-card, .service-card, .post-card{
+  p.btn, .testimonial-card.multiple-slider, .testimonial-card.single-slider, .event-card, .search-result-card, .project-card, .service-card, .post-card, .accordion-container .information-container{
       border-radius:40px;
   }
 }

@@ -35,7 +35,7 @@ if(current_user_can( 'edit_posts' )){ ?>
     <p class="edit"><a href="<?= get_edit_post_link(); ?>"><i class="fa-solid fa-pen-to-square"></i>Edit</a></p>
   </div>
   <div class="admin-info">
-    <p class="user-logout"><a href="#"><i class="fas fa-sign-out-alt"></i></a></p>
+    <p class="user-logout"><a href="<?= wp_logout_url(); ?>"><i class="fas fa-sign-out-alt"></i></a></p>
   </div>
 </div>
 <?php

@@ -1,0 +1,41 @@
+.number-counter-block{
+    @include breakout();
+    padding:25px 0;
+    .container{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .title-desc{
+        width:35%;
+    }
+    .counters{
+        width:65%;
+        display:flex;
+        justify-content: center;
+        align-items: stretch;
+        gap:8px;
+        .counter{
+            width:25%;
+            display:flex;
+            flex-direction: column;
+            justify-content:flex-start;
+            align-items: center;
+            text-align: center;
+            i{
+                font-size:24px;
+                margin-bottom:14px;
+            }
+            .title{
+                font-weight:700;
+                text-transform: uppercase;
+                letter-spacing:1.8px;
+                margin-bottom:0;
+            }
+            .counter-description{
+                font-size:15px;
+                margin-bottom:0;
+            }
+        }
+    }
+}

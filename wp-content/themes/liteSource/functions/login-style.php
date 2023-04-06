@@ -3,7 +3,7 @@
 // Login Functions
 /////////////////////////////////////////////////////////////
 function scs_login_logo() {
-  $img = get_field('site_logo', 'options');
+  $img = get_field('company_logo', 'options');
   if(!$img){ ?>
     <style type="text/css">
       body.login div#login h1 a {
@@ -14,13 +14,11 @@ function scs_login_logo() {
   }?>
   <style type="text/css">
     body.login{
-      background-color:#1D303D;
       display:flex;
       justify-content: center;
       align-items: center;
       flex-direction: column-reverse;
-      background: rgb(53,8,130);
-      background: linear-gradient(48deg, rgba(53,8,130,1) 1%, rgba(98,44,135,1) 45%, rgba(56,13,131,1) 100%);
+      background: #170E28;
     }
     body.login div#login {
       width:100%;
@@ -36,20 +34,18 @@ function scs_login_logo() {
       text-align: center;
     }
     body.login div#login h1 a {
-      background-image: url(<?php echo $img['url']; ?>);
+      background-image: url('/wp-content/themes/litesource/assets/img/lite-source-logo.png');
       background-position: center;
       margin-bottom:0px;
       padding:24px;
       width:320px;
       height:130px;
       background-size:contain;
-      background-color:rgba(255,255,255,1);
-      border-radius:4px;
       border:0;
       border-radius:0;
     }
     body.login div#login form#loginform {
-      background-color:#fff;
+      background-color:rgba(0,0,0,0);
       border:0!important;
       max-width:320px;
       box-shadow: none;
@@ -59,25 +55,26 @@ function scs_login_logo() {
       margin-top:0!important;
     }
     body.login div#login form#loginform label {
-      color:black;
+      color:white;
     }
     body.login div#login form#loginform input {
       color:black;
-      border-radius:0;
+      border-radius:8px!important;
+      border:0!important;
     }
     body.login div#login form#loginform p.submit input#wp-submit{
-      background-color:#333;
+      background-color:#FFBAFA!important;
       border:2px solid white;
       color:#000;
       text-shadow: none;
-      border-radius: 4px;
+      border-radius: 4px!important;
       box-shadow: none;
       text-transform: uppercase;
       color:white;
       border-radius:0;
     }
     body.login div#login form#loginform p.submit input#wp-submit:hover{
-      background-color:black;
+      background-color:#FFBAFA;
       color:#fff;
     }
     body.login div#login a {
@@ -86,6 +83,12 @@ function scs_login_logo() {
     body.login div#login a:hover {
       text-decoration: underline;
       color:white;
+    }
+    .login .wp-pwd .button.wp-hide-pw{
+      background-color:#FFBAFA!important;
+      color:#170E28!important;
+      border:0!important;
+      border-radius:0 4px 4px 0!important;
     }
   </style>
 <?php }

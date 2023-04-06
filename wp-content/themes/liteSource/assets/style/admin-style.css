@@ -182,3 +182,24 @@ html.wp-toolbar {
 #dashboard-widgets-wrap .postbox .inside .button-container .button:hover {
   background-color: #ffa1f8;
 }
+
+.acf-button-group label:not(.selected):hover {
+  color: #170E28 !important;
+  border-color: #170E28 !important;
+}
+.acf-button-group .selected {
+  background-color: #170E28 !important;
+  border-color: #170E28 !important;
+}
+
+.edit-post-header a.components-button svg {
+  display: none !important;
+}
+
+/* adds a custom image */
+.edit-post-header a.components-button:before {
+  background-image: url("/wp-content/themes/litesource/assets/img/lite-source-icon.png");
+  background-size: 90%;
+  background-repeat: no-repeat;
+  background-position: center;
+}

@@ -32,13 +32,13 @@ $colours = get_field('site_colours', 'options');
 $background = get_field('background_options');
 $overlay = '#000';
 
-if($background['background_type'] == 'image' || $background['background_type'] == 'gallery' ){
+if($background['background_type'] == 'image' || $background['background_type'] == 'slider' ){
     $overlay = $background['images_overlay'];
 }
 else{
     $block = $background['block_colour'];
 }
-if(isset($block))
+
 if($block == 'primary' || $overlay == 'primary'){
     $bg = $colours['primary'];
     $txtCol = getContrastColor($bg);
@@ -56,12 +56,15 @@ else if($block == 'accent' || $overlay == 'accent'){
 <div id="<?php echo esc_attr($id); ?>" 
     class="<?php echo esc_attr($className); ?> <?= $background['background_type'] . '-header'; ?>" 
     style="<?php 
-    if($background['background_type'] == 'image'){ 
-        echo 'background-image:url(' . $background['image']['url'] . ')'; 
-    } else if($background['background_type'] == 'block') { 
+    if($background['image']){
+        if($background['background_type'] == 'image'){ 
+            echo 'background-image:url(' . $background['image']['url'] . ')'; 
+        }
+    }
+     else if($background['background_type'] == 'block') { 
         echo 'background-color:' . $bg; 
     }?>;
-    color:<?= $txtCol; ?>;">
+    color:<?= $txtCol; ?>">
     <div class="container">
         <h1><?= $heading; ?></h1>
         <p><?= $description; ?></p>
@@ -70,5 +73,18 @@ else if($block == 'accent' || $overlay == 'accent'){
             get_template_part('templates/partials/button', 'group', array('buttons' => $buttons));
         } ?>
     </div>
+    <?php if($background['background_type'] == 'slider'){ ?>
+        <div class="slider-background-container">
+            <div class="slider-background">
+            <?php foreach($background['gallery'] as $img){ ?>
+                <img src="<?= $img['url']; ?>"/>
+            <?php
+                
+            } ?>
+            </div>
+            <div class="slider-background-dots <?= $txtCol; ?>"></div>
+        </div>
+    <?php
+    } ?>
     <span class="overlay" style="background-color:<?= $bg; ?>"></span>
 </div>

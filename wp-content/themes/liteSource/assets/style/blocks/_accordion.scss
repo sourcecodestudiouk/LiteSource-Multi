@@ -1,0 +1,53 @@
+.accordion-block{
+    .accordion-container{
+        width:100%;
+        margin-top:70px;
+        margin-bottom:70px;
+        .information-container{
+            margin-bottom:10px;
+            &:hover{
+                cursor:pointer;
+            }            
+            .title{
+                font-size:18px;
+                font-weight:700;
+                padding:20px 30px 20px 50px;
+                position:relative;
+                margin-bottom:0;
+                .plus, .minus{
+                    position: absolute;
+                    left:20px;
+                    
+                    transform: scale(1.5);
+                    @include transition(0.1s);
+                    @include media("<=sm") {
+                        left:15px;
+                    }
+                }
+                .minus{
+                    display:none;
+                }               
+                &:hover{
+                    .plus, .minus{
+                        @include media(">md") {
+                            left:25px;
+                        }
+                    }
+                }                
+            }
+            .description{
+                height:0;
+                padding:0 50px;
+                visibility: hidden;
+                margin-bottom:0;
+                @include transition(0.1s);
+                 &.open{
+                    padding:0px 50px 25px 50px;
+                    height:auto;
+                    visibility: visible;
+                    @include transition(0.3s);
+                }                                                   
+            }
+        }
+    }
+}

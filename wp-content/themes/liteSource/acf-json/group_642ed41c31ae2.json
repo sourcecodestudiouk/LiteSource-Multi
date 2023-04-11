@@ -45,6 +45,26 @@
             "append": ""
         },
         {
+            "key": "field_642ed58069c5e",
+            "label": "Description",
+            "name": "description",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_642ed41cc6797",
             "label": "Counters",
             "name": "counters",
@@ -162,26 +182,6 @@
                     "parent_repeater": "field_642ed41cc6797"
                 }
             ]
-        },
-        {
-            "key": "field_642ed58069c5e",
-            "label": "Description",
-            "name": "description",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
         }
     ],
     "location": [
@@ -202,5 +202,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1680791758
+    "modified": 1680796259
 }

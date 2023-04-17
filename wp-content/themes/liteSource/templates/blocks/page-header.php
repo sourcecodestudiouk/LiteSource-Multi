@@ -56,6 +56,7 @@ if($type == 'image' || $type == 'block'){
 ?>
 <div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?> <?= $type . '-header'; ?>" style="<?php if($type == 'image' && isset($img)){?>background-image:url('<?= $img['url']; } ?>');">
     <div class="container <?= $align; ?>" style="color:<?= $textCol; ?>">
+        <?php get_template_part('templates/partials/breadcrumbs'); ?>
         <h2><?= $title; ?></h2>
         <p class="description"><?= $desc; ?></p>
     </div>

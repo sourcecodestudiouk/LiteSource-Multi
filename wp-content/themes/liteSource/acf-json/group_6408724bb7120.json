@@ -23,6 +23,46 @@
             "append": ""
         },
         {
+            "key": "field_6408727d4dfcc",
+            "label": "Bio",
+            "name": "bio",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
+            "key": "field_6437e32971bdc",
+            "label": "Public Contact Information",
+            "name": "public_contact_information",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Do you want to show the team members contact information on their profile?",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
             "key": "field_640872634dfca",
             "label": "Telephone Number",
             "name": "telephone_number",
@@ -30,7 +70,15 @@
             "type": "text",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6437e32971bdc",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "50",
                 "class": "",
@@ -50,7 +98,15 @@
             "type": "email",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6437e32971bdc",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "50",
                 "class": "",
@@ -62,24 +118,29 @@
             "append": ""
         },
         {
-            "key": "field_6408727d4dfcc",
-            "label": "Bio",
-            "name": "bio",
+            "key": "field_6437e413768c6",
+            "label": "LinkedIn URL",
+            "name": "linkedin_url",
             "aria-label": "",
-            "type": "wysiwyg",
+            "type": "url",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6437e32971bdc",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
             "default_value": "",
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 1,
-            "delay": 0
+            "placeholder": ""
         }
     ],
     "location": [
@@ -100,5 +161,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1678279293
+    "modified": 1681384651
 }

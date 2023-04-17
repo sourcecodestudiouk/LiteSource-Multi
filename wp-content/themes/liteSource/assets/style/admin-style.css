@@ -203,3 +203,38 @@ html.wp-toolbar {
   background-repeat: no-repeat;
   background-position: center;
 }
+
+.edit-post-visual-editor__post-title-wrapper {
+  background-color: #170E28;
+  margin: -15px -15px 50px -15px !important;
+  padding: 0 25px !important;
+}
+.edit-post-visual-editor__post-title-wrapper h1 {
+  position: relative;
+  padding: 35px 0 10px;
+  color: white !important;
+  font-size: 32px !important;
+}
+.edit-post-visual-editor__post-title-wrapper h1:before {
+  content: "Page Name: ";
+  position: absolute;
+  font-size: 13px;
+  top: 25px;
+  left: 0;
+  letter-spacing: 1px;
+  font-weight: 500;
+  opacity: 0.67;
+  text-transform: uppercase;
+}
+
+.wp-block {
+  margin-top: 0 !important;
+}
+
+.post-state {
+  color: #FFBAFA !important;
+}
+
+body.search-results-admin #major-publishing-actions #delete-action, body.departments-admin #major-publishing-actions #delete-action {
+  display: none !important;
+}

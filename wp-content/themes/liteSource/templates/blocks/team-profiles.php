@@ -10,9 +10,11 @@
  */
 
 // Create id attribute allowing for custom "anchor" value.
-$id = 'team-profiles-' . $block['id'];
-if( !empty($block['anchor']) ) {
-    $id = $block['anchor'];
+if(!is_singular( 'team_member' )){
+  $id = 'team-profiles-' . $block['id'];
+  if( !empty($block['anchor']) ) {
+      $id = $block['anchor'];
+  }
 }
 
 // Create class attribute allowing for custom "className" and "align" values.

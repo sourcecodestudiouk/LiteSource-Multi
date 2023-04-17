@@ -12,6 +12,28 @@
     $blocks = parse_blocks( $post->post_content ); 
     foreach($blocks as $block){
         if($block['blockName'] == 'acf/events-information'){
+            $dates = [];
+            $index = $block['attrs']['data']['date_time'];
+            $i = 0;
+            while($i < $index){
+                $d['date'] = date("F d, Y", strtotime($block['attrs']['data']['date_time_' . $i . '_event_date']));
+                $d['stime'] = date("g:ia", strtotime($block['attrs']['data']['date_time_' . $i . '_start_time']));
+                $d['etime'] = date("g:ia", strtotime($block['attrs']['data']['date_time_' . $i . '_end_time']));
+                
+                $start_datetime = new DateTime($d['stime']); 
+                $diff = $start_datetime->diff(new DateTime($d['etime'])); 
+                $d['hours'] = $hours = $diff->h;
+                $dates[] = $d; 
+                $i++;
+            }
+            if(isset($dates)){
+                if(count($dates) > 1){
+                    $length = count($dates) . ' Days';
+                }
+                else{
+                    $length = $hours . ' Hours';
+                }
+            }
             if(isset($block['attrs']['data']['location'])){
                 $address = $block['attrs']['data']['location']['address'];
             }
@@ -28,7 +50,7 @@
             <img src="<?= $url; ?>" alt="<?= $alt; ?>">
         </div>
         <div class="card-content">
-            <h6><?= get_the_title(); ?></h6>
+            <h4><?= get_the_title(); ?></h4>
             <?php 
             if(isset($address)){ ?>
                 <p class="location"><?= $address; ?></p>
@@ -36,9 +58,14 @@
             } ?>
             <?php 
             if(isset($price)){ ?>
-                <p class="price-date"><?= $price; ?> - </p>
+                <p class="price"><?= $price; ?> <?php if(isset($length)){ echo '- ' . $length; }?></p>
+            <?php
+            }
+            if(isset($dates)){ ?>
+                <p class="date-length"><?= $dates[0]['date'] . ' - ' . $dates[0]['stime']; ?></p>
             <?php
             } ?>
+            
          </div>
     </a>
 </div>

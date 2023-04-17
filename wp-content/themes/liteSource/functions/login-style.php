@@ -70,15 +70,16 @@ function scs_login_logo() {
       border-radius: 4px!important;
       box-shadow: none;
       text-transform: uppercase;
-      color:white;
+      color:#170E28!important;
       border-radius:0;
     }
     body.login div#login form#loginform p.submit input#wp-submit:hover{
       background-color:#FFBAFA;
-      color:#fff;
+      color:#170E28!important;
+      
     }
     body.login div#login a {
-      color:white;
+      color:#170E28!important;
     }
     body.login div#login a:hover {
       text-decoration: underline;
@@ -89,6 +90,9 @@ function scs_login_logo() {
       color:#170E28!important;
       border:0!important;
       border-radius:0 4px 4px 0!important;
+    }
+    .forgetmenot{
+      margin-top:6px!important;
     }
   </style>
 <?php }

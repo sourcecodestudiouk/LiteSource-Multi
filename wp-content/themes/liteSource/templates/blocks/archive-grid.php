@@ -43,7 +43,12 @@ if( !empty($block['align']) ) {
         <div class="container">
             <?php
             $currentID = get_the_ID();
-            $args = array( 'post_type' => $type, 'posts_per_page' => $num, 'order' => 'ASC', 'orderby' => 'menu_order');
+            if(isset($_GET['category'])){
+                $args = array( 'post_type' => $type, 'posts_per_page' => $num, 'order' => 'ASC', 'orderby' => 'menu_order', 'tax_query' => array( array('taxonomy' => 'category', 'field'    => 'slug', 'terms'    => $_GET['category'], ), ),);
+            }
+            else{
+                $args = array( 'post_type' => $type, 'posts_per_page' => $num, 'order' => 'ASC', 'orderby' => 'menu_order');
+            }
             $post_query = new WP_Query($args);
             if($post_query->have_posts() ) {
                 while($post_query->have_posts() ) { $post_query->the_post();

@@ -35,6 +35,8 @@ function hide_editor() {
   }
 }
 
+
+
 // Remove Comments From Menu Section
 //add_action( 'admin_init', 'my_remove_admin_menus' );
 function my_remove_admin_menus() {

@@ -1,0 +1,72 @@
+.single-team_member{
+    main{
+      .team-member-profile{
+        display:flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        @include media("<=md") {
+          flex-direction: column;
+        }
+        .image-contact{
+          width:calc(100% / 3);
+          display:flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: flex-start;
+          @include media("<=md") {
+            width:100%;
+          }
+          img{
+            width:100%;
+            height:auto;
+            margin-bottom:25px;
+            @include media("<=md") {
+              margin-top:25px;
+            }
+          }
+          p{
+            margin-bottom:5px;
+          }
+        }
+        .title-bio{
+          width:calc((100% / 3) * 2);
+          padding-left:110px;
+          @include media("<=md") {
+            width:100%;
+            padding-left:0;
+            margin-top:50px;
+          }
+          h1{
+            font-size:49px;
+            margin-bottom:15px;
+          }
+          .bio{
+            margin-top:45px;
+            @include media("<=md") {
+              margin-top:0px;
+            }
+          }
+        }
+      }
+      .team-profiles-block{
+        margin-top:110px;
+        margin-bottom:115px;
+        display:flex;
+        flex-wrap:wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        .team-members{
+          margin-top:30px;
+        }
+        .slider-container{
+          .team-member-card{
+            min-width:350px;
+            @include media("<=sm") {
+              min-width:320px;
+            }
+          }
+        }
+      }
+    }
+  }
+  

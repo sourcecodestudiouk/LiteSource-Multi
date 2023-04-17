@@ -27,6 +27,19 @@ function add_slug_to_body_class($classes) {
   return $classes;
 }
 
+// Add page slug to body class in admin
+function base_admin_body_class( $classes )
+{   
+    if(isset($_GET['post'])){
+      $classes .= ' ';
+      $classes .= sanitize_title(get_the_title($_GET['post'])) . '-admin';
+      // Return the $classes array
+      return $classes;
+    }
+    
+}
+add_filter('admin_body_class', 'base_admin_body_class');
+
 // Remove thumbnail width and height dimensions that prevent fluid images in the_thumbnail
 function remove_thumbnail_dimensions( $html ) {
   $html = preg_replace('/(width|height)=\"\d*\"\s/', "", $html);

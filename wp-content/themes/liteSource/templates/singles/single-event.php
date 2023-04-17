@@ -33,16 +33,6 @@ if ( has_block( 'acf/events-information') ) {
                 }
                 else{
                     $length = $hours . ' Hours';
-                    // $start_datetime = new DateTime($start); 
-                    // $diff = $start_datetime->diff(new DateTime($end)); 
-
-                    // $months = $diff->m; 
-                    // $days = $diff->d; 
-                    // $hours = $diff->h;
-
-                    // else{
-                    //     
-                    // }
                 }
             }
             if(isset($block['attrs']['data']['ticket_information_ticket_prices'])){
@@ -61,7 +51,11 @@ if ( has_block( 'acf/events-information') ) {
     }?>
     <div class="events-template-container">
         <div class="events-content">
-            <img src="<?= $imgUrl; ?>" alt="<?= $imgAlt; ?>"/>
+            <?php get_template_part('templates/partials/breadcrumbs'); ?>
+            <?php if($imgUrl != ''){ ?>
+                <img src="<?= $imgUrl; ?>" alt="<?= $imgAlt; ?>"/>
+            <?php
+            } ?>
             <div class="date-location">
             <?php if(isset($dates)){ ?>
                 <div class="date-time">
@@ -92,11 +86,12 @@ if ( has_block( 'acf/events-information') ) {
                 <?php } ?>
             </div>
             <?php the_content(); ?>
+            <?php scs_share_buttons(array('facebook', 'twitter', 'email', 'linkedin')); ?>
         </div>
         <div class="location-ticket">
             <div class="inner">
                 <?php 
-                if( isset($block['attrs']['data']['location']) ){ ?>
+                if( isset($address) ){ ?>
                 <div class="map-container">
                     <div class="acf-map" data-zoom="16">
                         <div class="marker" data-lat="<?php echo esc_attr($lat); ?>" data-lng="<?php echo esc_attr($long); ?>"></div>

@@ -407,139 +407,145 @@ function my_acf_save_post( $post_id ) {
     $values = get_fields( $post_id );
     $postTypes = get_field('post_types', 'options');
 
-    // Services Archives
-    if(in_array('services', $postTypes)){
-      $post_title = 'Services';
-      $data = array(
-            'post_title'   => $post_title,
-            'post_status'  => 'publish',
-            'post_type'    => 'page',
-      );
-      if(!post_exists($post_title)){
-        wp_insert_post( add_magic_quotes( $data ) );
+    if($postTypes){
+      // Services Archives
+      if(in_array('services', $postTypes)){
+        $post_title = 'Services';
+        $data = array(
+              'post_title'   => $post_title,
+              'post_status'  => 'publish',
+              'post_type'    => 'page',
+        );
+        if(!post_exists($post_title)){
+          wp_insert_post( add_magic_quotes( $data ) );
+        }
+      }
+      else{
+        $post_title = 'Services';
+        $tPage = get_page_by_title($post_title);
+        wp_delete_post( $tPage->ID, $bypass_trash = true );
+      }
+
+      // Depertments Archive
+      if(in_array('departments', $postTypes)){
+        $post_title = 'Departments';
+        $data = array(
+              'post_title'   => $post_title,
+              'post_status'  => 'publish',
+              'post_type'    => 'page',
+        );
+        if(!post_exists($post_title)){
+          wp_insert_post( add_magic_quotes( $data ) );
+        }
+      }
+      else{
+        $post_title = 'Departments';
+        $tPage = get_page_by_title($post_title);
+        wp_delete_post( $tPage->ID, $bypass_trash = true );
+      }
+
+      // Team Members Archive
+      if(in_array('team', $postTypes)){
+        $post_title = 'Team';
+        $data = array(
+              'post_title'   => $post_title,
+              'post_status'  => 'publish',
+              'post_type'    => 'page',
+        );
+        if(!post_exists($post_title)){
+          wp_insert_post( add_magic_quotes( $data ) );
+        }
+      }
+      else{
+        $post_title = 'Team';
+        $tPage = get_page_by_title($post_title);
+        wp_delete_post( $tPage->ID, $bypass_trash = true );
+      }
+
+      // Projects Archive
+      if(in_array('projects', $postTypes)){
+        $post_title = 'Projects';
+        $data = array(
+              'post_title'   => $post_title,
+              'post_status'  => 'publish',
+              'post_type'    => 'page',
+        );
+        if(!post_exists($post_title)){
+          wp_insert_post( add_magic_quotes( $data ) );
+        }
+      }
+      else{
+        $post_title = 'Projects';
+        $tPage = get_page_by_title($post_title);
+        wp_delete_post( $tPage->ID, $bypass_trash = true );
+      }
+
+      // Projects Archive
+      if(in_array('news', $postTypes)){
+        $post_title = 'News';
+        $data = array(
+              'post_title'   => $post_title,
+              'post_status'  => 'publish',
+              'post_type'    => 'page',
+        );
+        if(!post_exists($post_title)){
+          wp_insert_post( add_magic_quotes( $data ) );
+        }
+      }
+      else{
+        $post_title = 'News';
+        $tPage = get_page_by_title($post_title);
+        wp_delete_post( $tPage->ID, $bypass_trash = true );
+      }
+
+      $search = get_field('site_search', 'options');
+
+      if($search){
+        $post_title = 'Search Results';
+        $data = array(
+              'post_title'   => $post_title,
+              'post_status'  => 'publish',
+              'post_type'    => 'page',
+        );
+        if(!post_exists($post_title)){
+          wp_insert_post( add_magic_quotes( $data ) );
+        }
+      } else{
+        $post_title = 'Search Results';
+        $tPage = get_page_by_title($post_title);
+        wp_delete_post( $tPage->ID, $bypass_trash = true );
       }
     }
-    else{
-      $post_title = 'Services';
-      $tPage = get_page_by_title($post_title);
-      wp_delete_post( $tPage->ID, $bypass_trash = true );
-    }
-
-    // Depertments Archive
-    if(in_array('departments', $postTypes)){
-      $post_title = 'Departments';
-      $data = array(
-            'post_title'   => $post_title,
-            'post_status'  => 'publish',
-            'post_type'    => 'page',
-      );
-      if(!post_exists($post_title)){
-        wp_insert_post( add_magic_quotes( $data ) );
-      }
-    }
-    else{
-      $post_title = 'Departments';
-      $tPage = get_page_by_title($post_title);
-      wp_delete_post( $tPage->ID, $bypass_trash = true );
-    }
-
-     // Team Members Archive
-     if(in_array('team', $postTypes)){
-      $post_title = 'Team';
-      $data = array(
-            'post_title'   => $post_title,
-            'post_status'  => 'publish',
-            'post_type'    => 'page',
-      );
-      if(!post_exists($post_title)){
-        wp_insert_post( add_magic_quotes( $data ) );
-      }
-    }
-    else{
-      $post_title = 'Team';
-      $tPage = get_page_by_title($post_title);
-      wp_delete_post( $tPage->ID, $bypass_trash = true );
-    }
-
-    // Projects Archive
-    if(in_array('projects', $postTypes)){
-      $post_title = 'Projects';
-      $data = array(
-            'post_title'   => $post_title,
-            'post_status'  => 'publish',
-            'post_type'    => 'page',
-      );
-      if(!post_exists($post_title)){
-        wp_insert_post( add_magic_quotes( $data ) );
-      }
-    }
-    else{
-      $post_title = 'Projects';
-      $tPage = get_page_by_title($post_title);
-      wp_delete_post( $tPage->ID, $bypass_trash = true );
-    }
-
-    // Projects Archive
-    if(in_array('news', $postTypes)){
-      $post_title = 'News';
-      $data = array(
-            'post_title'   => $post_title,
-            'post_status'  => 'publish',
-            'post_type'    => 'page',
-      );
-      if(!post_exists($post_title)){
-        wp_insert_post( add_magic_quotes( $data ) );
-      }
-    }
-    else{
-      $post_title = 'News';
-      $tPage = get_page_by_title($post_title);
-      wp_delete_post( $tPage->ID, $bypass_trash = true );
-    }
-
-    $search = get_field('site_search', 'options');
-
-    if($search){
-      $post_title = 'Search Results';
-      $data = array(
-            'post_title'   => $post_title,
-            'post_status'  => 'publish',
-            'post_type'    => 'page',
-      );
-      if(!post_exists($post_title)){
-        wp_insert_post( add_magic_quotes( $data ) );
-      }
-    } else{
-      $post_title = 'Search Results';
-      $tPage = get_page_by_title($post_title);
-      wp_delete_post( $tPage->ID, $bypass_trash = true );
-    }
+    
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 // Modular Addons
     $modules = get_field('modular_addons', 'admin-settings');
     // Projects Archive
-    if(in_array('events', $modules)){
-      $post_title = 'Events';
-      $data = array(
-            'post_title'   => $post_title,
-            'post_status'  => 'publish',
-            'post_type'    => 'page',
-      );
-      if(!post_exists($post_title)){
-        wp_insert_post( add_magic_quotes( $data ) );
+    if($modules){
+      if(in_array('events', $modules)){
+        $post_title = 'Events';
+        $data = array(
+              'post_title'   => $post_title,
+              'post_status'  => 'publish',
+              'post_type'    => 'page',
+        );
+        if(!post_exists($post_title)){
+          wp_insert_post( add_magic_quotes( $data ) );
+        }
       }
+      else{
+        $post_title = 'Events';
+        $tPage = get_page_by_title($post_title);
+        wp_delete_post( $tPage->ID, $bypass_trash = true );
+      }
+  
+  
+      global $wp_rewrite;
+      $wp_rewrite->set_permalink_structure('/%postname%/');
+      $wp_rewrite->flush_rules();
     }
-    else{
-      $post_title = 'Events';
-      $tPage = get_page_by_title($post_title);
-      wp_delete_post( $tPage->ID, $bypass_trash = true );
-    }
-
-
-    global $wp_rewrite;
-    $wp_rewrite->set_permalink_structure('/%postname%/');
-    $wp_rewrite->flush_rules();
+    
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -563,7 +569,7 @@ add_filter('display_post_states', 'wpsites_custom_post_states');
 
 function remove_page_attribute_support() {
   global $post;
-    if( ('page' == get_post_type($post->ID) && ($post->post_name == 'events' || $post->post_name == 'services' || $post->post_name == 'departments' || $post->post_name == 'team' || $post->post_name == 'news' || $post->post_name == 'projects')) ) {
+    if( ('page' == get_post_type($post->ID) && ($post->post_name == 'terms-of-service' || $post->post_name == 'privacy-policy' || $post->post_name == 'search-results' || $post->post_name == 'events' || $post->post_name == 'services' || $post->post_name == 'departments' || $post->post_name == 'team' || $post->post_name == 'news' || $post->post_name == 'projects')) ) {
       remove_post_type_support('page','page-attributes');
       remove_post_type_support('page' ,'editor');
       remove_meta_box('pageparentdiv', 'page', 'side');
@@ -571,9 +577,39 @@ function remove_page_attribute_support() {
 }
 add_action( 'admin_head-post.php', 'remove_page_attribute_support' );
 
+function wpse_125800_sample_permalink( $return ) {
+  global $post;
+  if( ('page' == get_post_type($post->ID) && ($post->post_name == 'terms-of-service' || $post->post_name == 'privacy-policy' || $post->post_name == 'search-results' || $post->post_name == 'events' || $post->post_name == 'services' || $post->post_name == 'departments' || $post->post_name == 'team' || $post->post_name == 'news' || $post->post_name == 'projects')) ) {
+    $return = '';
+    return $return;
+  }
+  
+}
+add_filter( 'get_sample_permalink_html', 'wpse_125800_sample_permalink' );
+
+
+function my_disable_quick_edit( $actions = array(), $post = null ) {
+  global $post;
+  if( ('page' == get_post_type($post->ID) && ( $post->post_name == 'terms-of-service' || $post->post_name == 'privacy-policy' || $post->post_name == 'search-results'  || $post->post_name == 'events' || $post->post_name == 'services' || $post->post_name == 'departments' || $post->post_name == 'team' || $post->post_name == 'news' || $post->post_name == 'projects')) ) {
+    if ( isset( $actions['inline hide-if-no-js'] ) ) {
+      unset( $actions['inline hide-if-no-js'] );
+      unset( $actions['trash']);
+      unset( $actions['dt_duplicate_post_as_draft'] );
+  }
+  
+  }
+  return $actions; 
+
+}
+add_filter( 'post_row_actions', 'my_disable_quick_edit', 10, 2 );
+add_filter( 'page_row_actions', 'my_disable_quick_edit', 10, 2 );
+
+
+
+
 
 function disable_gutenberg( $can_edit, $post ) {
-  $disabled = array('services', 'departments', 'team', 'news', 'projects', 'events');
+  $disabled = array('services', 'departments', 'team', 'news', 'projects', 'events', 'search-results', 'terms-of-service', 'privacy-policy');
   if (empty($post->ID)) return $can_edit;
 	
 	if ('page' == get_post_type($post->ID) && in_array($post->post_name, $disabled)) return false;

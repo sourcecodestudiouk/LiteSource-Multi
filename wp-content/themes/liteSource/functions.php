@@ -194,8 +194,13 @@ include_once( get_template_directory() . '/functions/admin-notices.php' );
 include_once( get_template_directory() . '/functions/template-content.php' );
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Automatic Templates Content
+// Subscription Information
 include_once( get_template_directory() . '/functions/subscription.php' );
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Events Addons
+include_once( get_template_directory() . '/functions/events.php' );
+
 
 
 /**
@@ -236,19 +241,19 @@ class Forminator_Admin_Custom {
     public function forminator_menu_permissions() {
         //Se o usuário não tiver a permissão de gerenciar opções removemos o acesso aos menus.
         if ( ! current_user_can( 'manage_options' ) ) {
-            remove_submenu_page( 'forminator','forminator' );
+            //remove_submenu_page( 'forminator','forminator' );
             //remove_submenu_page( 'forminator','forminator-cform' );
-            remove_submenu_page( 'forminator','forminator-quiz' );
-            remove_submenu_page( 'forminator','forminator-poll' );
-            remove_submenu_page( 'forminator','forminator-settings' );
-            remove_submenu_page( 'forminator','forminator-integrations' );
-            remove_submenu_page( 'forminator','forminator-cform-wizard' );
-            remove_submenu_page( 'forminator','forminator-poll-wizard' );
-            remove_submenu_page( 'forminator','forminator-nowrong-wizard' );
-            remove_submenu_page( 'forminator','forminator-knowledge-wizard' );
-            remove_submenu_page( 'forminator', 'forminator-settings' );
-            remove_submenu_page( 'forminator', ' forminator-addons' );
-            remove_submenu_page( 'forminator', ' forminator-upgrade' );
+            //remove_submenu_page( 'forminator','forminator-quiz' );
+            //remove_submenu_page( 'forminator','forminator-poll' );
+            //remove_submenu_page( 'forminator','forminator-settings' );
+            //remove_submenu_page( 'forminator','forminator-integrations' );
+            //remove_submenu_page( 'forminator','forminator-cform-wizard' );
+            //remove_submenu_page( 'forminator','forminator-poll-wizard' );
+            //remove_submenu_page( 'forminator','forminator-nowrong-wizard' );
+            //remove_submenu_page( 'forminator','forminator-knowledge-wizard' );
+            //remove_submenu_page( 'forminator', 'forminator-settings' );
+            //remove_submenu_page( 'forminator', ' forminator-addons' );
+            //remove_submenu_page( 'forminator', ' forminator-upgrade' );
 
 
            
@@ -258,7 +263,7 @@ class Forminator_Admin_Custom {
     //Tradução dos menus básicos do forminator para pt-br enquanto não sai a tradução.
     public function translate_forminator_menus( $translated_text, $text, $domain ) {
         switch ( $translated_text ) {
-            case 'Forminator' :
+            case 'Forminator Pro' :
                 $translated_text = __( 'Forms', 'forminator' );
                 break;
             // case 'Submissions' :

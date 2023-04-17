@@ -6,16 +6,21 @@
   display:flex;
   justify-content: flex-start;
   align-items: center;
+  
+  flex-direction: column;
   position: relative;
-  h5{
+  margin-top:50px;
+  padding-top:50px;
+  border-top:1px solid #eee;
+  margin-bottom:50px;
+  h6{
     margin-bottom:0;
     font-size:1rem;
-    color:#999;
-    margin-right:5px;
+    color:#000;
+    margin-bottom:25px;
     display:flex;
     justify-content: space-between;
     align-items: center;
-    text-transform: uppercase;
     margin-right:15px;
     svg{
       width:25px;
@@ -26,53 +31,52 @@
       }
     }
   }
-  a{
-    padding:5px 25px;
-    float:left;
-    background-color:#999;
+  .buttons{
     display:flex;
     justify-content: center;
     align-items: center;
-    margin-bottom:5px;
-    border-right:1px solid darken(#999, 10%);
-    &:last-child{
-      border:0;
-    }
-    svg{
-      width:20px;
-      height:auto;
-
-      *{
-        fill:white;
-      }
-    }
-    &:hover{
-      text-decoration: none;
-      margin:0;
-      padding-bottom:5px;
-      background-color:#000;
+    width:100%;
+    a{
+      background-color:#999;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom:5px;
+      height:50px;
+      width:50px;
+      margin-right:10px;
       svg{
-        padding-top:5px;
-        margin-bottom:0;
+        width:17px;
+        height:17px;
+        z-index: 2;
+        *{
+          fill:white;
+        }
       }
-    }
-    &.facebook-share{
       &:hover{
-        background-color:#3b5998;
+        text-decoration: none;
+        background-color:#000;
+        svg{
+        }
       }
-
-    }
-    &.twitter-share{
-      &:hover{
-        background-color:#0084b4;
+      &.facebook-share{
+        &:hover{
+          background-color:#3b5998;
+        }
+  
       }
-
-    }
-    &.linkedin-share{
-      &:hover{
-        background-color:#0077B5;
+      &.twitter-share{
+        &:hover{
+          background-color:#0084b4;
+        }
+  
       }
-
+      &.linkedin-share{
+        &:hover{
+          background-color:#0077B5;
+        }
+  
+      }
     }
   }
 }

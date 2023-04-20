@@ -5,7 +5,7 @@
 function scs_share_buttons($platforms){
       $link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>
   <div class="share-buttons">
-    <h6>Share this <?= get_post_type(); ?> <?php get_template_part('assets/img/social/share.svg');?></h6>
+    <h6>Share this <?= get_post_type(); ?></h6>
     <div class="buttons">
       <?php
       foreach($platforms as $plat){

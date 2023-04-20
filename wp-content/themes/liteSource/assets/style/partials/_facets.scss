@@ -1,0 +1,7 @@
+.facets-container{
+    display:flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    @import '_category-archive-filters';
+    @import '_view-archive-filters';
+}

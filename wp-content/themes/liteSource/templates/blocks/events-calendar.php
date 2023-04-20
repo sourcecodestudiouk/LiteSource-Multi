@@ -24,20 +24,32 @@ if( !empty($block['align']) ) {
     $className .= ' align' . $block['align'];
 }
     $events = get_lite_events(); 
-	echo $events; ?>
+    var_dump($events);
+    // $events = json_decode($events);
+    // foreach($events as $ev){
+    //     var_dump($ev);
+    //     echo '</br></br></br>';
+    // }
+	?>
+   
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.5/index.global.min.js'></script>
     <script>
 
     document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'dayGridMonth',
-        events:'fetchvents.php',
+            initialView: 'dayGridMonth',
+            events:'wp-content/themes/litesource/functions/events/get_events.php',
+            eventSourceFailure(error) {
+    if (error instanceof JsonRequestError) {
+      console.log(`Request to ${error.response.url} failed`)
+    }
+  }
         });
         calendar.render();
     });
 
     </script>    
-<div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?> content-grid-slider <?= $type; ?>">
+<div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
     <div id='calendar'></div>		
 </div>

@@ -74,5 +74,4 @@ if(current_user_can( 'edit_posts' )){ ?>
 
 <?php get_template_part('templates/partials/off-canvas-menu'); ?>
 
-<?php $theme = wp_get_theme()->get_page_templates();; 
-var_dump($theme);?>
+<?php $theme = wp_get_theme()->get_page_templates(); ?>

@@ -1,4 +1,5 @@
 <?php
+
     //$event = get_event_info();
     $url = get_the_post_thumbnail_url();
     $alt = get_post_meta( get_post_thumbnail_id(), '_wp_attachment_image_alt', true );
@@ -7,6 +8,18 @@
         $url = get_field('company_icon', 'options')['url'];
         $alt = 'Placeholder image for the the event';
         $class = 'incl-placeholder';
+    }
+
+    $theme = get_field('events_theme', 'options')['themes'];
+    $colours = get_field('site_colours', 'options');
+    if($theme == 'primary'){
+        $textCol = $colours['primary'];          
+    }
+    else if($theme == 'secondary'){
+        $textCol = $colours['secondary'];         
+    }
+    else if($theme == 'accent'){
+        $textCol = $colours['accent'];    
     }
     
     $blocks = parse_blocks( $post->post_content ); 
@@ -50,22 +63,22 @@
             <img src="<?= $url; ?>" alt="<?= $alt; ?>">
         </div>
         <div class="card-content">
-            <h4><?= get_the_title(); ?></h4>
+            <h5><?= get_the_title(); ?></h5>
             <?php 
+             if(isset($dates)){ ?>
+                <p class="date-length" style="color:<?= $textCol; ?>"><?= $dates[0]['date'] . ', ' . $dates[0]['stime']; ?></p>
+            <?php
+            } 
             if(isset($address)){ ?>
                 <p class="location"><?= $address; ?></p>
             <?php
             } ?>
             <?php 
+           
             if(isset($price)){ ?>
-                <p class="price"><?= $price; ?> <?php if(isset($length)){ echo '- ' . $length; }?></p>
+                <p class="price"><?= $price; ?> <?php if(isset($length) && $price != ''){ echo '- ';}; echo $length; ?></p>
             <?php
-            }
-            if(isset($dates)){ ?>
-                <p class="date-length"><?= $dates[0]['date'] . ' - ' . $dates[0]['stime']; ?></p>
-            <?php
-            } ?>
-            
+            }?>
          </div>
     </a>
 </div>

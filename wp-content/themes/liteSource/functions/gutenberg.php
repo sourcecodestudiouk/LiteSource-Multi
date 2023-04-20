@@ -80,6 +80,7 @@ function allowed_block_types( $allowed_blocks, $editor_context ) {
 		'acf/icon-blocks',
 		'acf/number-counter',
 		'acf/accordion',
+		'acf/contact-details',
 
 		// Team Content
 		'acf/team-profiles',

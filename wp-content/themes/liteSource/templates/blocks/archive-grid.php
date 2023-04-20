@@ -25,7 +25,6 @@ else{
     $type = scs_get_post_type($archive);
     $num = '-1';
 }
-
 // Create class attribute allowing for custom "className" and "align" values.
 $className = 'archive-grid-block';
 if( !empty($block['className']) ) {
@@ -35,27 +34,59 @@ if( !empty($block['align']) ) {
     $className .= ' align' . $block['align'];
 } ?>
 <div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
-    <div class="news-facets">
-        <?php //wp_dropdown_categories(); 
-        //$archive = wp_get_archives();?>
-    </div>
     <div class="content-grid">
         <div class="container">
             <?php
-            $currentID = get_the_ID();
-            if(isset($_GET['category'])){
-                $args = array( 'post_type' => $type, 'posts_per_page' => $num, 'order' => 'ASC', 'orderby' => 'menu_order', 'tax_query' => array( array('taxonomy' => 'category', 'field'    => 'slug', 'terms'    => $_GET['category'], ), ),);
+            if(isset($_GET['view']) && $_GET['view'] == 'map'){
+                get_template_part('templates/events/events-overview-map');
+            }
+            else if(isset($_GET['view']) && $_GET['view'] == 'calendar'){
+                echo "View Calendar";
             }
             else{
-                $args = array( 'post_type' => $type, 'posts_per_page' => $num, 'order' => 'ASC', 'orderby' => 'menu_order');
-            }
-            $post_query = new WP_Query($args);
-            if($post_query->have_posts() ) {
-                while($post_query->have_posts() ) { $post_query->the_post();
-                    get_template_part('/templates/cards/' . $type . '', 'card');
+                $currentID = get_the_ID();
+                if(isset($_GET['category']) && is_page('news')){
+                    $args = array( 'post_type' => $type, 'posts_per_page' => $num, 'order' => 'ASC', 'orderby' => 'menu_order', 'tax_query' => array( array('taxonomy' => 'category', 'field' => 'slug', 'terms' => $_GET['category'], ), ),);
                 }
+                if(isset($_GET['category']) && is_page('events')){
+                    $args = array( 'post_type' => $type, 'posts_per_page' => $num, 'order' => 'ASC', 'orderby' => 'menu_order', 'tax_query' => array( array('taxonomy' => 'category', 'field' => 'slug', 'terms' => $_GET['category'], ), ),);
+                }
+                else{
+                    $args = array( 'post_type' => $type, 'posts_per_page' => $num, 'order' => 'ASC', 'orderby' => 'menu_order');
+                }
+                $post_query = new WP_Query($args);
+                if($post_query->have_posts() ) {
+                    while($post_query->have_posts() ) { $post_query->the_post();
+                        if(is_page_template( 'content-archive.php' ) && is_page('events')){
+                            $today = intval(date('Ymd'));
+                            $blocks = parse_blocks( $post->post_content ); 
+                            foreach($blocks as $block){
+                                if($block['blockName'] == 'acf/events-information'){
+                                    $date = intval(date($block['attrs']['data']['date_time_0_event_date']));
+                                    if(isset($_GET['events']) && $_GET['events'] == 'past'){
+                                        if($today >= $date){
+                                            get_template_part('/templates/cards/' . $type . '', 'card');
+                                        }
+                                    } 
+                                    else{
+                                        if($today <= $date){
+                                            get_template_part('/templates/cards/' . $type . '', 'card');
+                                        }
+                                    }
+                                    
+                                }
+                            }
+                            
+                        }
+                        else{    
+                            get_template_part('/templates/cards/' . $type . '', 'card');
+                        }
+                        
+                    }
+                }
+                wp_reset_postdata(); 
             }
-            wp_reset_postdata(); ?>
+            ?>
         </div>
        
     </div>    

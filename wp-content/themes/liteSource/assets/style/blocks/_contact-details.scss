@@ -1,0 +1,20 @@
+.contact-details-block{
+    &:not(&.no-theme){
+        padding:25px;
+    }
+    h5{
+        margin-bottom:25px;
+    }
+    .contact-details{
+        color:inherit;
+        p{
+            color:inherit;
+            a{
+                color:inherit;
+                i{
+                    margin-right:10px;
+                }
+            }
+        }
+    }
+}

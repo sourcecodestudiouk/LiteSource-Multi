@@ -132,6 +132,7 @@
         display:flex;
         justify-content: center;
         align-items:center;
+
         &:hover{
           opacity:0.86;
           cursor: pointer;
@@ -139,6 +140,7 @@
       }
     }
     .btn{
+      margin-left:10px;
       a{
         //padding:0;
       }

@@ -115,15 +115,7 @@ function my_acf_init_block_types() {
           }
         }
 
-        // acf_register_block_type(array(
-        //     'name'              => 'Contact Form',
-        //     'title'             => __('Contact Form'),
-        //     'description'       => __('Contact Form Custom Block'),
-        //     'render_template'   => 'templates/blocks/contact-form.php',
-        //     'category'          => 'custom-layout',
-        //     'icon'              => 'screenoptions',
-        //     'keywords'          => array( 'contact', 'form', 'content' ),
-        // ));
+        
 
         // acf_register_block_type(array(
         //     'name'              => 'Link Grid',
@@ -185,7 +177,15 @@ function my_acf_init_block_types() {
         //     'keywords'          => array( 'image', 'full width' ),
         // ));
 
-
+        acf_register_block_type(array(
+          'name'              => 'Contact Details',
+          'title'             => __('Contact Details'),
+          'description'       => __('Contact Details Custom Block'),
+          'render_template'   => 'templates/blocks/contact-details.php',
+          'category'          => 'custom-layout',
+          'icon'              => $icon,
+          'keywords'          => array( 'contact', 'details', 'content' ),
+        ));
 
         acf_register_block_type(array(
           'name'              => 'Page Header',
@@ -346,6 +346,20 @@ if( function_exists('acf_add_options_page') ) {
     'parent_slug' => 'site-options',
   );
   acf_add_options_sub_page( $args );
+
+  $addons = get_field('modular_addons', 'admin-settings');
+  //var_dump($postTypes);
+  if(isset($addons)){
+    if(in_array('events', $addons)){
+      $args = array(
+        'page_title'  => __('Events Options'),
+        'menu_title'  => __('Events Options'),
+        'menu_slug' => 'events-options',
+        'parent_slug' => 'edit.php?post_type=event',
+      );
+      acf_add_options_sub_page( $args );
+    }
+  }
 
   if(get_field('maintenance_mode', 'options')){
     $args = array(

@@ -14,15 +14,21 @@
         @include transition(1s);
       }
     }
-    h4{
+    h5{
       margin-top:15px;
-      margin-bottom:30px;
-      text-transform:uppercase;
+
     }
     .card-content{
       padding:15px;
       .price{
-        font-weight:700;
+        font-size:13px;
+        opacity:0.5;
+
+      }
+      .location{
+        font-size:13px;
+        opacity:0.5;
+        margin-bottom:0;
       }
     }
     a{

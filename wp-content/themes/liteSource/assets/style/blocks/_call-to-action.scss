@@ -27,6 +27,9 @@
         }
         .btn{
             margin-left:25px;
+            @include media("<=sm") {
+                margin-left:0;
+              }
         }
     }
 }

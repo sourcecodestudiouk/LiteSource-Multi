@@ -8,9 +8,13 @@
       align-items: flex-start;
       margin-bottom:40px;
       flex-wrap: wrap;
+      @include media("<=sm") {
+        justify-content: center;
+      }
       h4{
         @include media("<=sm") {
           width:100%;
+          text-align: center;
         }
       }
     }

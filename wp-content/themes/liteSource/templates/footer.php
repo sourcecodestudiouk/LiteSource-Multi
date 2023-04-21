@@ -64,7 +64,7 @@
 </footer>
 <footer class="lower-footer">
   <div class="container">
-    <p class="copyright-link">&copy;<?= date('Y'); ?> <?= get_bloginfo();?>.  All Rights Reserved. Made by <a target="_blank" href="https://www.sourcecodestudio.co.uk">SourceCodeStudio</a>.</p>
+    <p class="copyright-link">&copy;<?= date('Y'); ?> <?= get_bloginfo();?>.  All Rights Reserved. <a target="_blank" href="https://www.sourcecodestudio.co.uk">LiteSource by SourceCodeStudio</a>.</p>
     <div class="legal-menu">
       <a href="privacy-policy">Privacy Policy</a>
       <a href="terms-of-service">Terms of Service</a>

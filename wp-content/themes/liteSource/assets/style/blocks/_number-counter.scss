@@ -5,9 +5,16 @@
         display:flex;
         justify-content: space-between;
         align-items: center;
+        @include media("<=lg") {
+            flex-direction: column;
+        }
     }
     .title-desc{
         width:35%;
+        @include media("<=lg") {
+            text-align:center;
+            width:100%;
+        }
     }
     .counters{
         width:65%;
@@ -15,6 +22,13 @@
         justify-content: center;
         align-items: stretch;
         gap:8px;
+        @include media("<=lg") {
+            width:100%;
+            text-align:center;
+        }
+        @include media("<=sm") {
+            flex-wrap:wrap;
+        }
         .counter{
             width:25%;
             display:flex;
@@ -22,6 +36,10 @@
             justify-content:flex-start;
             align-items: center;
             text-align: center;
+            @include media("<=sm") {
+                width:45%;
+                margin-bottom:15px;
+            }
             i{
                 font-size:24px;
                 margin-bottom:14px;

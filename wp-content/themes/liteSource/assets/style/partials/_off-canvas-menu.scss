@@ -78,13 +78,12 @@
         position: relative;
         height:50px;
         .close-off-canvas{
-          width:50%;
+          width:100%;
           display:flex;
           justify-content: center;
           align-items: center;
           height:100%;
           margin-bottom:0;
-          border-left:1px solid;
           i{
             margin-left:10px;
           }
@@ -109,8 +108,8 @@
         justify-content: center;
         align-items: center;
         width:100%;
-        border-top:1px solid white;
-        border-bottom:1px solid white;
+        border-top:1px solid;
+        border-bottom:1px solid;
         .logo{
           width:50%;
           max-width:164px;

@@ -26,6 +26,15 @@
           }
           p{
             margin-bottom:5px;
+            i{
+              margin-right:15px;
+            }
+            &.btn a{
+              padding:0;
+              &:hover{
+                text-decoration: underline;
+              }
+            }
           }
         }
         .title-bio{

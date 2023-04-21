@@ -22,9 +22,9 @@ $bio = get_field('bio');?>
   <div class="image-contact">
     <img src="<?= $url; ?>" alt="<?= $alt; ?>"/>
     <?php
-    if($publicContact && $tel){ ?> <p class="btn telephone"><a href="tel:<?= $tel; ?>"><?= $tel; ?></a></p> <?php }
-    if($publicContact && $email){ ?> <p class="btn email-address"><a href="mailto:<?= $email; ?>"><?= $email; ?></a></p> <?php }
-    if($publicContact && $linkedin){ ?> <p class="btn email-address"><a target="_blank" href="<?= $linkedin; ?>">Connect on LinkedIn</a></p> <?php } ?>
+    if($publicContact && $tel){ ?> <p class="btn telephone"><a href="tel:<?= $tel; ?>"><i class="fa-solid fa-envelope"></i><?= $tel; ?></a></p> <?php }
+    if($publicContact && $email){ ?> <p class="btn email-address"><a href="mailto:<?= $email; ?>"><i class="fa-solid fa-phone"></i><?= $email; ?></a></p> <?php }
+    if($publicContact && $linkedin){ ?> <p class="btn linkedin"><a target="_blank" href="<?= $linkedin; ?>"><i class="fa-brands fa-linkedin-in"></i>Connect on LinkedIn</a></p> <?php } ?>
   </div>
   <div class="title-bio">
     <h1><?= the_title(); ?></h1>

@@ -25,6 +25,7 @@ else if($theme == 'accent'){
             else if(is_page('events')){
                 $cats = get_terms( 'event_cat');
             }
+            if(is_page('news') || (is_page('events') && isset($_GET['view']) && $_GET['view'] == 'grid') OR !isset($_GET['view']))
 			foreach($cats as $cat){ ?>
 				<p class="category<?php if(isset($_GET['category'])){ if($_GET['category'] == $cat->slug){ echo ' current'; }; } ?>"><a href="?category=<?= $cat->slug; ?>"><?= $cat->name; ?></a></p>
 			<?php
@@ -55,7 +56,7 @@ else if($theme == 'accent'){
 
         <p class="grid-view" <?php if((isset($_GET['view']) && $_GET['view'] == 'grid')OR !isset($_GET['view'])){?>style="background-color: <?= $bg; ?>; color:<?= $textCol; ?>;"<?php }; ?>><a href="?view=grid"><i class="fa-solid fa-grip"></i></a></p>
         <p class="map-view" <?php if(isset($_GET['view']) && $_GET['view'] == 'map'){?>style="background-color: <?= $bg; ?>; color:<?= $textCol; ?>;"<?php }; ?>><a href="?view=map"><i class="fa-solid fa-earth-europe"></i></a></p>
-        <p class="calendar-view" <?php if(isset($_GET['view']) && $_GET['view'] == 'calendar'){?>style="background-color: <?= $bg; ?>; color:<?= $textCol; ?>;"<?php }; ?>><a href="?view=calendar"><i class="fa-solid fa-calendar"></i></a></p>
+        <!-- <p class="calendar-view" <?php if(isset($_GET['view']) && $_GET['view'] == 'calendar'){?>style="background-color: <?= $bg; ?>; color:<?= $textCol; ?>;"<?php }; ?>><a href="?view=calendar"><i class="fa-solid fa-calendar"></i></a></p> -->
     </div>
     <?php
     } ?>

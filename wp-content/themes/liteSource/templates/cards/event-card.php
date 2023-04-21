@@ -29,7 +29,7 @@
             $index = $block['attrs']['data']['date_time'];
             $i = 0;
             while($i < $index){
-                $d['date'] = date("F d, Y", strtotime($block['attrs']['data']['date_time_' . $i . '_event_date']));
+                $d['date'] = date("D M d, Y", strtotime($block['attrs']['data']['date_time_' . $i . '_event_date']));
                 $d['stime'] = date("g:ia", strtotime($block['attrs']['data']['date_time_' . $i . '_start_time']));
                 $d['etime'] = date("g:ia", strtotime($block['attrs']['data']['date_time_' . $i . '_end_time']));
                 
@@ -60,13 +60,24 @@
 <div class="event-card content-card <?= $class; ?>">
     <a href="<?= the_permalink(); ?>">
          <div class="image-container">
+            
             <img src="<?= $url; ?>" alt="<?= $alt; ?>">
         </div>
         <div class="card-content">
             <h5><?= get_the_title(); ?></h5>
             <?php 
-             if(isset($dates)){ ?>
-                <p class="date-length" style="color:<?= $textCol; ?>"><?= $dates[0]['date'] . ', ' . $dates[0]['stime']; ?></p>
+             if(isset($dates)){ 
+                $first = $dates[0]['date'];
+                if(count($dates) > 1){
+                    $dates = array_reverse($dates);
+                    $last = $dates[0]['date'];
+                }?>
+                <p class="date-length" style="color:<?= $textCol; ?>">
+                <?= $first;
+                if(isset($last)){ echo ' - ' . $last; }
+                else {
+                    echo ', ', $dates[0]['stime']; 
+                }?></p>
             <?php
             } 
             if(isset($address)){ ?>

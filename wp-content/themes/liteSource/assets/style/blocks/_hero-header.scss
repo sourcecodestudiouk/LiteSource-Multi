@@ -27,6 +27,13 @@
         }
         .button-group{
             margin-top:25px;
+            @include media("<=sm") {
+                flex-direction: column;
+                .btn{
+                    margin-bottom:10px;
+                }
+            }
+            
         }
     }
     .slider-background-container{

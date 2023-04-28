@@ -1969,6 +1969,14 @@ body a {
 .hero-header-block .container .button-group {
   margin-top: 25px;
 }
+@media (max-width: 576px) {
+  .hero-header-block .container .button-group {
+    flex-direction: column;
+  }
+  .hero-header-block .container .button-group .btn {
+    margin-bottom: 10px;
+  }
+}
 .hero-header-block .slider-background-container {
   position: absolute;
   top: 0;

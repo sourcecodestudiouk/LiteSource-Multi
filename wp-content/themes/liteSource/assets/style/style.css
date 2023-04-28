@@ -1185,6 +1185,11 @@ body a {
   justify-content: flex-end;
   align-items: center;
 }
+@media (max-width: 992px) {
+  .site-header .container .cta-menu-search-container {
+    min-width: 0;
+  }
+}
 .site-header .container .cta-menu-search-container .search-button-container {
   width: 40px;
   height: 40px;
@@ -1473,7 +1478,7 @@ body a {
 }
 
 .off-canvas-menu-trigger {
-  padding: 10px 15px;
+  padding: 5px 5px;
   display: flex;
   justify-content: flex-start;
   align-items: center;

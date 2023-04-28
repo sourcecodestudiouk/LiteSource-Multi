@@ -6,11 +6,12 @@
     @include media(">lg") {
       display:none;
     }
-    padding:10px 15px;
+    padding:5px 5px;
     display:flex;
     justify-content: flex-start;
     align-items: center;
     z-index: 999;
+    
     .label{
       color:white;
       margin-right:10px;

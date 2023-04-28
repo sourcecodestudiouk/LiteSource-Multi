@@ -34,6 +34,7 @@ $align = get_field('alignment');
 $theme = get_field('themes') ?: 'primary';
 $colours = get_field('site_colours', 'options');
 $img = get_field('background_image');
+$height = get_field('height');
 
 $textCol = 'black';
 
@@ -50,14 +51,24 @@ if($type == 'image' || $type == 'block'){
         $bg = $colours['accent'];
         $textCol = getContrastColor($bg);        
     }
+    else if($theme == 'none'){
+        $bg = '';
+        $bgimg = imagecreatefrompng($img['url']);
+        $rgb = imagecolorat($bgimg, 10, 15);
+        $r = ($rgb >> 16) & 0xFF;
+        $g = ($rgb >> 8) & 0xFF;
+        $b = $rgb & 0xFF;
+        $col = sprintf("#%02x%02x%02x", $r, $g, $b);
+        $textCol = getContrastColor($col);
+    }
 }
 
 
 ?>
 <div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?> <?= $type . '-header'; ?>" style="<?php if($type == 'image' && isset($img)){?>background-image:url('<?= $img['url']; } ?>');">
-    <div class="container <?= $align; ?>" style="color:<?= $textCol; ?>">
+    <div class="container <?= $align; ?> <?= $height; ?>" style="color:<?= $textCol; ?>">
         <?php if($type == 'text'){ get_template_part('templates/partials/breadcrumbs'); } ?>
-        <h2><?= $title; ?></h2>
+        <h1><?= $title; ?></h1>
         <?php 
         if($desc){ ?>
         <p class="description"><?= $desc; ?></p>

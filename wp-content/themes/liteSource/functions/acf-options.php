@@ -228,6 +228,16 @@ function my_acf_init_block_types() {
         ));
 
         acf_register_block_type(array(
+          'name'              => 'Image Gallery',
+          'title'             => __('Image Gallery'),
+          'description'       => __('Image Gallery Block'),
+          'render_template'   => 'templates/blocks/image-gallery.php',
+          'category'          => 'custom-layout',
+          'icon'              => $icon,
+          'keywords'          => array( 'gallery', 'images' ),
+        ));
+
+        acf_register_block_type(array(
           'name'              => 'Call To Action',
           'title'             => __('Call To Action'),
           'description'       => __('Call to action block as part of the standard system.'),
@@ -579,7 +589,7 @@ function wpsites_custom_post_states($states) {
   }
     return $states;
 }
-add_filter('display_post_states', 'wpsites_custom_post_states');
+//add_filter('display_post_states', 'wpsites_custom_post_states');
 
 function remove_page_attribute_support() {
   global $post;

@@ -1,5 +1,7 @@
 .page-header-block{
     position:relative;
+    background-size: cover;
+    background-position: center;
     &.text-header{
         padding-top:125px;
     }
@@ -7,6 +9,7 @@
         @include breakout();
         padding-top:140px;
         padding-bottom:35px;
+        
     }
     &.block-header{
         .overlay{
@@ -19,16 +22,33 @@
         justify-content: center;
         align-items: flex-start;
         position: relative;
-        z-index: 4;
+        z-index: 4;;
         h1{
             margin:0;
         }
         .description{
-            margin-top:25px;
+            margin-top:10px;
         }
         &.center{
             align-items:center;
             text-align: center;
+        }
+        &.small{
+            h1{
+                font-size:46px;
+            }
+        }
+        &.medium{
+            height:40vh;
+        }
+        &.large{
+            min-height:70vh;
+        }
+        &.medium, &.large{
+            .description{
+                font-weight:700;
+                font-size:24px;
+            }
         }
     }
     .overlay{

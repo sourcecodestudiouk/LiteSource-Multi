@@ -42,7 +42,10 @@
 		
 		<?php wp_head(); ?>
 	</head>
-	<body <?php body_class(); ?>>
+	<?php $colours = get_field('site_colours', 'options'); 
+	$bg = $colours['background_colour'];
+	$textCol = getContrastColor($bg);?>
+	<body <?php body_class(); ?> style="background-color:<?= $bg; ?>; color:<?= $textCol; ?>">
 		<div class="wrapper container">
 
 			<?php get_template_part('templates/header'); ?>

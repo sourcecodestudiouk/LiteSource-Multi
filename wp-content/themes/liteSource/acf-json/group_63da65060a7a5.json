@@ -3,6 +3,29 @@
     "title": "OPTIONS: Footer",
     "fields": [
         {
+            "key": "field_64468d6310343",
+            "label": "Footer Layout",
+            "name": "footer_layout",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "simple": "Simple",
+                "full": "Full"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
             "key": "field_63f3a0647e307",
             "label": "Company Description",
             "name": "company_description",
@@ -10,7 +33,15 @@
             "type": "text",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64468d6310343",
+                        "operator": "==",
+                        "value": "full"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -30,7 +61,15 @@
             "type": "repeater",
             "instructions": "To edit the menus, please head to 'Appearances -> Menus'.",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64468d6310343",
+                        "operator": "==",
+                        "value": "full"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -86,5 +125,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1679316441
+    "modified": 1682346235
 }

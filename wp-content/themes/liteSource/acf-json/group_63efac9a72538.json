@@ -47,10 +47,34 @@
             },
             "choices": {
                 "square": "Square",
+                "subtle": "Subtle",
                 "curved": "Curved",
                 "rounded": "Rounded"
             },
             "default_value": "square",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_6447d3d1aea2e",
+            "label": "Form Styling",
+            "name": "form_styling",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "borded-form": "Bordered Inputs",
+                "underlined-form": "Underlined Inputs"
+            },
+            "default_value": "",
             "return_format": "value",
             "allow_null": 0,
             "layout": "horizontal"
@@ -74,5 +98,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1680018019
+    "modified": 1682436594
 }

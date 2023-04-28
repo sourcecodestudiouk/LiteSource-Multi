@@ -1,7 +1,7 @@
 <?php
 
 /**
- *  Call To Action
+ *  Image Gallery
  *
  * @param   array $block The block settings and attributes.
  * @param   string $content The block inner HTML (empty).
@@ -10,13 +10,13 @@
  */
 
 // Create id attribute allowing for custom "anchor" value.
-$id = 'call-to-action' . $block['id'];
-if( !empty($block['anchor']) ) {
-    $id = $block['anchor'];
-}
+$id = 'image-gallery-' . $block['id'];
+    if( !empty($block['anchor']) ) {
+        $id = $block['anchor'];
+    }
 
 // Create class attribute allowing for custom "className" and "align" values.
-$className = 'call-to-action-block';
+$className = 'image-gallery-block';
 if( !empty($block['className']) ) {
     $className .= ' ' . $block['className'];
 }
@@ -25,17 +25,12 @@ if( !empty($block['align']) ) {
 }
 
 // Load values and assign defaults.
-$title = get_field('title');
-$desc = get_field('description');
-
-$link = get_field('link');
-
-$width = get_field('width');
-
-$style = get_field('style');
-
 $theme = get_field('themes') ?: 'primary';
 $colours = get_field('site_colours', 'options');
+
+$gallery = get_field('gallery');
+$lightbox = get_field('lightbox_images');
+$columns = get_field('columns');
 
 if($theme == 'primary'){
     $bg = $colours['primary'];
@@ -49,19 +44,14 @@ else if($theme == 'accent'){
     $bg = $colours['accent'];
     $textCol = getContrastColor($bg);        
 }
-
-// $textCol = getContrastColor($colours['primary']);
-$btnCol = getContrastColor($colours['secondary']);
-
 ?>
-<div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?> <?= $style . '-style'; ?> <?= $width . '-width'; ?>" style="background-color:<?= $bg; ?>">
-    <div class="container">
-        <div class="content" style="color:<?= $textCol; ?>">
-            <h3><?= $title; ?></h3>
-            <p class="description"><?= $desc; ?></p>
-        </div>
-        <p class="btn" style="background-color:<?= $colours['secondary']; ?>">
-            <a href="<?= $link['url']; ?>" style="color:<?= $btnCol; ?>; border:2px solid <?= $btnCol; ?>"><?= $link['title']; ?></a>
-        </p>
+<div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
+    <div class="gallery-container <?php if($lightbox){ echo 'lightbox-enabled';}  ?> <?= $columns . '-columns'; ?>">
+        <?php foreach($gallery as $img){ ?>
+            <div class="image-container">
+            <?php if($lightbox){?> <a href="<?= $img['url'] ?>"  data-lightbox="image-group"><?php } ?><img src="<?= $img['url'] ?>" alt="<?= $img['alt']; ?>"/> <?php if($lightbox){?></a><?php } ?>
+            </div>
+        <?php
+        } ?>
     </div>
 </div>

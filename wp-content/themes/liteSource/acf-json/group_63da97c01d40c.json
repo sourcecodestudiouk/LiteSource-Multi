@@ -34,6 +34,7 @@
                 "class": "",
                 "id": ""
             },
+            "layout": "block",
             "sub_fields": [
                 {
                     "key": "field_63da97c010321",
@@ -205,8 +206,79 @@
                     "default_value": "",
                     "placeholder": ""
                 }
-            ],
-            "layout": "block"
+            ]
+        },
+        {
+            "key": "field_64469c6ee21db",
+            "label": "Additional Platforms",
+            "name": "additional_platforms",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add Row",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_64469c7ae21dc",
+                    "label": "Icon",
+                    "name": "icon",
+                    "aria-label": "",
+                    "type": "font-awesome",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "icon_sets": [
+                        "solid",
+                        "regular",
+                        "brands"
+                    ],
+                    "custom_icon_set": "",
+                    "default_label": "",
+                    "default_value": "",
+                    "save_format": "element",
+                    "allow_null": 0,
+                    "show_preview": 0,
+                    "enqueue_fa": 1,
+                    "fa_live_preview": "",
+                    "choices": [],
+                    "parent_repeater": "field_64469c6ee21db"
+                },
+                {
+                    "key": "field_64469c8de21dd",
+                    "label": "Profile URL",
+                    "name": "profile_url",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "parent_repeater": "field_64469c6ee21db"
+                }
+            ]
         }
     ],
     "location": [
@@ -227,5 +299,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1676911626
+    "modified": 1682349264
 }

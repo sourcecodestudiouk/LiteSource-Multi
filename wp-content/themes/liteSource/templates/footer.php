@@ -6,22 +6,24 @@
     $secondary = $colours['secondary'];
     $ddcol = getContrastColor($secondary);
   }
-  $menus = get_field('menu_columns', 'options');
-  $company_description = get_field('company_description', 'options');
-  $email = get_field('email_address', 'options');
-  $telephone = get_field('telephone_number', 'options');
-  $address = get_field('address', 'options');
+  $type = get_field('footer_layout', 'options');
+  if($type == 'full'){
+    $menus = get_field('menu_columns', 'options');
+    $company_description = get_field('company_description', 'options');
+    $email = get_field('email_address', 'options');
+    $telephone = get_field('telephone_number', 'options');
+    $address = get_field('address', 'options');
+  }
   $vat = get_field('vat_number', 'options');
   $company = get_field('company_number', 'options');
-
 ?>
 
 <footer class="site-footer" role="contentinfo" style="background-color:<?= $colours['primary']; ?>; color:<?= $txtCol; ?>">
-  <div class="container">
-
-  <div class="company-information">
-    <?php $icon = get_field('company_icon', 'options'); ?>
+  <div class="container <?= $type . '-layout'; ?>">
+    <div class="company-information">
+    <?php $icon = get_field('company_logo', 'options'); ?>
     <img src="<?= $icon['url']; ?>" alt="Company Icon"/>
+    <?php if($type == 'full'){ ?>
     <?php  if($company_description){ ?><p class="company-description"><?= $company_description; ?></p> <?php } ?>
     <div class="contact-details">
       <?php 
@@ -40,25 +42,35 @@
       <?php
       } ?>
     </div>
-    <?php get_template_part('templates/partials/social-media'); ?>
-  
+    <?php  } ?>
   </div>
-  <?php if($menus){ ?>
-    <div class="menus">
-    <?php 
-    $count = 0;
-    foreach($menus as $me){ ?>
-    <div class="menu-column">
-      <h5><?= $me['menu_column_title']; ?></h5>
-      <div class="menu-container">
-        <?php wp_nav_menu('footer_menu' . $count++); ?>
+  <?php 
+  if($type == 'full'){
+    if($menus){ ?>
+      <div class="menus">
+      <?php 
+      $count = 0;
+      foreach($menus as $me){ ?>
+      <div class="menu-column">
+        <h5><?= $me['menu_column_title']; ?></h5>
+        <div class="menu-container">
+          <?php wp_nav_menu('footer_menu' . $count++); ?>
+        </div>
       </div>
-    </div>
+      <?php
+      } ?>
+      </div>
     <?php
-    } ?>
+    }
+  }
+  else{ ?>
+    <div class="menu-container">
+      <?php wp_nav_menu('footer_menuone'); ?>
     </div>
-  <?php
+    <?php get_template_part('templates/partials/social-media'); ?>
+    <?php
   } ?>
+
   
   </div>
 </footer>
@@ -70,23 +82,4 @@
       <a href="terms-of-service">Terms of Service</a>
     </div>
   </div>
-</footer>
-
-<?php
-  $search = get_field('site_search', 'options');
-  if($search){ ?>
-    <div class="search-container" style="background-color:<?= $colours['primary']; ?>; color:<?= $txtCol; ?>">
-      <div class="close-button">
-        <i class="fa-solid fa-xmark"></i>
-      </div>
-      <div class="search-form-container">
-        <h4>Search Site:</h4>
-        <form action="/search-results/"  method="get" class="search-form">
-          <input type="search" placeholder="Search &hellip;" value="" name="_search" style="color:<?= $txtCol; ?>">
-          <button type="submit"><i style="color:<?= $txtCol; ?>" class="fa-solid fa-magnifying-glass"></i></button>
-        </form>
-      </div>
-    </div>
-  <?php
-  } 
-?>   
+</footer> 

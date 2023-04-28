@@ -1,10 +1,7 @@
-<?php 
-$colours = get_field('site_colours', 'options');
-?>
-
-<div class="social-channels" style="color:<?= $colours['accent']; ?>">
+<div class="social-channels">
   <?php
     $social = get_field('social_profiles', 'options');
+    $others = get_field('additional_platforms', 'options');
     if($social){
       if($social['twitter']){ ?>
         <a target="_blank" href="<?= $social['twitter']; ?>"><i class="fa-brands fa-twitter"></i></a>
@@ -45,6 +42,12 @@ $colours = get_field('site_colours', 'options');
       if($social['pinterest']){ ?>
           <a target="_blank" href="<?= $social['pinterest']; ?>"><i class="fa-brands fa-pinterest"></i></a>
         <?php
+      }
+    }
+    if($others){
+      foreach($others as $pla){?>
+          <a target="_blank" href="<?= $pla['profile_url']; ?>"><?= $pla['icon']; ?></a>
+      <?php
       }
     }
     

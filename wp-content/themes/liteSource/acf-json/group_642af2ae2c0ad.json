@@ -50,6 +50,30 @@
             "layout": "horizontal"
         },
         {
+            "key": "field_6447a94467721",
+            "label": "Height",
+            "name": "height",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "34",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "small": "Small",
+                "medium": "Medium",
+                "large": "Large"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
             "key": "field_642eab8df6a93",
             "label": "Background Image",
             "name": "background_image",
@@ -67,7 +91,7 @@
                 ]
             ],
             "wrapper": {
-                "width": "33",
+                "width": "100",
                 "class": "",
                 "id": ""
             },
@@ -170,5 +194,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1681391883
+    "modified": 1682418047
 }

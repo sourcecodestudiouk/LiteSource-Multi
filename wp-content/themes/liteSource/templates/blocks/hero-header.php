@@ -30,26 +30,27 @@ $description = get_field('description');
 $buttons = get_field('buttons');
 $colours = get_field('site_colours', 'options');
 $background = get_field('background_options');
+$align = get_field('align');
 $overlay = '#000';
 
-if($background['background_type'] == 'image' || $background['background_type'] == 'slider' ){
-    $overlay = $background['images_overlay'];
-}
-else{
-    $block = $background['block_colour'];
-}
+//var_dump($background);
+$theme = $background['themes'];
 
-if($block == 'primary' || $overlay == 'primary'){
+if($theme == 'primary'){
     $bg = $colours['primary'];
     $txtCol = getContrastColor($bg);
 }
-else if($block == 'secondary' || $overlay == 'secondary'){
+else if($theme == 'secondary'){
     $bg = $colours['secondary'];
     $txtCol = getContrastColor($bg);
 }
-else if($block == 'accent' || $overlay == 'accent'){
+else if($theme == 'accent'){
     $bg = $colours['accent'];
     $txtCol = getContrastColor($bg);
+}
+else if($theme == 'none'){
+    $bg = '';
+    $txtCol = 'white';
 }
 
 ?>
@@ -65,7 +66,7 @@ else if($block == 'accent' || $overlay == 'accent'){
         echo 'background-color:' . $bg; 
     }?>;
     color:<?= $txtCol; ?>">
-    <div class="container">
+    <div class="container align-<?= $align; ?>">
         <h1><?= $heading; ?></h1>
         <p><?= $description; ?></p>
         <?php 
@@ -84,6 +85,20 @@ else if($block == 'accent' || $overlay == 'accent'){
             </div>
             <div class="slider-background-dots <?= $txtCol; ?>"></div>
         </div>
+    <?php
+    }
+    else if($background['background_type'] == 'video'){ ?>
+        <div class="video-background-container">
+			<?php
+			$video = $background['video_file']['url'];
+			if($video){ ?>
+			<video autoplay muted loop width="100%">
+				<source src="<?= $video; ?>" type="video/mp4">
+				Your browser does not support this video tag.
+			</video>)
+			<?php
+			}?>
+		</div>
     <?php
     } ?>
     <span class="overlay" style="background-color:<?= $bg; ?>"></span>

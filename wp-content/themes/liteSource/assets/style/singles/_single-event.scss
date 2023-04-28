@@ -4,10 +4,17 @@
             display:flex;
             justify-content: space-between;
             align-items: stretch;
+            @include media("<=md") {
+                flex-direction: column;
+            }
             .events-content{
                 width:70%;
                 padding-right:75px;
                 min-height:1000px;
+                @include media("<=md") {
+                    width:100%;
+                    padding-right:0;
+                }
                 > img{
                     width:100%;
                     height:auto;
@@ -59,6 +66,9 @@
             }
             .location-ticket{
                 width:30%;
+                @include media("<=md") {
+                    width:100%;
+                }
                 .inner{
                     position: sticky;
                     top:150px;

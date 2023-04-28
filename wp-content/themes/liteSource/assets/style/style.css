@@ -2898,10 +2898,21 @@ div#calendar:focus {
   justify-content: space-between;
   align-items: stretch;
 }
+@media (max-width: 768px) {
+  .single-event main .events-template-container {
+    flex-direction: column;
+  }
+}
 .single-event main .events-template-container .events-content {
   width: 70%;
   padding-right: 75px;
   min-height: 1000px;
+}
+@media (max-width: 768px) {
+  .single-event main .events-template-container .events-content {
+    width: 100%;
+    padding-right: 0;
+  }
 }
 .single-event main .events-template-container .events-content > img {
   width: 100%;
@@ -2948,6 +2959,11 @@ div#calendar:focus {
 }
 .single-event main .events-template-container .location-ticket {
   width: 30%;
+}
+@media (max-width: 768px) {
+  .single-event main .events-template-container .location-ticket {
+    width: 100%;
+  }
 }
 .single-event main .events-template-container .location-ticket .inner {
   position: sticky;

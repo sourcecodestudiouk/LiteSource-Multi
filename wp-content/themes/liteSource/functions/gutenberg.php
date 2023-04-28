@@ -59,7 +59,6 @@ function allowed_block_types( $allowed_blocks, $editor_context ) {
 		'core/block',
 		'core/shortcode',
 		'core/spacer',
-		'core/separator',
 		'core/row',
 		'core/group',
 		'core/columns',
@@ -82,6 +81,9 @@ function allowed_block_types( $allowed_blocks, $editor_context ) {
 		'acf/accordion',
 		'acf/contact-details',
 		'acf/image-gallery',
+		'acf/separator',
+		'acf/full-width-image',
+
 
 		// Team Content
 		'acf/team-profiles',

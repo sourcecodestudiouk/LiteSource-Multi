@@ -9,6 +9,13 @@
   &.fixed-header{
     position: fixed;
   }
+  &.none{
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,0.7581626400560224) 0%, rgba(0,0,0,0.48365283613445376) 58%, rgba(0,0,0,0) 100%);
+    .sub-menu{
+      background-color:rgba(0,0,0,0.5);
+    }
+  }
   .container{
     display:flex;
     justify-content: space-between;
@@ -43,6 +50,7 @@
             margin-bottom:0;
             position: relative;
             z-index: 3;
+            font-size:18px;
             a{
               color:inherit;
               font-weight:500;
@@ -65,9 +73,10 @@
             flex-direction: column;
             position:absolute;
             top:62px;
-            right:0;
+            left:0;
             width:200px;
             display:none;
+            border-top:1px solid;
             @include shadow();
             &:before{
               content:'';
@@ -82,28 +91,29 @@
               align-items:center;
               width:100%;
               margin-left:0;
-              border-bottom:1px solid;
+              position:relative;
               a{
-                padding:15px;
+                padding:5px 15px;
                 width:100%;
-                font-size:13px;
-                .background{
-                  position: absolute;
-                  left:0;
-                  top:0;
-                  height:100%;
-                  width:0%;
-                  z-index: 2;
-                  opacity: 0.1;
-                }
+                position: relative;
                 .text{
                   position: relative;
                   z-index: 3;
+                  .line{
+                    position: absolute;
+                    left:0px;
+                    bottom:-2px;
+                    height:2px;
+                    width:0%;
+                    z-index: 2;
+                    opacity: 01;
+                    background-color:red;
+                  }
                 }
                 &:hover{
                   text-decoration: none;
-                  .background{
-                    width:100%;
+                  .line{
+                    width:calc(100%);
                   }
                 }
               }
@@ -181,18 +191,18 @@
         }
       }
       .desktop-navigation{
-       ul{
-         justify-content: flex-start;
-       }
+        ul{
+          justify-content: flex-start;
+        }
       }
       &.row-reverse{
-       .desktop-navigation{
-         ul{
-           justify-content: flex-end;
-         }
-       }
+        .desktop-navigation{
+          ul{
+            justify-content: flex-end;
+          }
+        }
       }
-     }
+    }
   }
 }
 

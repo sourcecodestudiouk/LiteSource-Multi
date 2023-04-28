@@ -1,18 +1,3 @@
-<?php 
-$theme = get_field('events_theme', 'options')['themes'];
-$colours = get_field('site_colours', 'options');
-if($theme == 'primary'){
-    $bg = $colours['primary']; 
-    $textCol = getContrastColor($bg);            
-}
-else if($theme == 'secondary'){
-    $bg = $colours['secondary'];  
-    $textCol = getContrastColor($bg);          
-}
-else if($theme == 'accent'){
-    $bg = $colours['accent'];  
-    $textCol = getContrastColor($bg);     
-} ?>
 
 <div class="facets-container">
     <?php if(is_page('news') || is_page('events')){ ?>
@@ -34,6 +19,21 @@ else if($theme == 'accent'){
 	<?php
 	} ?>
     <?php if(is_page('events')){ ?>
+        <?php 
+        $theme = get_field('events_theme', 'options')['themes'];
+        $colours = get_field('site_colours', 'options');
+        if($theme == 'primary'){
+            $bg = $colours['primary']; 
+            $textCol = getContrastColor($bg);            
+        }
+        else if($theme == 'secondary'){
+            $bg = $colours['secondary'];  
+            $textCol = getContrastColor($bg);          
+        }
+        else if($theme == 'accent'){
+            $bg = $colours['accent'];  
+            $textCol = getContrastColor($bg);     
+        } ?>
     <div class="view-archive-filters">
         <?php 
         if((isset($_GET['view']) && $_GET['view'] == 'grid')OR !isset($_GET['view'])){ ?>

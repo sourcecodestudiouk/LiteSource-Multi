@@ -62,6 +62,16 @@ if($type == 'image' || $type == 'block'){
         $textCol = getContrastColor($col);
     }
 }
+else{
+    $bodyCol = $colours['body_colour'];
+    if($bodyCol == 'white'){
+        $bg = '#fff';
+    }
+    else{
+        $bg = $colours['background_colour'];
+    }  
+    $textCol = getContrastColor($bg);
+}
 
 
 ?>

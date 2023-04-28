@@ -167,15 +167,25 @@ function my_acf_init_block_types() {
         //     'keywords'          => array( 'stats' ),
         // ));
 
-        // acf_register_block_type(array(
-        //     'name'              => 'Full Width Image',
-        //     'title'             => __('Full Width Image'),
-        //     'description'       => __('Full Width Image Custom Block'),
-        //     'render_template'   => 'templates/blocks/full-width-image.php',
-        //     'category'          => 'custom-layout',
-        //     'icon'              => 'screenoptions',
-        //     'keywords'          => array( 'image', 'full width' ),
-        // ));
+        acf_register_block_type(array(
+            'name'              => 'Full Width Image',
+            'title'             => __('Full Width Image'),
+            'description'       => __('Full Width Image Custom Block'),
+            'render_template'   => 'templates/blocks/full-width-image.php',
+            'category'          => 'custom-layout',
+            'icon'              => $icon,
+            'keywords'          => array( 'image', 'full width' ),
+        ));
+
+        acf_register_block_type(array(
+          'name'              => 'Separator',
+          'title'             => __('Separator'),
+          'description'       => __('Separator Custom Block'),
+          'render_template'   => 'templates/blocks/separator.php',
+          'category'          => 'custom-layout',
+          'icon'              => $icon,
+          'keywords'          => array( 'separator', 'spacing' ),
+        ));
 
         acf_register_block_type(array(
           'name'              => 'Contact Details',

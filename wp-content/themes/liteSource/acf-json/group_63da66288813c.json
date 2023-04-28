@@ -4,10 +4,10 @@
     "fields": [
         {
             "key": "field_64466ad81a0ce",
-            "label": "Theme",
-            "name": "theme",
+            "label": "Header Theme",
+            "name": "header_theme",
             "aria-label": "",
-            "type": "clone",
+            "type": "button_group",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,13 +16,16 @@
                 "class": "",
                 "id": ""
             },
-            "clone": [
-                "field_6408ad13ba71f"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
+            "choices": {
+                "primary": "Primary",
+                "secondary": "Secondary",
+                "accent": "Accent",
+                "none": "None"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
         },
         {
             "key": "field_63ef6472012d6",
@@ -188,5 +191,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1682344301
+    "modified": 1682694091
 }

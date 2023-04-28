@@ -54,4 +54,8 @@
       }
     }
   }
+  &.none{
+    background: rgb(0,0,0);
+background: linear-gradient(180deg, rgba(0,0,0,0.7581626400560224) 0%, rgba(0,0,0,0.48365283613445376) 58%, rgba(0,0,0,0) 100%);
+  }
 }

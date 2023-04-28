@@ -3,6 +3,31 @@
     "title": "OPTIONS: Footer",
     "fields": [
         {
+            "key": "field_644bdeceeb814",
+            "label": "Footer Theme",
+            "name": "footer_theme",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "primary": "Primary",
+                "secondary": "Secondary",
+                "accent": "Accent",
+                "none": "None"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
             "key": "field_64468d6310343",
             "label": "Footer Layout",
             "name": "footer_layout",
@@ -125,5 +150,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1682346235
+    "modified": 1682694108
 }

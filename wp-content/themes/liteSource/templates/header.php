@@ -5,7 +5,7 @@ if( function_exists('acf_add_options_page') ) {
   $icon = get_field('company_icon', 'options');
   $layout = get_field('header_layout', 'options');
 
-  $theme = get_field('theme', 'options')['themes'];
+  $theme = get_field('header_theme', 'options');
   $colours = get_field('site_colours', 'options');
 
   if($theme == 'primary'){
@@ -63,7 +63,7 @@ if(current_user_can( 'edit_posts' )){ ?>
 } ?>
 
 
-<header class="site-header <?php if(isset($fixed)){ echo 'fixed-header'; } ?> <?php if(!$cta['add_call_to_action_button']){ echo 'no-cta'; } else if($cta['add_email']){ echo 'cta-with-email'; } ;?>" style="background-color:<?= $bg; ?>; color:<?= $textCol; ?>;">
+<header class="site-header <?php if(isset($fixed)){ echo 'fixed-header'; } ?> <?php if(!$cta['add_call_to_action_button']){ echo 'no-cta'; } else if($cta['add_email']){ echo 'cta-with-email'; } ;?> <?= $theme; ?>" style="background-color:<?= $bg; ?>; color:<?= $textCol; ?>;">
   <div class="container <?= $layout; ?>">
     <a class="logo-container" href="<?php echo get_home_url(); ?>">
     <?php if(isset($logo)){ ?>
@@ -102,7 +102,7 @@ if(current_user_can( 'edit_posts' )){ ?>
 
 <?php
   if($search){ ?>
-    <div class="search-container <?php if(isset($fixed)){ echo 'fixed-header'; } ?>" style="background-color:<?= $bg; ?>; color:<?= $textCol; ?>">
+    <div class="search-container <?php if(isset($fixed)){ echo 'fixed-header'; } ?> <?= $theme; ?>" style="background-color:<?= $bg; ?>; color:<?= $textCol; ?>">
       <div class="close-button">
         <i class="fa-solid fa-xmark"></i>
       </div>

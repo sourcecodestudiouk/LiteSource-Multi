@@ -83,6 +83,7 @@ function allowed_block_types( $allowed_blocks, $editor_context ) {
 		'acf/image-gallery',
 		'acf/separator',
 		'acf/full-width-image',
+		'acf/contact-form',
 
 
 		// Team Content

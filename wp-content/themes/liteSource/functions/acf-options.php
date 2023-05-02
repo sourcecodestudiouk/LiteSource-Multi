@@ -168,6 +168,16 @@ function my_acf_init_block_types() {
         // ));
 
         acf_register_block_type(array(
+          'name'              => 'Contact Form',
+          'title'             => __('Contact Form'),
+          'description'       => __('Contact Form Custom Block'),
+          'render_template'   => 'templates/blocks/contact-form.php',
+          'category'          => 'custom-layout',
+          'icon'              => $icon,
+          'keywords'          => array( 'contact', 'form' ),
+      ));
+
+        acf_register_block_type(array(
             'name'              => 'Full Width Image',
             'title'             => __('Full Width Image'),
             'description'       => __('Full Width Image Custom Block'),

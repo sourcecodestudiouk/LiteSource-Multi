@@ -38,6 +38,7 @@
       <?php
       } ?>
     </div>
+    <?php get_template_part('templates/partials/social-media'); ?>
     <?php  } ?>
   </div>
   <?php 

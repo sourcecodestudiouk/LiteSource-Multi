@@ -78,9 +78,9 @@
         {
             "key": "field_645ce8f0feac6",
             "label": "Style",
-            "name": "style",
+            "name": "",
             "aria-label": "",
-            "type": "text",
+            "type": "tab",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -89,11 +89,8 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "placement": "top",
+            "endpoint": 0
         },
         {
             "key": "field_6446a0944f101",
@@ -182,5 +179,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1683810553
+    "modified": 1684165163
 }

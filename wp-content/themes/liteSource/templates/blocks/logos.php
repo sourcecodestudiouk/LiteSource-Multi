@@ -26,12 +26,9 @@ if( !empty($block['align']) ) {
 
 $logos = get_field('logos');
 
-$colours = get_field('site_colours', 'options'); 
-$bg = $colours['background_colour'];
-
 
 ?>
-<div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>" style="background-color:<?= $bg; ?>">
+<div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
     <?php foreach($logos as $logo){ ?>
             <div class="image-container">
                 <img src="<?= $logo['url'] ?>" alt="<?= $logo['alt']; ?>"/>

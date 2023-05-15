@@ -61,7 +61,7 @@
                 "text": "Text",
                 "block": "Block Colour"
             },
-            "default_value": false,
+            "default_value": "text",
             "return_format": "value",
             "multiple": 0,
             "allow_null": 0,
@@ -239,5 +239,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1683805264
+    "modified": 1684164941
 }

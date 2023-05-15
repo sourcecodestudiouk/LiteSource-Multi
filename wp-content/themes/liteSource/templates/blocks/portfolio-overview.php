@@ -87,7 +87,7 @@ $colours = get_theme_colours($theme);
     }
     if($portfolio == 'selected'){?>
       <div class="container">
-        <p class="btn view-all-btn" style="background-color:<?= $colours['bg']; ?>; color:<?= $colours['textCol']; ?>"><a href="<?= get_site_url(); ?>/portfolio">View More Portfolio</a></p>
+        <p class="btn view-all-btn" style="background-color:<?= $colours['bg']; ?>; color:<?= $colours['textCol']; ?>"><a href="<?= get_site_url(); ?>/our-portfolio">View More Portfolio</a></p>
       <?php } ?>
       </div>
   </div>

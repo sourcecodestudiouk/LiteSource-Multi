@@ -42,8 +42,14 @@
 		
 		<?php wp_head(); ?>
 	</head>
-	<?php $colours = get_field('site_colours', 'options'); 
-	$bg = $colours['background_colour'];
+	<?php $colours = get_field('site_colours', 'options');
+	$bodyCol = $colours['body_colour'];
+        if($bodyCol == 'white'){
+            $bg = '#ffffff';
+        }
+        else{
+            $bg = $colours['background_colour'];
+        }
 	$textCol = getContrastColor($bg);?>
 	<body <?php body_class(); ?> style="background-color:<?= $bg; ?>; color:<?= $textCol; ?>">
 		<div class="wrapper container">

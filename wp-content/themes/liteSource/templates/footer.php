@@ -1,29 +1,6 @@
 <?php
   $theme = get_field('footer_theme', 'options');
-  $colours = get_field('site_colours', 'options');
-
-  if($theme == 'primary'){
-      $bg = $colours['primary'];
-      $textCol = getContrastColor($bg);           
-  }
-  else if($theme == 'secondary'){
-      $bg = $colours['secondary'];
-      $textCol = getContrastColor($bg);          
-  }
-  else if($theme == 'accent'){
-      $bg = $colours['accent'];
-      $textCol = getContrastColor($bg);        
-  }
-  else if($theme == 'none'){
-    $bodyCol = $colours['body_colour'];
-    if($bodyCol == 'white'){
-        $bg = '#fff';
-    }
-    else{
-        $bg = $colours['background_colour'];
-    }  
-    $textCol = getContrastColor($bg);
-  }
+  $colours = get_theme_colours($theme); 
 
   $type = get_field('footer_layout', 'options');
   if($type == 'full'){
@@ -37,7 +14,7 @@
   $company = get_field('company_number', 'options');
 ?>
 
-<footer class="site-footer" role="contentinfo" style="background-color:<?= $bg ?>; color:<?= $textCol; ?>">
+<footer class="site-footer" role="contentinfo" style="background-color:<?= $colours['bg'] ?>; color:<?= $colors['textCol']; ?>">
   <div class="container <?= $type . '-layout'; ?>">
     <div class="company-information">
     <?php $icon = get_field('company_logo', 'options'); ?>

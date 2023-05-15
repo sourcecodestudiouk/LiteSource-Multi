@@ -27,26 +27,20 @@ if( !empty($block['align']) ) {
 // Load values and assign defaults.
 
 
-$theme = get_field('themes') ?: 'primary';
-$colours = get_field('site_colours', 'options');
-
-if($theme == 'primary'){
-    $bg = $colours['primary'];
-    $textCol = getContrastColor($bg);           
-}
-else if($theme == 'secondary'){
-    $bg = $colours['secondary'];
-    $textCol = getContrastColor($bg);          
-}
-else if($theme == 'accent'){
-    $bg = $colours['accent'];
-    $textCol = getContrastColor($bg);        
-}
+    $colours = get_field('site_colours', 'options');
+	$bodyCol = $colours['body_colour'];
+        if($bodyCol == 'white'){
+            $bg = '#ffffff';
+        }
+        else{
+            $bg = $colours['background_colour'];
+        }
+	$textCol = getContrastColor($bg);
 
 $form = get_field('contact_form');
 $style = get_field('form_styling', 'options');
 
 ?>
-<div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?> <?= $style; ?>" style="background-color:<?= $bg; ?>; color:<?= $textCol; ?>; border-color:<?= 'red'; ?>;">
+<div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?> <?= $style; ?>" style="color:<?= $textCol; ?>; border-color:<?= 'red'; ?>;">
     <?= do_shortcode('[forminator_form id="' . $form->ID . '"]'); ?> 
 </div>

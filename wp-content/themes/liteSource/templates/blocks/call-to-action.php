@@ -35,33 +35,17 @@ $width = get_field('width');
 $style = get_field('style');
 
 $theme = get_field('themes') ?: 'primary';
-$colours = get_field('site_colours', 'options');
-
-if($theme == 'primary'){
-    $bg = $colours['primary'];
-    $textCol = getContrastColor($bg);           
-}
-else if($theme == 'secondary'){
-    $bg = $colours['secondary'];
-    $textCol = getContrastColor($bg);          
-}
-else if($theme == 'accent'){
-    $bg = $colours['accent'];
-    $textCol = getContrastColor($bg);        
-}
-
-// $textCol = getContrastColor($colours['primary']);
-$btnCol = getContrastColor($colours['secondary']);
+$colours = get_theme_colours($theme); 
 
 ?>
-<div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?> <?= $style . '-style'; ?> <?= $width . '-width'; ?>" style="background-color:<?= $bg; ?>">
+<div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?> <?= $style . '-style'; ?> <?= $width . '-width'; ?>" style="background-color:<?= $colours['bg']; ?>">
     <div class="container">
-        <div class="content" style="color:<?= $textCol; ?>">
+        <div class="content" style="color:<?= $colours['textCol']; ?>">
             <h3><?= $title; ?></h3>
             <p class="description"><?= $desc; ?></p>
         </div>
-        <p class="btn" style="background-color:<?= $colours['secondary']; ?>">
-            <a href="<?= $link['url']; ?>" style="color:<?= $btnCol; ?>; border:2px solid <?= $btnCol; ?>"><?= $link['title']; ?></a>
+        <p class="btn" style="background-color:<?= $colours['bg']; ?>">
+            <a href="<?= $link['url']; ?>" style="color:<?= $colours['textCol']; ?>; border:2px solid <?= $colours['textCol']; ?>"><?= $link['title']; ?></a>
         </p>
     </div>
 </div>

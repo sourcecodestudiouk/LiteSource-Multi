@@ -14,7 +14,7 @@ function get_theme_colours($theme){
     else if(is_null($theme) OR $theme == 'none'){
         $bodyCol = $colours['body_colour'];
         if($bodyCol == 'white'){
-            $cols['bg'] = '#fff';
+            $cols['bg'] = '#ffffff';
         }
         else{
             $cols['bg'] = $colours['background_colour'];

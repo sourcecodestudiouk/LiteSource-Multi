@@ -28,11 +28,10 @@ if( !empty($block['align']) ) {
 
 $type = get_field('type');
 $profiles = get_field('profiles_to_show');
+$cols = get_field('profiles_per_row');
 
 if($profiles == 'selected'){
   $profiles = get_field('selected_profiles');
-  //var_dump($selected);
-  //$profiles = get_posts(array('post_type' => 'team_members', 'posts_per_page' => '-1', 'orderby'=>'menu_order', 'fields' => 'id'));
 }
 else{
   $profiles = get_posts(array('post_type' => 'team_members', 'posts_per_page' => '-1', 'orderby'=>'menu_order'));
@@ -56,7 +55,7 @@ else{
   }
   else{ ?>
     <div class="content-grid">
-      <div class="container">
+      <div class="container <?= $cols; ?>-columns">
   <?php
   }?>
     <?php

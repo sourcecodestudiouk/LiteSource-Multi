@@ -5,7 +5,7 @@ add_action( 'after_setup_theme', 'gutenberg_css' );
 
 function gutenberg_css(){
 	add_theme_support( 'editor-styles' ); // if you don't add this line, your stylesheet won't be added
-  add_editor_style( '/assets/bootstrap/bootstrap.css' ); // tries to include style-editor.css directly from your theme folder
+  	add_editor_style( '/assets/bootstrap/bootstrap.css' ); // tries to include style-editor.css directly from your theme folder
 	add_editor_style( '/assets/style/style.css' ); // tries to include style-editor.css directly from your theme folder
 }
 
@@ -35,6 +35,23 @@ function hide_editor() {
   }
 }
 
+function my_custom_js() {
+	$colours = get_field('site_colours', 'options'); 
+	$bg = $colours['background_colour'];
+	$textCol = getContrastColor($bg);
+    echo '<style type="text/css">
+	.editor-styles-wrapper{
+		background:'.$bg.'!important;
+		color:'.$textCol.'!important;
+	}
+	.acf-block-preview a {
+		pointer-events: none!important;
+	}
+	</style>';
+}
+// Add hook for admin <head></head>
+add_action( 'admin_head', 'my_custom_js' );
+
 
 
 // Remove Comments From Menu Section
@@ -57,12 +74,10 @@ function allowed_block_types( $allowed_blocks, $editor_context ) {
 		'core/list',
 		'core/list-item',
 		'core/block',
-		'core/shortcode',
 		'core/spacer',
 		'core/row',
 		'core/group',
 		'core/columns',
-		'core/image',
 		'core/gallery',
 		'core/table',
 		'core/pullquote',
@@ -83,7 +98,11 @@ function allowed_block_types( $allowed_blocks, $editor_context ) {
 		'acf/image-gallery',
 		'acf/separator',
 		'acf/full-width-image',
+		'acf/full-width-gallery',
 		'acf/contact-form',
+		'acf/portfolio-overview',
+		'acf/single-image',
+		'acf/logos',
 
 
 		// Team Content

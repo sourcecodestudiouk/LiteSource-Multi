@@ -42,6 +42,7 @@ function header_nav() {
             $topCount = 1;
             $totalCount = 1;
             $submenu = false;
+            $current = get_the_ID();
             if(isset($menuitems)){
               foreach( $menuitems as $item ):
                   // set up title and url
@@ -54,7 +55,7 @@ function header_nav() {
                   // save this id for later comparison with sub-menu items
                   $parent_id = $item->ID;?>
                   <li class="item parent-link">
-                      <p class="title"><a href="<?php echo $link; ?>" style="<?= $textCol; ?>"><span class="text"><?php echo $title; $topCount++; ?></span></a> </p>
+                      <p class="title <?php if($item->object_id == $current){ echo 'current'; }?>"><a href="<?php echo $link; ?>" style="<?= $textCol; ?>"><span class="text"><?php echo $title; $topCount++; ?><span class="line" style="background-color:<?= $accent; ?>"></span></span></a> </p>
                       <?php endif; ?>
                           <?php if ( $parent_id == $item->menu_item_parent ): ?>
                               <?php if ( !$submenu ): $submenu = true;?>
@@ -80,7 +81,7 @@ function header_nav() {
                           </li>
                       <?php $submenu = false; endif; 
                       }
-                      if($topCount == 5){
+                      if($topCount == 6){
                         break;
                       }
               $count++; endforeach; ?>

@@ -1,9 +1,26 @@
 {
-    "key": "group_640868cf0c66f",
-    "title": "BLOCK: Team Members",
+    "key": "group_64521be0ac038",
+    "title": "BLOCK: Portfolio Overview",
     "fields": [
         {
-            "key": "field_640868cfc5df7",
+            "key": "field_64551269c8fde",
+            "label": "Content",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_64521be0afc7f",
             "label": "Type",
             "name": "type",
             "aria-label": "",
@@ -26,9 +43,9 @@
             "layout": "horizontal"
         },
         {
-            "key": "field_64086ae5c5df8",
-            "label": "Profiles to Show",
-            "name": "profiles_to_show",
+            "key": "field_64521be0afc8d",
+            "label": "Items to Show",
+            "name": "items_to_show",
             "aria-label": "",
             "type": "button_group",
             "instructions": "",
@@ -40,8 +57,8 @@
                 "id": ""
             },
             "choices": {
-                "all": "All Profiles",
-                "selected": "Selected Profiles"
+                "all": "All Portfolio",
+                "selected": "Selected Items"
             },
             "default_value": "",
             "return_format": "value",
@@ -49,9 +66,9 @@
             "layout": "horizontal"
         },
         {
-            "key": "field_64086b1bc5df9",
-            "label": "Selected Profiles",
-            "name": "selected_profiles",
+            "key": "field_64521be0afc94",
+            "label": "Selected Items",
+            "name": "selected_items",
             "aria-label": "",
             "type": "post_object",
             "instructions": "",
@@ -59,7 +76,7 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_64086ae5c5df8",
+                        "field": "field_64521be0afc8d",
                         "operator": "==",
                         "value": "selected"
                     }
@@ -71,8 +88,9 @@
                 "id": ""
             },
             "post_type": [
-                "team_member"
+                "portfolio"
             ],
+            "post_status": "",
             "taxonomy": "",
             "return_format": "id",
             "multiple": 1,
@@ -80,38 +98,43 @@
             "ui": 1
         },
         {
-            "key": "field_645a5f8f1ecd4",
-            "label": "Profiles Per Row",
-            "name": "profiles_per_row",
+            "key": "field_64551274c8fdf",
+            "label": "Style",
+            "name": "",
             "aria-label": "",
-            "type": "select",
+            "type": "tab",
             "instructions": "",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_640868cfc5df7",
-                        "operator": "==",
-                        "value": "grid"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "three": "Three",
-                "four": "Four"
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_645394837792a",
+            "label": "Theme",
+            "name": "theme",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
             },
-            "default_value": false,
-            "return_format": "value",
-            "multiple": 0,
-            "allow_null": 0,
-            "ui": 0,
-            "ajax": 0,
-            "placeholder": ""
+            "clone": [
+                "field_6408ad13ba71f"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
         }
     ],
     "location": [
@@ -119,7 +142,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/team-profiles"
+                "value": "acf\/portfolio-overview"
             }
         ]
     ],
@@ -132,5 +155,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1683646633
+    "modified": 1683296903
 }

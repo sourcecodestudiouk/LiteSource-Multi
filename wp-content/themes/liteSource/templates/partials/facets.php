@@ -1,18 +1,20 @@
-
 <div class="facets-container">
-    <?php if(is_page('news') || is_page('events')){ ?>
+    <?php if(is_page('news') || is_page('events') || is_page('our-portfolio')){ ?>
 		<div class="category-archive-filters">
 			<?php
 			if(isset($_GET['category'])){ ?> <p class="category reset"><a href="<?= get_permalink(); ?>">Reset</a></p> <?php }
             if(is_page('news')){
                 $cats = get_categories();
             }
+            if(is_page('our-portfolio')){
+                $cats = get_terms( 'portfolio_cat');
+            }
             else if(is_page('events')){
                 $cats = get_terms( 'event_cat');
             }
-            if(is_page('news') || (is_page('events') && isset($_GET['view']) && $_GET['view'] == 'grid') OR !isset($_GET['view']))
+            if(is_page('news') || is_page('our-portfolio') || (is_page('events') && isset($_GET['view']) && $_GET['view'] == 'grid') OR !isset($_GET['view']))
 			foreach($cats as $cat){ ?>
-				<p class="category<?php if(isset($_GET['category'])){ if($_GET['category'] == $cat->slug){ echo ' current'; }; } ?>"><a href="?category=<?= $cat->slug; ?>"><?= $cat->name; ?></a></p>
+				<p class="category" <?php if(isset($_GET['category'])){ if($_GET['category'] == $cat->slug){?> style="background-color:<?= $bg; ?>;" <?php } } ?>><a href="?category=<?= $cat->slug; ?>"><?= $cat->name; ?></a></p>
 			<?php
 			} ?>
 		</div>	

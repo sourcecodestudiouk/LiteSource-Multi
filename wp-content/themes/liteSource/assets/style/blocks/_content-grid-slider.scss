@@ -5,7 +5,7 @@
     .container:not(.outter-container){
       display:flex;
       justify-content: space-between;
-      align-items: flex-start;
+      align-items: stretch;
       margin-bottom:40px;
       flex-wrap: wrap;
       @include media("<=sm") {
@@ -21,7 +21,7 @@
 
     .slider-container{
         .content-card{
-            width:300px;
+            width:340px;
         }
     }
 }
@@ -29,6 +29,10 @@
 .testimonial-block{
     min-height:800px;
 }  
+
+.portfolio-overview-block{
+  min-height:700px;
+}
 
 .content-grid{
   margin-top:30px;
@@ -40,7 +44,7 @@
     align-items: stretch;
     flex-wrap: wrap;
     gap:16px;
-    .content-card{
+    .content-card, .list-card{
         width:calc(100% / 3 - 12px);
         //min-width:352px;
         @include media("<=md") {
@@ -51,6 +55,21 @@
           min-width:auto;
           width:100%;
         }
+    }
+    &.four-columns{
+      .content-card{
+        width:calc(100% / 4 - 12px);
+        @include media("<=lg") {
+          width:calc(100% / 3 - 12px);
+        }
+        @include media("<=md") {
+          width:calc(100% / 2 - 12px);
+        }
+        @include media("<=sm") {
+          width:100%;
+        }
       }
+      
+    }
   }
 }

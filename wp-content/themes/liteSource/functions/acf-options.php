@@ -1,5 +1,16 @@
 <?php
 
+add_filter( 'block_categories_all' , function( $categories ) {
+
+  // Adding a new category.
+$categories[] = array(
+  'slug'  => 'optimised-blocks',
+  'title' => 'Optimised Blocks'
+);
+
+return $categories;
+} );
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Register ACF Blocks
 
@@ -23,7 +34,7 @@ function my_acf_init_block_types() {
             'title'             => __('Events Card Slider'),
             'description'       => __('Events card slider block for use within the events addon module.'),
             'render_template'   => 'templates/blocks/events-slider.php',
-            'category'          => 'events-module',
+            'category'          => 'Opimtised Blocks',
             'icon'              => $icon,
             'keywords'          => array( 'events', 'slider' ),
           ));
@@ -79,6 +90,22 @@ function my_acf_init_block_types() {
               'category'          => 'team-content',
               'icon'              => $icon,
               'keywords'          => array( 'services', 'slider', 'grid', 'content' ),
+            ));
+          }
+        }
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Portfolio Post Type Related Blocks
+        if(isset($postTypes)){
+          if(in_array('portfolio', $postTypes)){
+            acf_register_block_type(array(
+              'name'              => 'Portfolio Overview',
+              'title'             => __('Portfolio Overview'),
+              'description'       => __('A block to display the portfolio in either a grid view or full width view'),
+              'render_template'   => 'templates/blocks/portfolio-overview.php',
+              'category'          => 'portfolio',
+              'icon'              => $icon,
+              'keywords'          => array( 'portfolio', 'full-width', 'grid', 'content' ),
             ));
           }
         }
@@ -168,13 +195,33 @@ function my_acf_init_block_types() {
         // ));
 
         acf_register_block_type(array(
-          'name'              => 'Contact Form',
-          'title'             => __('Contact Form'),
-          'description'       => __('Contact Form Custom Block'),
-          'render_template'   => 'templates/blocks/contact-form.php',
+            'name'              => 'Contact Form',
+            'title'             => __('Contact Form'),
+            'description'       => __('Contact Form Custom Block'),
+            'render_template'   => 'templates/blocks/contact-form.php',
+            'category'          => 'custom-layout',
+            'icon'              => $icon,
+            'keywords'          => array( 'contact', 'form' ),
+        ));
+
+        acf_register_block_type(array(
+          'name'              => 'Logos',
+          'title'             => __('Logos'),
+          'description'       => __('Logos Custom Block'),
+          'render_template'   => 'templates/blocks/logos.php',
           'category'          => 'custom-layout',
           'icon'              => $icon,
-          'keywords'          => array( 'contact', 'form' ),
+          'keywords'          => array( 'logos', 'gallery' ),
+      ));
+
+        acf_register_block_type(array(
+          'name'              => 'Single Image',
+          'title'             => __('Single Image'),
+          'description'       => __('Single Image Custom Block'),
+          'render_template'   => 'templates/blocks/single-image.php',
+          'category'          => 'custom-layout',
+          'icon'              => $icon,
+          'keywords'          => array( 'image' ),
       ));
 
         acf_register_block_type(array(
@@ -185,6 +232,16 @@ function my_acf_init_block_types() {
             'category'          => 'custom-layout',
             'icon'              => $icon,
             'keywords'          => array( 'image', 'full width' ),
+        ));
+
+        acf_register_block_type(array(
+            'name'              => 'Full Width Gallery',
+            'title'             => __('Full Width Gallery'),
+            'description'       => __('Full Width Gallery Custom Block'),
+            'render_template'   => 'templates/blocks/full-width-gallery.php',
+            'category'          => 'custom-layout',
+            'icon'              => $icon,
+            'keywords'          => array( 'image', 'full width', 'gallery' ),
         ));
 
         acf_register_block_type(array(
@@ -488,6 +545,24 @@ function my_acf_save_post( $post_id ) {
         wp_delete_post( $tPage->ID, $bypass_trash = true );
       }
 
+      // Portfolio Archive
+      if(in_array('portfolio', $postTypes)){
+        $post_title = 'Our Portfolio';
+        $data = array(
+              'post_title'   => $post_title,
+              'post_status'  => 'publish',
+              'post_type'    => 'page',
+        );
+        if(!post_exists($post_title)){
+          wp_insert_post( add_magic_quotes( $data ) );
+        }
+      }
+      else{
+        $post_title = 'Our Portfolio';
+        $tPage = get_page_by_title($post_title);
+        wp_delete_post( $tPage->ID, $bypass_trash = true );
+      }
+
       // Team Members Archive
       if(in_array('team', $postTypes)){
         $post_title = 'Team';
@@ -597,23 +672,25 @@ function my_acf_save_post( $post_id ) {
 
 function wpsites_custom_post_states($states) {
     $post = get_post();
-    if( ('page'==get_post_type($post->ID) && ($post->post_name == 'events' || $post->post_name == 'services' || $post->post_name == 'departments' || $post->post_name == 'team' || $post->post_name == 'news' || $post->post_name == 'projects')) ) {
+    if(isset($post)){
+      if( ('page'==get_post_type($post->ID) && ($post->post_name == 'our-portfolio' || $post->post_name == 'events' || $post->post_name == 'services' || $post->post_name == 'departments' || $post->post_name == 'team' || $post->post_name == 'news' || $post->post_name == 'projects')) ) {
         $states[] = __('Archive');
         update_post_meta( $post->ID, '_wp_page_template', 'content-archive.php' );
+      }
+      if($post->post_name == 'terms-of-service' || $post->post_name == 'privacy-policy'){
+        $states[] = __('Legal');
+      }
+      if( ('page'==get_post_type($post->ID) && ($post->post_name == 'search-results' ) )) {
+        $states[] = __('Search Results');
+      } 
     }
-    if($post->post_name == 'terms-of-service' || $post->post_name == 'privacy-policy'){
-      $states[] = __('Legal');
-    }
-    if( ('page'==get_post_type($post->ID) && ($post->post_name == 'search-results' ) )) {
-      $states[] = __('Search Results');
-  }
-    return $states;
+      
 }
-//add_filter('display_post_states', 'wpsites_custom_post_states');
+add_filter('display_post_states', 'wpsites_custom_post_states');
 
 function remove_page_attribute_support() {
   global $post;
-    if( ('page' == get_post_type($post->ID) && ($post->post_name == 'terms-of-service' || $post->post_name == 'privacy-policy' || $post->post_name == 'search-results' || $post->post_name == 'events' || $post->post_name == 'services' || $post->post_name == 'departments' || $post->post_name == 'team' || $post->post_name == 'news' || $post->post_name == 'projects')) ) {
+    if( ('page' == get_post_type($post->ID) && ($post->post_name == 'terms-of-service' || $post->post_name == 'privacy-policy' || $post->post_name == 'search-results' || $post->post_name == 'events' || $post->post_name == 'our-portfolio' || $post->post_name == 'services' || $post->post_name == 'departments' || $post->post_name == 'team' || $post->post_name == 'news' || $post->post_name == 'projects')) ) {
       remove_post_type_support('page','page-attributes');
       remove_post_type_support('page' ,'editor');
       remove_meta_box('pageparentdiv', 'page', 'side');
@@ -623,7 +700,7 @@ add_action( 'admin_head-post.php', 'remove_page_attribute_support' );
 
 function wpse_125800_sample_permalink( $return ) {
   global $post;
-  if( ('page' == get_post_type($post->ID) && ($post->post_name == 'terms-of-service' || $post->post_name == 'privacy-policy' || $post->post_name == 'search-results' || $post->post_name == 'events' || $post->post_name == 'services' || $post->post_name == 'departments' || $post->post_name == 'team' || $post->post_name == 'news' || $post->post_name == 'projects')) ) {
+  if( ('page' == get_post_type($post->ID) && ($post->post_name == 'terms-of-service' || $post->post_name == 'privacy-policy' || $post->post_name == 'search-results' || $post->post_name == 'events' || $post->post_name == 'our-portfolio' || $post->post_name == 'services' || $post->post_name == 'departments' || $post->post_name == 'team' || $post->post_name == 'news' || $post->post_name == 'projects')) ) {
     $return = '';
     return $return;
   }
@@ -634,7 +711,7 @@ add_filter( 'get_sample_permalink_html', 'wpse_125800_sample_permalink' );
 
 function my_disable_quick_edit( $actions = array(), $post = null ) {
   global $post;
-  if( ('page' == get_post_type($post->ID) && ( $post->post_name == 'terms-of-service' || $post->post_name == 'privacy-policy' || $post->post_name == 'search-results'  || $post->post_name == 'events' || $post->post_name == 'services' || $post->post_name == 'departments' || $post->post_name == 'team' || $post->post_name == 'news' || $post->post_name == 'projects')) ) {
+  if( ('page' == get_post_type($post->ID) && ( $post->post_name == 'terms-of-service' || $post->post_name == 'privacy-policy' || $post->post_name == 'search-results'  || $post->post_name == 'events' || $post->post_name == 'our-portfolio' || $post->post_name == 'services' || $post->post_name == 'departments' || $post->post_name == 'team' || $post->post_name == 'news' || $post->post_name == 'projects')) ) {
     if ( isset( $actions['inline hide-if-no-js'] ) ) {
       unset( $actions['inline hide-if-no-js'] );
       unset( $actions['trash']);
@@ -653,7 +730,7 @@ add_filter( 'page_row_actions', 'my_disable_quick_edit', 10, 2 );
 
 
 function disable_gutenberg( $can_edit, $post ) {
-  $disabled = array('services', 'departments', 'team', 'news', 'projects', 'events', 'search-results', 'terms-of-service', 'privacy-policy');
+  $disabled = array('services', 'departments', 'team', 'news', 'projects', 'events', 'search-results', 'terms-of-service', 'privacy-policy', 'our-portfolio');
   if (empty($post->ID)) return $can_edit;
 	
 	if ('page' == get_post_type($post->ID) && in_array($post->post_name, $disabled)) return false;

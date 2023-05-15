@@ -1,0 +1,37 @@
+.full-width-gallery-block{
+    @include breakout();
+    .container{
+  
+    }
+    .gallery-container{
+        height:100vh;
+        overflow:hidden;
+        img{
+            width:100%;
+            object-fit: cover;
+            object-position: center;
+          }
+    }
+    .slider-arrows{
+        width:100%;
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        height:50px;
+        position: absolute;
+        top:calc(50% - 25px);
+        .previous, .next{
+            width:42px;
+            height:42px;
+            z-index: 50;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            &:hover{
+                cursor:pointer;
+            }
+        }
+    }
+    
+  }
+  

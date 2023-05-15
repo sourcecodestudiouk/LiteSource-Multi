@@ -46,9 +46,7 @@ else if($theme == 'accent'){
 $form = get_field('contact_form');
 $style = get_field('form_styling', 'options');
 
-var_dump($style);
-
 ?>
-<div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>" style="background-color:<?= $bg; ?>">
+<div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?> <?= $style; ?>" style="background-color:<?= $bg; ?>; color:<?= $textCol; ?>; border-color:<?= 'red'; ?>;">
     <?= do_shortcode('[forminator_form id="' . $form->ID . '"]'); ?> 
 </div>

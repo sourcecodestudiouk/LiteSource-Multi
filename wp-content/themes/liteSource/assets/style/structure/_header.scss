@@ -55,8 +55,33 @@
               color:inherit;
               font-weight:500;
               padding:7px 15px;
+              .text{
+                position: relative;
+                z-index: 3;
+                .line{
+                  position: absolute;
+                  left:0px;
+                  bottom:-2px;
+                  height:2px;
+                  width:0%;
+                  z-index: 2;
+                  opacity: 01;
+                }
+              }
               &:hover{
-                text-decoration: none;;
+                text-decoration: none;
+                .text{
+                  .line{
+                    width:100%;
+                  }
+                }
+              }
+            }
+            &.current{
+              .text{
+                .line{
+                  width:100%;
+                }
               }
             }
             
@@ -107,7 +132,6 @@
                     width:0%;
                     z-index: 2;
                     opacity: 01;
-                    background-color:red;
                   }
                 }
                 &:hover{
@@ -149,6 +173,9 @@
       }
       .email-address{
         margin-right:7px;
+        @include media("<=lg") {
+          display:none;
+        }
       }
     }
     .btn{

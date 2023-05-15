@@ -18,7 +18,6 @@ html {
  */
 body {
   margin: 0;
-  margin:0;
 }
 
 /**
@@ -1122,8 +1121,27 @@ body a {
   font-weight: 500;
   padding: 7px 15px;
 }
+.site-header .container .desktop-navigation ul > li p a .text {
+  position: relative;
+  z-index: 3;
+}
+.site-header .container .desktop-navigation ul > li p a .text .line {
+  position: absolute;
+  left: 0px;
+  bottom: -2px;
+  height: 2px;
+  width: 0%;
+  z-index: 2;
+  opacity: 1;
+}
 .site-header .container .desktop-navigation ul > li p a:hover {
   text-decoration: none;
+}
+.site-header .container .desktop-navigation ul > li p a:hover .text .line {
+  width: 100%;
+}
+.site-header .container .desktop-navigation ul > li p.current .text .line {
+  width: 100%;
 }
 .site-header .container .desktop-navigation ul > li i {
   position: absolute;
@@ -1177,7 +1195,6 @@ body a {
   width: 0%;
   z-index: 2;
   opacity: 1;
-  background-color: red;
 }
 .site-header .container .desktop-navigation ul > li .sub-menu li a:hover {
   text-decoration: none;
@@ -1210,6 +1227,11 @@ body a {
 }
 .site-header .container .cta-menu-search-container .email-address {
   margin-right: 7px;
+}
+@media (max-width: 992px) {
+  .site-header .container .cta-menu-search-container .email-address {
+    display: none;
+  }
 }
 .site-header .container .btn {
   margin-left: 10px;
@@ -1427,8 +1449,19 @@ body a {
   align-items: center;
   padding: 50px 15px;
 }
+@media (max-width: 992px) {
+  .site-footer .container.simple-layout {
+    flex-wrap: wrap;
+  }
+}
 .site-footer .container.simple-layout .company-information {
   width: 15%;
+}
+@media (max-width: 992px) {
+  .site-footer .container.simple-layout .company-information {
+    width: 50%;
+    order: 1;
+  }
 }
 .site-footer .container.simple-layout .company-information img {
   width: 150px;
@@ -1439,6 +1472,13 @@ body a {
 .site-footer .container.simple-layout .menu-container {
   width: 70%;
 }
+@media (max-width: 992px) {
+  .site-footer .container.simple-layout .menu-container {
+    width: 100%;
+    order: 3;
+    margin-top: 50px;
+  }
+}
 .site-footer .container.simple-layout .menu-container .menu {
   display: flex;
   justify-content: center;
@@ -1447,6 +1487,16 @@ body a {
   list-style: none;
   padding-left: 0;
   margin-bottom: 0;
+}
+@media (max-width: 576px) {
+  .site-footer .container.simple-layout .menu-container .menu {
+    flex-direction: column;
+  }
+}
+@media (max-width: 576px) {
+  .site-footer .container.simple-layout .menu-container .menu li {
+    margin-bottom: 10px;
+  }
 }
 .site-footer .container.simple-layout .menu-container .menu li a {
   font-weight: 700;
@@ -1458,6 +1508,18 @@ body a {
   justify-content: flex-end;
   gap: 24px;
   flex-wrap: wrap;
+}
+@media (max-width: 992px) {
+  .site-footer .container.simple-layout .social-channels {
+    width: 50%;
+    order: 2;
+  }
+}
+@media (max-width: 576px) {
+  .site-footer .container.simple-layout .social-channels {
+    justify-content: center;
+    margin-top: 25px;
+  }
 }
 .site-footer .container.simple-layout .social-channels i {
   font-size: 21px;
@@ -1861,6 +1923,10 @@ body a {
   width: 0 !important;
 }
 
+.portfolio-overview-block .slider-container .slider-content-container {
+  min-height: 500px;
+}
+
 .subscription-lapsed-container {
   position: fixed;
   top: 0;
@@ -2133,7 +2199,7 @@ body a {
   width: 100%;
   height: 100%;
   opacity: 0.5;
-  z-index: 98;
+  z-index: 4;
 }
 
 .call-to-action-block {
@@ -2217,7 +2283,7 @@ body a {
 .content-grid-slider .container:not(.outter-container) {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: stretch;
   margin-bottom: 40px;
   flex-wrap: wrap;
 }
@@ -2233,11 +2299,15 @@ body a {
   }
 }
 .content-grid-slider .slider-container .content-card {
-  width: 300px;
+  width: 340px;
 }
 
 .testimonial-block {
   min-height: 800px;
+}
+
+.portfolio-overview-block {
+  min-height: 700px;
 }
 
 .content-grid {
@@ -2254,18 +2324,36 @@ body a {
   flex-wrap: wrap;
   gap: 16px;
 }
-.content-grid .container .content-card {
+.content-grid .container .content-card, .content-grid .container .list-card {
   width: calc(33.3333333333% - 12px);
 }
 @media (max-width: 768px) {
-  .content-grid .container .content-card {
+  .content-grid .container .content-card, .content-grid .container .list-card {
     width: calc(50% - 12px);
     min-width: auto;
   }
 }
 @media (max-width: 576px) {
-  .content-grid .container .content-card {
+  .content-grid .container .content-card, .content-grid .container .list-card {
     min-width: auto;
+    width: 100%;
+  }
+}
+.content-grid .container.four-columns .content-card {
+  width: calc(25% - 12px);
+}
+@media (max-width: 992px) {
+  .content-grid .container.four-columns .content-card {
+    width: calc(33.3333333333% - 12px);
+  }
+}
+@media (max-width: 768px) {
+  .content-grid .container.four-columns .content-card {
+    width: calc(50% - 12px);
+  }
+}
+@media (max-width: 576px) {
+  .content-grid .container.four-columns .content-card {
     width: 100%;
   }
 }
@@ -2570,19 +2658,99 @@ body a {
   flex-grow: 2;
   max-width: calc(50% - 8px);
 }
+@media (max-width: 576px) {
+  .image-gallery-block .gallery-container.three-columns .image-container {
+    width: calc(50% - 12px);
+  }
+}
 .image-gallery-block .gallery-container.four-columns .image-container {
   width: calc(25% - 12px);
 }
+@media (max-width: 768px) {
+  .image-gallery-block .gallery-container.four-columns .image-container {
+    width: calc(33.3333333333% - 12px);
+  }
+}
+@media (max-width: 576px) {
+  .image-gallery-block .gallery-container.four-columns .image-container {
+    width: calc(50% - 12px);
+  }
+}
 .image-gallery-block .gallery-container.five-columns .image-container {
-  width: calc(20% - 12px);
+  width: calc(20% - 16px);
+}
+@media (max-width: 992px) {
+  .image-gallery-block .gallery-container.five-columns .image-container {
+    width: calc(25% - 12px);
+  }
+}
+@media (max-width: 768px) {
+  .image-gallery-block .gallery-container.five-columns .image-container {
+    width: calc(33.3333333333% - 12px);
+  }
+}
+@media (max-width: 576px) {
+  .image-gallery-block .gallery-container.five-columns .image-container {
+    width: calc(50% - 12px);
+  }
 }
 .image-gallery-block .gallery-container.six-columns .image-container {
   width: calc(16.6666666667% - 12px);
+}
+@media (max-width: 992px) {
+  .image-gallery-block .gallery-container.six-columns .image-container {
+    width: calc(25% - 12px);
+  }
+}
+@media (max-width: 768px) {
+  .image-gallery-block .gallery-container.six-columns .image-container {
+    width: calc(33.3333333333% - 12px);
+  }
+}
+@media (max-width: 576px) {
+  .image-gallery-block .gallery-container.six-columns .image-container {
+    width: calc(50% - 12px);
+  }
 }
 .image-gallery-block .gallery-container .image-container img {
   width: 100%;
   aspect-ratio: 5/4;
   object-fit: cover;
+}
+
+.full-width-gallery-block {
+  width: 100vw;
+  position: relative;
+  left: calc(-1 * (100vw - 100%) / 2);
+}
+.full-width-gallery-block .gallery-container {
+  height: 100vh;
+  overflow: hidden;
+}
+.full-width-gallery-block .gallery-container img {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.full-width-gallery-block .slider-arrows {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 25px);
+}
+.full-width-gallery-block .slider-arrows .previous, .full-width-gallery-block .slider-arrows .next {
+  width: 42px;
+  height: 42px;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.full-width-gallery-block .slider-arrows .previous:hover, .full-width-gallery-block .slider-arrows .next:hover {
+  cursor: pointer;
 }
 
 .full-width-image-block {
@@ -2594,6 +2762,75 @@ body a {
   width: 100%;
   object-fit: cover;
   object-position: center;
+}
+
+.contact-form-block.borded-form .forminator-ui .forminator-row .forminator-field label {
+  color: inherit !important;
+}
+.contact-form-block.borded-form .forminator-ui .forminator-row .forminator-field input.forminator-input, .contact-form-block.borded-form .forminator-ui .forminator-row .forminator-field textarea.forminator-textarea {
+  background-color: rgba(0, 0, 0, 0) !important;
+  color: inherit !important;
+  border-radius: 0 !important;
+  border-color: inherit !important;
+}
+.contact-form-block.underlined-form .forminator-ui .forminator-row .forminator-field label {
+  color: inherit !important;
+}
+.contact-form-block.underlined-form .forminator-ui .forminator-row .forminator-field input.forminator-input, .contact-form-block.underlined-form .forminator-ui .forminator-row .forminator-field textarea.forminator-textarea {
+  background-color: rgba(0, 0, 0, 0) !important;
+  color: inherit !important;
+  border-radius: 0 !important;
+  border-color: inherit !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+  border-top: 0 !important;
+  padding-left: 0 !important;
+}
+
+.portfolio-overview-block {
+  margin-top: -50px;
+}
+.portfolio-overview-block .container .view-all-btn {
+  margin: 0 auto;
+}
+.portfolio-overview-block .container .category-archive-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 16px;
+}
+.portfolio-overview-block .container .category-archive-filters .label {
+  width: 100%;
+  margin-bottom: 0;
+}
+.portfolio-overview-block .container .category-archive-filters .category {
+  font-weight: 700;
+  padding: 5px 12px;
+  border: 1px solid #eee;
+}
+.portfolio-overview-block .container .category-archive-filters .category a {
+  font-size: 14px;
+}
+.portfolio-overview-block .container .category-archive-filters .category.current {
+  background-color: #eee;
+}
+
+.single-image-block img {
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.logos-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 60px;
+}
+.logos-block img {
+  height: 90px;
+  object-fit: contain;
 }
 
 /** overall width = width+padding-right**/
@@ -2910,6 +3147,24 @@ div#calendar:focus {
   height: 30%;
   filter: grayscale(0);
 }
+@media (min-width: 577px) {
+  .project-card.list-card {
+    width: 100% !important;
+  }
+  .project-card.list-card a {
+    display: flex;
+    min-height: 250px;
+    align-items: center;
+  }
+  .project-card.list-card a .image-container {
+    width: 40%;
+    aspect-ratio: 4/3;
+  }
+  .project-card.list-card a .card-content {
+    flex-grow: 2;
+    padding: 35px;
+  }
+}
 
 .service-card {
   margin-bottom: 25px;
@@ -2971,6 +3226,24 @@ div#calendar:focus {
   height: 30%;
   filter: grayscale(0);
 }
+@media (min-width: 577px) {
+  .service-card.list-card {
+    width: 100% !important;
+  }
+  .service-card.list-card a {
+    display: flex;
+    min-height: 250px;
+    align-items: center;
+  }
+  .service-card.list-card a .image-container {
+    width: 40%;
+    aspect-ratio: 4/3;
+  }
+  .service-card.list-card a .card-content {
+    flex-grow: 2;
+    padding: 35px;
+  }
+}
 
 .post-card {
   margin-bottom: 25px;
@@ -3031,6 +3304,104 @@ div#calendar:focus {
   width: 30%;
   height: 30%;
   filter: grayscale(0);
+}
+
+.portfolio-card {
+  margin-bottom: 25px;
+  overflow: hidden;
+  -webkit-box-shadow: 4px 5px 8px 2px rgba(0, 0, 0, 0.16);
+  -moz-box-shadow: 4px 5px 8px 2px rgba(0, 0, 0, 0.16);
+  box-shadow: 4px 5px 8px 2px rgba(0, 0, 0, 0.16);
+}
+.portfolio-card .image-container {
+  aspect-ratio: 1/1;
+  width: 100%;
+  overflow: hidden;
+}
+.portfolio-card .image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  -webkit-transition: all 1s ease-in;
+  -moz-transition: all 1s ease-in;
+  -o-transition: all 1s ease-in;
+  transition: all 1s ease-in;
+}
+.portfolio-card h6 {
+  margin-top: 0px;
+}
+.portfolio-card .card-content {
+  padding: 15px;
+}
+.portfolio-card .card-content .categories {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+}
+.portfolio-card .card-content .categories .category {
+  position: relative;
+  padding: 5px 10px;
+  font-size: 13px;
+  margin-bottom: 0;
+}
+.portfolio-card .card-content .categories .category .background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+}
+.portfolio-card a {
+  color: black;
+}
+.portfolio-card a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+.portfolio-card a:hover .image-container img {
+  margin-left: -10%;
+  margin-top: -10%;
+  width: 120%;
+  height: 120%;
+}
+.portfolio-card.incl-placeholder .image-container {
+  background-color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.portfolio-card.incl-placeholder .image-container img {
+  object-fit: contain;
+  width: 25%;
+  height: 25%;
+  filter: grayscale(100%);
+}
+.portfolio-card.incl-placeholder a:hover .image-container img {
+  margin-left: -2.5%;
+  margin-top: -2.5%;
+  width: 30%;
+  height: 30%;
+  filter: grayscale(0);
+}
+@media (min-width: 577px) {
+  .portfolio-card.list-card {
+    width: 100% !important;
+  }
+  .portfolio-card.list-card a {
+    display: flex;
+    min-height: 250px;
+    align-items: center;
+  }
+  .portfolio-card.list-card a .image-container {
+    width: 40%;
+    aspect-ratio: 4/3;
+  }
+  .portfolio-card.list-card a .card-content {
+    flex-grow: 2;
+    padding: 35px;
+  }
 }
 
 .search-results main > p {
@@ -3283,15 +3654,15 @@ html {
   overflow-x: hidden;
 }
 
-body.curved-border-radius p.btn, body.curved-border-radius .testimonial-card.multiple-slider, body.curved-border-radius .testimonial-card.single-slider, body.curved-border-radius .event-card, body.curved-border-radius .search-result-card, body.curved-border-radius .project-card, body.curved-border-radius .service-card, body.curved-border-radius .post-card, body.curved-border-radius .accordion-container .information-container, body.curved-border-radius .share-buttons .buttons a, body.curved-border-radius .forminator-ui .forminator-textarea, body.curved-border-radius .forminator-ui .forminator-input, body.curved-border-radius .forminator-ui .forminator-button, body.curved-border-radius .contact-details-block {
+body.curved-border-radius p.btn, body.curved-border-radius .testimonial-card.multiple-slider, body.curved-border-radius .testimonial-card.single-slider, body.curved-border-radius .event-card, body.curved-border-radius .portfolio-card, body.curved-border-radius .search-result-card, body.curved-border-radius .project-card, body.curved-border-radius .service-card, body.curved-border-radius .post-card, body.curved-border-radius .accordion-container .information-container, body.curved-border-radius .share-buttons .buttons a, body.curved-border-radius .forminator-ui .forminator-textarea, body.curved-border-radius .forminator-ui .forminator-input, body.curved-border-radius .forminator-ui .forminator-button, body.curved-border-radius .contact-details-block, body.curved-border-radius .slider-arrows .previous, body.curved-border-radius .slider-arrows .next, body.curved-border-radius .single-image-block img, body.curved-border-radius .call-to-action-block {
   border-radius: 8px !important;
 }
 
-body.subtle-border-radius p.btn, body.subtle-border-radius .testimonial-card.multiple-slider, body.subtle-border-radius .testimonial-card.single-slider, body.subtle-border-radius .event-card, body.subtle-border-radius .search-result-card, body.subtle-border-radius .project-card, body.subtle-border-radius .service-card, body.subtle-border-radius .post-card, body.subtle-border-radius .accordion-container .information-container, body.subtle-border-radius .share-buttons .buttons a, body.subtle-border-radius .forminator-ui .forminator-textarea, body.subtle-border-radius .forminator-ui .forminator-input, body.subtle-border-radius .forminator-ui .forminator-button, body.subtle-border-radius .contact-details-block {
+body.subtle-border-radius p.btn, body.subtle-border-radius .testimonial-card.multiple-slider, body.subtle-border-radius .testimonial-card.single-slider, body.subtle-border-radius .event-card, body.subtle-border-radius .portfolio-card, body.subtle-border-radius .search-result-card, body.subtle-border-radius .project-card, body.subtle-border-radius .service-card, body.subtle-border-radius .post-card, body.subtle-border-radius .accordion-container .information-container, body.subtle-border-radius .share-buttons .buttons a, body.subtle-border-radius .forminator-ui .forminator-textarea, body.subtle-border-radius .forminator-ui .forminator-input, body.subtle-border-radius .forminator-ui .forminator-button, body.subtle-border-radius .contact-details-block, body.subtle-border-radius .slider-arrows .previous, body.subtle-border-radius .slider-arrows .next, body.subtle-border-radius .single-image-block img, body.subtle-border-radius .call-to-action-block {
   border-radius: 3px !important;
 }
 
-body.rounded-border-radius p.btn, body.rounded-border-radius .testimonial-card.multiple-slider, body.rounded-border-radius .testimonial-card.single-slider, body.rounded-border-radius .event-card, body.rounded-border-radius .search-result-card, body.rounded-border-radius .project-card, body.rounded-border-radius .service-card, body.rounded-border-radius .post-card, body.rounded-border-radius .accordion-container .information-container, body.rounded-border-radius .share-buttons .buttons a, body.rounded-border-radius .forminator-ui .forminator-textarea, body.rounded-border-radius .forminator-ui .forminator-input, body.rounded-border-radius .forminator-ui .forminator-button, body.rounded-border-radius .contact-details-block {
+body.rounded-border-radius p.btn, body.rounded-border-radius .testimonial-card.multiple-slider, body.rounded-border-radius .testimonial-card.single-slider, body.rounded-border-radius .event-card, body.rounded-border-radius .portfolio-card, body.rounded-border-radius .search-result-card, body.rounded-border-radius .project-card, body.rounded-border-radius .service-card, body.rounded-border-radius .post-card, body.rounded-border-radius .accordion-container .information-container, body.rounded-border-radius .share-buttons .buttons a, body.rounded-border-radius .forminator-ui .forminator-textarea, body.rounded-border-radius .forminator-ui .forminator-input, body.rounded-border-radius .forminator-ui .forminator-button, body.rounded-border-radius .contact-details-block, body.rounded-border-radius .slider-arrows .previous, body.rounded-border-radius .slider-arrows .next, body.rounded-border-radius .single-image-block img, body.rounded-border-radius .call-to-action-block {
   border-radius: 40px !important;
 }
 body.rounded-border-radius .forminator-ui .forminator-textarea, body.rounded-border-radius .forminator-ui .forminator-input, body.rounded-border-radius .forminator-ui .forminator-button {

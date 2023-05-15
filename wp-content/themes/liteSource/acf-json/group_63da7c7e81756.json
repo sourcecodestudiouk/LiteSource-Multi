@@ -22,14 +22,16 @@
                 "testimonials": "Testimonials",
                 "team": "Team Members",
                 "projects": "Projects",
-                "news": "News"
+                "news": "News",
+                "portfolio": "Portfolio"
             },
             "default_value": [],
             "return_format": "value",
             "allow_custom": 0,
             "layout": "vertical",
             "toggle": 0,
-            "save_custom": 0
+            "save_custom": 0,
+            "custom_choice_button_text": "Add new choice"
         }
     ],
     "location": [
@@ -50,5 +52,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1679676334
+    "modified": 1683042270
 }

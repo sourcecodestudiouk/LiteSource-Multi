@@ -3,6 +3,23 @@
     "title": "BLOCK: Accordion",
     "fields": [
         {
+            "key": "field_645cd45dd5b55",
+            "label": "Content",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
             "key": "field_642ee10e224c6",
             "label": "Accordion",
             "name": "accordion",
@@ -69,6 +86,23 @@
             ]
         },
         {
+            "key": "field_645cd46bd5b56",
+            "label": "Style",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
             "key": "field_642ee59662bc4",
             "label": "Theme",
             "name": "theme",
@@ -109,5 +143,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1680795050
+    "modified": 1683805301
 }

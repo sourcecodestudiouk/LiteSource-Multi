@@ -7,10 +7,20 @@
         $alt = 'Placeholder image for the the service';
         $class = 'incl-placeholder';
     }
+
+    if(isset($args['theme'])){
+        $theme = $args['theme'];
+    }
+    else{
+        $theme = get_field('themes');
+    }
+
+    $colours = get_theme_colours($theme); 
+    
 ?> 
 
-<div class="service-card content-card <?= $class; ?>">
-    <a href="<?= the_permalink(); ?>">
+<div class="service-card content-card <?= $class; ?>" style="background-color:<?= $bg; ?>; color:<?= $textCol; ?>">
+    <a href="<?= the_permalink(); ?>" style="color:<?= $textCol; ?>">
          <div class="image-container">
             <img src="<?= $url; ?>" alt="<?= $alt; ?>">
         </div>

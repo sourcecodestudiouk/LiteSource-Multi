@@ -1,0 +1,40 @@
+.contact-form-block{
+    &.borded-form{
+        .forminator-ui{
+            .forminator-row{
+                .forminator-field{
+                    label{
+                        color:inherit!important;
+                    }
+                    input.forminator-input, textarea.forminator-textarea{
+                        background-color:rgba(0,0,0,0)!important;
+                        color:inherit!important;
+                        border-radius:0!important;
+                        border-color:inherit!important;
+                    }
+                }
+            }
+        }
+    }
+    &.underlined-form{
+        .forminator-ui{
+            .forminator-row{
+                .forminator-field{
+                    label{
+                        color:inherit!important;
+                    }
+                    input.forminator-input, textarea.forminator-textarea{
+                        background-color:rgba(0,0,0,0)!important;
+                        color:inherit!important;
+                        border-radius:0!important;
+                        border-color:inherit!important;
+                        border-left:0!important;
+                        border-right:0!important;
+                        border-top:0!important;
+                        padding-left:0!important;
+                    }
+                }
+            }
+        }
+    }
+}

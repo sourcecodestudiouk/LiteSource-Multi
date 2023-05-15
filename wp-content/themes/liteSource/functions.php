@@ -208,6 +208,10 @@ include_once( get_template_directory() . '/functions/template-content.php' );
 include_once( get_template_directory() . '/functions/subscription.php' );
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Theme Colours
+include_once( get_template_directory() . '/functions/theme-colours.php' );
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Events Addons
 include_once( get_template_directory() . '/functions/events.php' );
 

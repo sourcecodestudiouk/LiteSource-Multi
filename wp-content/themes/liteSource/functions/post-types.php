@@ -7,6 +7,116 @@ function scs_post_types() {
 
 	if($sub != 'one-page'){
 
+			////////////////////////////////////////////////////////////////////////////////
+			// Portfolio Post Type
+		
+			$labels = [
+				"name" => esc_html__( "Portfolio", "sourcecodestudio-lite-source" ),
+				"singular_name" => esc_html__( "Portfolio", "sourcecodestudio-lite-source" ),
+				"menu_name" => esc_html__( "Portfolio", "sourcecodestudio-lite-source" ),
+				"all_items" => esc_html__( "All Portfolio", "sourcecodestudio-lite-source" ),
+				"add_new" => esc_html__( "Add new", "sourcecodestudio-lite-source" ),
+				"add_new_item" => esc_html__( "Add new Portfolio", "sourcecodestudio-lite-source" ),
+				"edit_item" => esc_html__( "Edit Portfolio", "sourcecodestudio-lite-source" ),
+				"new_item" => esc_html__( "New Portfolio", "sourcecodestudio-lite-source" ),
+				"view_item" => esc_html__( "View Portfolio", "sourcecodestudio-lite-source" ),
+				"view_items" => esc_html__( "View Portfolio", "sourcecodestudio-lite-source" ),
+				"search_items" => esc_html__( "Search Portfolio", "sourcecodestudio-lite-source" ),
+				"not_found" => esc_html__( "No Portfolio found", "sourcecodestudio-lite-source" ),
+				"not_found_in_trash" => esc_html__( "No Portfolio found in trash", "sourcecodestudio-lite-source" ),
+				"parent" => esc_html__( "Parent Portfolio:", "sourcecodestudio-lite-source" ),
+				"featured_image" => esc_html__( "Featured image for this Portfolio", "sourcecodestudio-lite-source" ),
+				"set_featured_image" => esc_html__( "Set featured image for this Portfolio", "sourcecodestudio-lite-source" ),
+				"remove_featured_image" => esc_html__( "Remove featured image for this Portfolio", "sourcecodestudio-lite-source" ),
+				"use_featured_image" => esc_html__( "Use as featured image for this Portfolio", "sourcecodestudio-lite-source" ),
+				"archives" => esc_html__( "Portfolio archives", "sourcecodestudio-lite-source" ),
+				"insert_into_item" => esc_html__( "Insert into Portfolio", "sourcecodestudio-lite-source" ),
+				"uploaded_to_this_item" => esc_html__( "Upload to this Portfolio", "sourcecodestudio-lite-source" ),
+				"filter_items_list" => esc_html__( "Filter Portfolio list", "sourcecodestudio-lite-source" ),
+				"items_list_navigation" => esc_html__( "Portfolio list navigation", "sourcecodestudio-lite-source" ),
+				"items_list" => esc_html__( "Portfolio list", "sourcecodestudio-lite-source" ),
+				"attributes" => esc_html__( "Portfolio attributes", "sourcecodestudio-lite-source" ),
+				"name_admin_bar" => esc_html__( "Portfolio", "sourcecodestudio-lite-source" ),
+				"item_published" => esc_html__( "Portfolio published", "sourcecodestudio-lite-source" ),
+				"item_published_privately" => esc_html__( "Portfolio published privately.", "sourcecodestudio-lite-source" ),
+				"item_reverted_to_draft" => esc_html__( "Portfolio reverted to draft.", "sourcecodestudio-lite-source" ),
+				"item_scheduled" => esc_html__( "Portfolio scheduled", "sourcecodestudio-lite-source" ),
+				"item_updated" => esc_html__( "Portfolio updated.", "sourcecodestudio-lite-source" ),
+				"parent_item_colon" => esc_html__( "Parent Portfolio:", "sourcecodestudio-lite-source" ),
+			];
+		
+			$args = [
+				"label" => esc_html__( "Portfolio", "sourcecodestudio-lite-source" ),
+				"labels" => $labels,
+				"description" => "",
+				"public" => true,
+				"publicly_queryable" => true,
+				"show_ui" => true,
+				"show_in_rest" => true,
+				"rest_base" => "",
+				"rest_controller_class" => "WP_REST_Posts_Controller",
+				"rest_namespace" => "wp/v2",
+				"has_archive" => false,
+				"show_in_menu" => true,
+				"show_in_nav_menus" => true,
+				"delete_with_user" => false,
+				"exclude_from_search" => false,
+				"capability_type" => "post",
+				"map_meta_cap" => true,
+				"hierarchical" => false,
+				"can_export" => false,
+				"rewrite" => [ "slug" => "portfolio", "with_front" => true ],
+				"query_var" => true,
+				"menu_icon" => "dashicons-art",
+				"supports" => [ "title", "editor", "thumbnail" ],
+				"show_in_graphql" => false,
+			];
+			
+
+			if(isset($postTypes)){
+				if(in_array('portfolio', $postTypes)){
+					register_post_type( "portfolio", $args );
+				}
+			}
+
+			/**
+			* Taxonomy: Portfolio Categories.
+			*/
+			
+			$labels = [
+				"name" => esc_html__( "Portfolio Categories", "sourcecodestudio-lite-source" ),
+				"singular_name" => esc_html__( "Portfolio Category", "sourcecodestudio-lite-source" ),
+			];
+			
+				
+			$args = [
+				"label" => esc_html__( "Portfolio Categories", "sourcecodestudio-lite-source" ),
+				"labels" => $labels,
+				"public" => true,
+				"publicly_queryable" => true,
+				"hierarchical" => true,
+				"show_ui" => true,
+				"show_in_menu" => true,
+				"show_in_nav_menus" => true,
+				"query_var" => true,
+				"rewrite" => [ 'slug' => 'portfolio_cat', 'with_front' => true, ],
+				"show_admin_column" => false,
+				"show_in_rest" => true,
+				"show_tagcloud" => false,
+				"rest_base" => "portfolio_cat",
+				"rest_controller_class" => "WP_REST_Terms_Controller",
+				"rest_namespace" => "wp/v2",
+				"show_in_quick_edit" => false,
+				"sort" => false,
+				"show_in_graphql" => false,
+			];
+
+			if(isset($postTypes)){
+				if(in_array('portfolio', $postTypes)){
+					register_taxonomy( "portfolio_cat", [ "portfolio" ], $args );
+				}
+			}
+			
 		////////////////////////////////////////////////////////////////////////////////
 		// Testimonials Post Type
 		$labels = [
@@ -406,6 +516,9 @@ function scs_get_post_type($post){
 	}
 	if($post->post_name == 'events'){
 		return 'event';
+	}
+	if($post->post_name == 'our-portfolio'){
+		return 'portfolio';
 	}
 }
 ?>

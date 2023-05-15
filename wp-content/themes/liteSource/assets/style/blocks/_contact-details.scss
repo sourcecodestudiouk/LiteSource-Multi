@@ -1,20 +1,30 @@
 .contact-details-block{
+    max-width:380px;
     &:not(&.no-theme){
         padding:25px;
     }
-    h5{
-        margin-bottom:25px;
+    h4{
+        margin-bottom:15px;
+        border-bottom:1px solid;
+        padding-bottom:15px;
+        border-color:inherit;
     }
     .contact-details{
         color:inherit;
-        p{
+        h6{
+            margin-top:15px;
+            margin-bottom:0;
+        }
+        a{
             color:inherit;
-            a{
-                color:inherit;
-                i{
-                    margin-right:10px;
-                }
-            }
+            text-decoration: underline;
+        }
+    }
+    .social-channels{
+        margin-top:25px;
+        i{
+            font-size:24px;
+            margin-right:5px;
         }
     }
 }

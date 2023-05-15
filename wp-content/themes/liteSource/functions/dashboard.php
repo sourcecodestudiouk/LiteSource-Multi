@@ -2,6 +2,16 @@
 
 wp_enqueue_style( 'admin-style', get_stylesheet_directory_uri() . '/assets/style/admin-style.css' );
 
+
+function addMyScript() { ?>
+  <style type="text/css">
+     {
+        background:red!important;
+    }
+    </style>
+<?php
+}
+add_action('wp_enqueue_scripts', 'addMyScript');
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Remove Widgets From Dashboard
 function remove_dashboard_meta() {
@@ -142,4 +152,5 @@ function pw_load_scripts($hook) {
 	wp_enqueue_script( 'custom-js', '/wp-content/themes/lms/assets/js/dashboard.js' );
 }
 add_action('admin_enqueue_scripts', 'pw_load_scripts');
+
 ?>

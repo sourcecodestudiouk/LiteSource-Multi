@@ -3,7 +3,7 @@ body{
         font-weight:700;
     }
     h1{
-        font-size:66px;
+        font-size:72px;
         letter-spacing:3px;
         @include media("<=md") {
             font-size:46px;

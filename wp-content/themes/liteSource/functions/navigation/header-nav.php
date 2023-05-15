@@ -3,12 +3,28 @@
 // Main Navigation
 function header_nav() {
   if( function_exists('acf_add_options_page') ) {
+    $theme = get_field('header_theme', 'options');
     $colours = get_field('site_colours', 'options');
-    if(isset($colours)){
-    $primary = $colours['primary'];
-    $txtCol = getContrastColor($primary);
-    $secondary = $colours['secondary'];
-    $ddcol = getContrastColor($secondary);
+  
+    if($theme == 'primary'){
+        $bg = $colours['primary'];
+        $textCol = getContrastColor($bg);   
+        $accent = $colours['accent'];        
+    }
+    else if($theme == 'secondary'){
+        $bg = $colours['secondary'];
+        $textCol = getContrastColor($bg);
+        $accent = $colours['accent'];        
+    }
+    else if($theme == 'accent'){
+        $bg = $colours['accent'];
+        $textCol = getContrastColor($bg);  
+        $accent = $colours['secondary'];
+    }
+    else if($theme == 'none'){
+      $bg = '';
+      $textCol = 'white';
+      $accent = $colours['secondary'];
     }
     ?>
     <nav class="desktop-navigation">
@@ -26,6 +42,7 @@ function header_nav() {
             $topCount = 1;
             $totalCount = 1;
             $submenu = false;
+            $current = get_the_ID();
             if(isset($menuitems)){
               foreach( $menuitems as $item ):
                   // set up title and url
@@ -38,18 +55,18 @@ function header_nav() {
                   // save this id for later comparison with sub-menu items
                   $parent_id = $item->ID;?>
                   <li class="item parent-link">
-                      <p class="title"><a href="<?php echo $link; ?>" style="<?= $txtCol; ?>"><span class="text"><?php echo $title; $topCount++; ?></span></a> </p>
+                      <p class="title <?php if($item->object_id == $current){ echo 'current'; }?>"><a href="<?php echo $link; ?>" style="<?= $textCol; ?>"><span class="text"><?php echo $title; $topCount++; ?><span class="line" style="background-color:<?= $accent; ?>"></span></span></a> </p>
                       <?php endif; ?>
                           <?php if ( $parent_id == $item->menu_item_parent ): ?>
                               <?php if ( !$submenu ): $submenu = true;?>
                               <i class="fa-solid fa-chevron-down"></i>
-                              <ul class="sub-menu" style="background-color:<?= $secondary; ?>">
+                              <ul class="sub-menu" style="background-color:<?= $bg; ?>; border-color:<?= $accent; ?>">
                               
                                   <?php endif; ?>
-                                    <li class="item child-link" style="border-color:<?= $ddcol; ?>">
+                                    <li class="item child-link" >
                                         <a href="<?php echo $link; ?>" class="title">
-                                          <span style="color:<?= $ddcol; ?>" class="text"><?php echo $title; ?></span>
-                                          <span style="background-color:<?= $ddcol; ?>" class="background"></span>
+                                          <span class="text"><?php echo $title; ?><span class="line" style="background-color:<?= $accent; ?>"></span></span>
+                                          
                                         </a>
                                     </li>
                                   <?php if ( $menuitems[ $count + 1 ]->menu_item_parent != $parent_id && $submenu ):
@@ -64,7 +81,7 @@ function header_nav() {
                           </li>
                       <?php $submenu = false; endif; 
                       }
-                      if($topCount == 5){
+                      if($topCount == 6){
                         break;
                       }
               $count++; endforeach; ?>
@@ -82,9 +99,12 @@ function header_nav() {
                        foreach($menuitems as $item){ 
                           $title = $item->title;
                           $link = $item->url; ?>
-                          <li class="item child-link" style="border-color:<?= $ddcol; ?>">
-                             <a href="<?php echo $link; ?>" class="title"><span style="color:<?= $ddcol; ?>" class="text"><?php echo $title; ?></span><span  style="background-color:<?= $ddcol; ?>" class="background"></span></a>
-                          </li>
+                          <li class="item child-link" >
+                                        <a href="<?php echo $link; ?>" class="title">
+                                          <span class="text"><?php echo $title; ?><span class="line" style="background-color:<?= $accent; ?>"></span></span>
+                                          
+                                        </a>
+                                    </li>
                         <?php } ?>
                     </ul>
                 </li>

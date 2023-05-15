@@ -1,27 +1,48 @@
 <?php
+  $theme = get_field('footer_theme', 'options');
   $colours = get_field('site_colours', 'options');
-  if(isset($colours)){
-    $primary = $colours['primary'];
-    $txtCol = getContrastColor($primary);
-    $secondary = $colours['secondary'];
-    $ddcol = getContrastColor($secondary);
+
+  if($theme == 'primary'){
+      $bg = $colours['primary'];
+      $textCol = getContrastColor($bg);           
   }
-  $menus = get_field('menu_columns', 'options');
-  $company_description = get_field('company_description', 'options');
-  $email = get_field('email_address', 'options');
-  $telephone = get_field('telephone_number', 'options');
-  $address = get_field('address', 'options');
+  else if($theme == 'secondary'){
+      $bg = $colours['secondary'];
+      $textCol = getContrastColor($bg);          
+  }
+  else if($theme == 'accent'){
+      $bg = $colours['accent'];
+      $textCol = getContrastColor($bg);        
+  }
+  else if($theme == 'none'){
+    $bodyCol = $colours['body_colour'];
+    if($bodyCol == 'white'){
+        $bg = '#fff';
+    }
+    else{
+        $bg = $colours['background_colour'];
+    }  
+    $textCol = getContrastColor($bg);
+  }
+
+  $type = get_field('footer_layout', 'options');
+  if($type == 'full'){
+    $menus = get_field('menu_columns', 'options');
+    $company_description = get_field('company_description', 'options');
+    $email = get_field('email_address', 'options');
+    $telephone = get_field('telephone_number', 'options');
+    $address = get_field('address', 'options');
+  }
   $vat = get_field('vat_number', 'options');
   $company = get_field('company_number', 'options');
-
 ?>
 
-<footer class="site-footer" role="contentinfo" style="background-color:<?= $colours['primary']; ?>; color:<?= $txtCol; ?>">
-  <div class="container">
-
-  <div class="company-information">
-    <?php $icon = get_field('company_icon', 'options'); ?>
+<footer class="site-footer" role="contentinfo" style="background-color:<?= $bg ?>; color:<?= $textCol; ?>">
+  <div class="container <?= $type . '-layout'; ?>">
+    <div class="company-information">
+    <?php $icon = get_field('company_logo', 'options'); ?>
     <img src="<?= $icon['url']; ?>" alt="Company Icon"/>
+    <?php if($type == 'full'){ ?>
     <?php  if($company_description){ ?><p class="company-description"><?= $company_description; ?></p> <?php } ?>
     <div class="contact-details">
       <?php 
@@ -40,53 +61,49 @@
       <?php
       } ?>
     </div>
-    <?php get_template_part('templates/partials/social-media'); ?>
-  
+    <?php  } ?>
   </div>
-  <?php if($menus){ ?>
-    <div class="menus">
-    <?php 
-    $count = 0;
-    foreach($menus as $me){ ?>
-    <div class="menu-column">
-      <h5><?= $me['menu_column_title']; ?></h5>
-      <div class="menu-container">
-        <?php wp_nav_menu('footer_menu' . $count++); ?>
+  <?php 
+  if($type == 'full'){
+    if($menus){ ?>
+      <div class="menus">
+      <?php 
+      $count = 0;
+      foreach($menus as $me){ ?>
+      <div class="menu-column">
+        <h5><?= $me['menu_column_title']; ?></h5>
+        <div class="menu-container">
+          <?php wp_nav_menu('footer_menu' . $count++); ?>
+        </div>
       </div>
-    </div>
+      <?php
+      } ?>
+      </div>
     <?php
-    } ?>
+    }
+  }
+  else{ ?>
+    <div class="menu-container">
+      <?php wp_nav_menu('footer_menuone'); ?>
     </div>
-  <?php
+    <?php get_template_part('templates/partials/social-media'); ?>
+    <?php
   } ?>
+
   
   </div>
 </footer>
 <footer class="lower-footer">
   <div class="container">
-    <p class="copyright-link">&copy;<?= date('Y'); ?> <?= get_bloginfo();?>.  All Rights Reserved. <a target="_blank" href="https://www.sourcecodestudio.co.uk">LiteSource by SourceCodeStudio</a>.</p>
+    <div class="copyright-link">
+      <?php if(isset($vat) OR isset($company)){ ?>  
+        <p><?php if($company){ echo '<span>Registered Number: ' . $vat . '</span>'; }; if($vat){ echo '<span>VAT Number: ' . $vat . '</span>'; };?></p>
+      <?php } ?>
+      <p>&copy;<?= date('Y'); ?> <?= get_bloginfo();?>.  All Rights Reserved. <a target="_blank" href="https://www.sourcecodestudio.co.uk">LiteSource by SourceCodeStudio</a>.</p>
+    </div>
     <div class="legal-menu">
       <a href="privacy-policy">Privacy Policy</a>
       <a href="terms-of-service">Terms of Service</a>
     </div>
   </div>
-</footer>
-
-<?php
-  $search = get_field('site_search', 'options');
-  if($search){ ?>
-    <div class="search-container" style="background-color:<?= $colours['primary']; ?>; color:<?= $txtCol; ?>">
-      <div class="close-button">
-        <i class="fa-solid fa-xmark"></i>
-      </div>
-      <div class="search-form-container">
-        <h4>Search Site:</h4>
-        <form action="/search-results/"  method="get" class="search-form">
-          <input type="search" placeholder="Search &hellip;" value="" name="_search" style="color:<?= $txtCol; ?>">
-          <button type="submit"><i style="color:<?= $txtCol; ?>" class="fa-solid fa-magnifying-glass"></i></button>
-        </form>
-      </div>
-    </div>
-  <?php
-  } 
-?>   
+</footer> 

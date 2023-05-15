@@ -3,16 +3,56 @@
     "title": "BLOCK: Page Header",
     "fields": [
         {
-            "key": "field_642af2da834ab",
-            "label": "Type",
-            "name": "type",
+            "key": "field_645cd0f49eb1c",
+            "label": "Page Header Options",
+            "name": "",
             "aria-label": "",
-            "type": "button_group",
+            "type": "message",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "33",
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Edit your archives page header with the following options.",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_642eaa7704cd8",
+            "label": "Theme",
+            "name": "theme",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_6408ad13ba71f"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
+            "key": "field_642af2da834ab",
+            "label": "Type",
+            "name": "type",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
                 "class": "",
                 "id": ""
             },
@@ -21,22 +61,25 @@
                 "text": "Text",
                 "block": "Block Colour"
             },
-            "default_value": "Text",
+            "default_value": false,
             "return_format": "value",
+            "multiple": 0,
             "allow_null": 0,
-            "layout": "horizontal"
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
         },
         {
             "key": "field_642af321834ac",
             "label": "Alignment",
             "name": "alignment",
             "aria-label": "",
-            "type": "button_group",
+            "type": "select",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "33",
+                "width": "25",
                 "class": "",
                 "id": ""
             },
@@ -44,10 +87,40 @@
                 "flex-start": "Left",
                 "center": "Center"
             },
-            "default_value": "flex-start",
+            "default_value": false,
             "return_format": "value",
+            "multiple": 0,
             "allow_null": 0,
-            "layout": "horizontal"
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_6447a94467721",
+            "label": "Height",
+            "name": "height",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "small": "Small",
+                "medium": "Medium",
+                "large": "Large"
+            },
+            "default_value": false,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
         },
         {
             "key": "field_642eab8df6a93",
@@ -67,7 +140,7 @@
                 ]
             ],
             "wrapper": {
-                "width": "33",
+                "width": "25",
                 "class": "",
                 "id": ""
             },
@@ -123,11 +196,11 @@
             "new_lines": ""
         },
         {
-            "key": "field_642eaa7704cd8",
-            "label": "Theme",
-            "name": "theme",
+            "key": "field_645cd0666ead0",
+            "label": "<hr>",
+            "name": "",
             "aria-label": "",
-            "type": "clone",
+            "type": "message",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -136,13 +209,9 @@
                 "class": "",
                 "id": ""
             },
-            "clone": [
-                "field_6408ad13ba71f"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
+            "message": "",
+            "new_lines": "wpautop",
+            "esc_html": 0
         }
     ],
     "location": [
@@ -161,7 +230,7 @@
             }
         ]
     ],
-    "menu_order": 0,
+    "menu_order": 5,
     "position": "normal",
     "style": "seamless",
     "label_placement": "top",
@@ -170,5 +239,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1681391883
+    "modified": 1683805264
 }

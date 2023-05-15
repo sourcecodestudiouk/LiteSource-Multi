@@ -1,0 +1,89 @@
+.portfolio-card{
+    margin-bottom:25px;
+    overflow:hidden;
+    @include shadow();
+    .image-container{
+      aspect-ratio:1/1;
+      width:100%;
+      overflow: hidden;
+      img{
+        width:100%;
+        height:100%;
+        object-fit: cover;
+        @include transition(1s);
+      }
+    }
+    h6{
+      margin-top:0px;
+    }
+    .card-content{
+      padding:15px;
+      .categories{
+        display:flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap:8px;
+        .category{
+            position: relative;
+            padding:5px 10px;
+            font-size:13px;
+            margin-bottom:0;
+            .background{
+                position: absolute;
+                top:0;
+                left:0;
+                width:100%;
+                height:100%;
+                opacity: 0.2;
+                
+            }
+        }
+      }
+    }
+    a{
+      color:black;
+      &:hover{
+        color:inherit;
+        text-decoration: none;
+        .image-container{
+          img{
+            margin-left:-10%;
+            margin-top:-10%;
+            width:120%;
+            height:120%;
+          }
+        }
+      }
+    }
+    &.incl-placeholder{
+      .image-container{
+        background-color:#eee;
+        display:flex;
+        justify-content: center;;
+        align-items: center;
+        img{
+          object-fit: contain;
+          width:25%;
+          height:25%;
+          filter:grayscale(100%);
+        }
+      }
+      a{
+        &:hover{
+          .image-container{
+            img{
+              margin-left:-2.5%;
+              margin-top:-2.5%;
+              width:30%;
+              height:30%;
+              filter:grayscale(0);
+            }
+          }
+        }
+      }
+    }
+    @include media(">sm") {
+      @import '_list-card';
+    }
+  }
+  

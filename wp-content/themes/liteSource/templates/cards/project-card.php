@@ -9,10 +9,18 @@
         $class = 'incl-placeholder';
     }
 
+    if(isset($args['theme'])){
+        $theme = $args['theme'];
+    }
+    else{
+        $theme = get_field('themes');
+    }
+    $colours = get_theme_colours($theme); 
+
 ?> 
 
-<div class="project-card content-card <?= $class; ?>">
-    <a href="<?= the_permalink(); ?>">
+<div class="project-card content-card <?= $class; ?>" style="background-color:<?= $colours['bg']; ?>; color:<?= $colours['textCol']; ?>">
+    <a href="<?= the_permalink(); ?>" style="color:<?= $colours['textCol']; ?>">
          <div class="image-container">
             <img src="<?= $url; ?>" alt="<?= $alt; ?>">
         </div>

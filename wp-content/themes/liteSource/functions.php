@@ -132,13 +132,23 @@ add_action('wp_enqueue_scripts', 'styles');
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Register HTML5 Blank Navigation
 function register_menu() {
-  register_nav_menus(array( // Using array to specify more menus if needed
-    'header-menu' => __('Header Menu', 'html5blank'), // Main Navigation
-    'footer-menu-1' => __('Footer Menu One', 'html5blank'), // Extra Navigation if needed (duplicate as many as you need!)
-    'footer-menu-2' => __('Footer Menu Two', 'html5blank'), // Extra Navigation if needed (duplicate as many as you need!)
-    'footer-menu-3' => __('Footer Menu Three', 'html5blank'), // Extra Navigation if needed (duplicate as many as you need!)
-    'mobile-menu' => __('Mobile Menu', 'html5blank') // Extra Navigation if needed (duplicate as many as you need!)
-  ));
+    $type = get_field('footer_style', 'options');
+    if($type == 'full'){
+        register_nav_menus(array(
+        'header-menu' => __('Header Menu', 'html5blank'), // Main Navigation
+        'footer-menu-1' => __('Footer Menu One', 'html5blank'), // Extra Navigation if needed (duplicate as many as you need!)
+        'footer-menu-2' => __('Footer Menu Two', 'html5blank'), // Extra Navigation if needed (duplicate as many as you need!)
+        'footer-menu-3' => __('Footer Menu Three', 'html5blank'), // Extra Navigation if needed (duplicate as many as you need!)
+        'mobile-menu' => __('Mobile Menu', 'html5blank'),
+    ));
+    }
+    else{
+    register_nav_menus(array(
+        'header-menu' => __('Header Menu', 'html5blank'), // Main Navigation
+        'footer-menu-1' => __('Footer Menu', 'html5blank'),
+        'mobile-menu' => __('Mobile Menu', 'html5blank'),
+    ));
+    }
 }
 add_action('init', 'register_menu'); // Add Menus
 
@@ -196,6 +206,10 @@ include_once( get_template_directory() . '/functions/template-content.php' );
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Subscription Information
 include_once( get_template_directory() . '/functions/subscription.php' );
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Theme Colours
+include_once( get_template_directory() . '/functions/theme-colours.php' );
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Events Addons

@@ -1,7 +1,9 @@
 .breadcrumbs-container{
     margin-top:25px;
     margin-bottom:25px;
-    a{
+    font-size:14px;
+    opacity:0.5;
+    a{ 
         &:hover{
             color:inherit!important;
         }

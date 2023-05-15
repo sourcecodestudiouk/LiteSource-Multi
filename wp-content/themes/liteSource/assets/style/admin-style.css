@@ -14,10 +14,6 @@ html.wp-toolbar {
 .opensub .wp-has-submenu {
   background-color: #FFBAFA !important;
 }
-.opensub:hover a:after {
-  color: red !important;
-}
-
 #adminmenu li:focus .wp-menu-image:before, #adminmenu li:hover .wp-menu-image:before {
   color: #170E28 !important;
 }
@@ -208,6 +204,7 @@ html.wp-toolbar {
   background-color: #170E28;
   margin: -15px -15px 50px -15px !important;
   padding: 0 25px !important;
+  border-bottom: 2px solid white;
 }
 .edit-post-visual-editor__post-title-wrapper h1 {
   position: relative;

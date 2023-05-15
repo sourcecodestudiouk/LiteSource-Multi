@@ -24,7 +24,12 @@ else{
     $title = '<h1>' . $archive->post_title . '</h1>';
     $type = scs_get_post_type($archive);
     $num = '-1';
+    $layout = get_field('archive_layout');
 }
+
+$theme = get_field('archive_theme');
+
+
 // Create class attribute allowing for custom "className" and "align" values.
 $className = 'archive-grid-block';
 if( !empty($block['className']) ) {
@@ -48,6 +53,9 @@ if( !empty($block['align']) ) {
                 if(isset($_GET['category']) && is_page('news')){
                     $args = array( 'post_type' => $type, 'posts_per_page' => $num, 'order' => 'ASC', 'orderby' => 'menu_order', 'tax_query' => array( array('taxonomy' => 'category', 'field' => 'slug', 'terms' => $_GET['category'], ), ),);
                 }
+                if(isset($_GET['category']) && is_page('our-portfolio')){
+                    $args = array( 'post_type' => $type, 'posts_per_page' => $num, 'order' => 'ASC', 'orderby' => 'menu_order', 'tax_query' => array( array('taxonomy' => 'portfolio_cat', 'field' => 'slug', 'terms' => $_GET['category'], ), ),);
+                }
                 if(isset($_GET['category']) && is_page('events')){
                     $args = array( 'post_type' => $type, 'posts_per_page' => $num, 'order' => 'ASC', 'orderby' => 'menu_order', 'tax_query' => array( array('taxonomy' => 'category', 'field' => 'slug', 'terms' => $_GET['category'], ), ),);
                 }
@@ -65,12 +73,12 @@ if( !empty($block['align']) ) {
                                     $date = intval(date($block['attrs']['data']['date_time_0_event_date']));
                                     if(isset($_GET['events']) && $_GET['events'] == 'past'){
                                         if($today >= $date){
-                                            get_template_part('/templates/cards/' . $type . '', 'card');
+                                            get_template_part('/templates/cards/' . $type . '', 'card', ['theme' => $theme]);
                                         }
                                     } 
                                     else{
                                         if($today <= $date){
-                                            get_template_part('/templates/cards/' . $type . '', 'card');
+                                            get_template_part('/templates/cards/' . $type . '', 'card', [ 'theme' => $theme ]);
                                         }
                                     }
                                     
@@ -78,8 +86,13 @@ if( !empty($block['align']) ) {
                             }
                             
                         }
-                        else{    
-                            get_template_part('/templates/cards/' . $type . '', 'card');
+                        else{ 
+                            if($layout == 'list'){
+                                get_template_part('/templates/list-items/' . $type . '', 'card', ['theme' => $theme]);
+                            }   
+                            else{
+                                get_template_part('/templates/cards/' . $type . '', 'card', ['theme' => $theme]);
+                            }
                         }
                         
                     }
@@ -91,3 +104,4 @@ if( !empty($block['align']) ) {
        
     </div>    
 </div>
+

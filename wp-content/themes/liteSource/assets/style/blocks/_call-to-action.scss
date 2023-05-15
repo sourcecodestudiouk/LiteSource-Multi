@@ -1,13 +1,9 @@
 .call-to-action-block{
-    @include breakout();
     padding:35px 0;
+    &.full-width{
+        @include breakout();
+    }
     .container{
-        display:flex;
-        justify-content: space-between;
-        align-items: center;
-        @include media("<=md") {
-            flex-direction: column;
-        }
         .content{
             max-width:75%;
             @include media("<=md") {
@@ -30,6 +26,40 @@
             @include media("<=sm") {
                 margin-left:0;
               }
+        }
+    }
+    &.large-style{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        min-height:500px;
+        .content{
+            max-width:680px;
+            margin:0 auto;
+            h3{
+                text-align: center;
+                font-size:48px;
+                margin-bottom:40px;
+            }
+            .btn{
+                margin-left:0;
+            }
+        }
+        
+    }
+    &.small-style{
+        .container{
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+            @include media("<=md") {
+                flex-direction: column;
+            }
+        }
+        &.contained-width{
+            padding-left:50px;
+            padding-right:50px;
         }
     }
 }

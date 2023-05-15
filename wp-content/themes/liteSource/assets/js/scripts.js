@@ -150,6 +150,17 @@
 				appendDots: $('.slider-background-dots'),
 			});
 
+			$('.full-width-gallery-block .gallery-container').slick({
+				infinite: true,
+				autoplay: true,
+				autoplaySpeed: 5000,
+				slidesToShow:1,
+				arrows:true,
+				dots:false,
+				prevArrow: $('.slider-arrows .previous'),
+    			nextArrow: $('.slider-arrows .next'),
+			});
+
 			/////////////////////////////////////////////////////////////////////////////////
 			// Drag Sliders
 			/////////////////////////////////////////////////////////////////////////////////

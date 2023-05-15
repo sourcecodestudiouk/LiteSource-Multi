@@ -5,17 +5,38 @@ if( function_exists('acf_add_options_page') ) {
   $icon = get_field('company_icon', 'options');
   $layout = get_field('header_layout', 'options');
 
+  $theme = get_field('header_theme', 'options');
   $colours = get_field('site_colours', 'options');
-  if(isset($colours)){
-  $bgCol = $colours['primary'];
-  $txtCol = getContrastColor($colours['primary']);
+
+  if($theme == 'primary'){
+      $bg = $colours['primary'];
+      $textCol = getContrastColor($bg);           
+  }
+  else if($theme == 'secondary'){
+      $bg = $colours['secondary'];
+      $textCol = getContrastColor($bg);          
+  }
+  else if($theme == 'accent'){
+      $bg = $colours['accent'];
+      $textCol = getContrastColor($bg);        
+  }
+  else if($theme == 'none'){
+    $bg = '';
+    $textCol = 'white';
   }
 
   $cta = get_field('call_to_action_options', 'options');
   if(isset($cta)){
-  $ctaBg = $colours['secondary'];
-  $ctaTxt = getContrastColor($colours['secondary']);
+    if($theme == 'primary' || $theme == 'none'){
+      $ctaBg = $colours['secondary'];
+      $ctaTxt = getContrastColor($ctaBg);
+    }
+    else if(isset($cta) && ($theme == 'secondary' || $theme == 'accent')){
+      $ctaBg = $colours['primary'];
+      $ctaTxt = getContrastColor($ctaBg);
+    }
   }
+
 
   $search = get_field('site_search', 'options');
 
@@ -42,7 +63,7 @@ if(current_user_can( 'edit_posts' )){ ?>
 } ?>
 
 
-<header class="site-header <?php if(isset($fixed)){ echo 'fixed-header'; } ?> <?php if(!$cta['add_call_to_action_button']){ echo 'no-cta'; } ;?>" style="background-color:<?= $bgCol; ?>; color:<?= $txtCol; ?>;">
+<header class="site-header <?php if(isset($fixed)){ echo 'fixed-header'; } ?> <?php if(!$cta['add_call_to_action_button']){ echo 'no-cta'; } else if($cta['add_email']){ echo 'cta-with-email'; } ;?> <?= $theme; ?>" style="background-color:<?= $bg; ?>; color:<?= $textCol; ?>;">
   <div class="container <?= $layout; ?>">
     <a class="logo-container" href="<?php echo get_home_url(); ?>">
     <?php if(isset($logo)){ ?>
@@ -59,18 +80,43 @@ if(current_user_can( 'edit_posts' )){ ?>
         </div>
       <?php
       }
-      if(isset($cta['add_call_to_action_button']) && $cta ["call_to_action_button"] != ''){ ?>
+      if(isset($cta['add_call_to_action_button']) && $cta ["call_to_action_button"] != ''){
+        if($cta['add_email']){
+          $email = get_field('email_address', 'options');
+          if($email){ ?>
+          <a class="email-address" href="mailto:<?= $email; ?>"><?= $email; ?></a>
+          <?php
+          }
+        } ?>
         <p class="btn" style="background-color:<?= $ctaBg; ?>; color:<?= $ctaTxt; ?>"><span style="background-color:<?= $ctaTxt; ?>;" class="background"></span><a href="<?= $cta['call_to_action_button']['url'] ?>"><?= $cta['call_to_action_button']['title'] ?></a></p> 
       <?php
       } ?>
       <div class="off-canvas-menu-trigger">
-        <span class="label" style="color:<?= $txtCol; ?>">Menu</span>
+        <span class="label" style="color:<?= $textCol; ?>">Menu</span>
         <i class="fa-solid fa-bars"></i>
       </div>
     </div>
     
   </div>
 </header>
+
+<?php
+  if($search){ ?>
+    <div class="search-container <?php if(isset($fixed)){ echo 'fixed-header'; } ?> <?= $theme; ?>" style="background-color:<?= $bg; ?>; color:<?= $textCol; ?>">
+      <div class="close-button">
+        <i class="fa-solid fa-xmark"></i>
+      </div>
+      <div class="search-form-container">
+        <h6>Search Site:</h6>
+        <form action="<?= get_site_url(); ?>/search-results/"  method="get" class="search-form">
+          <input type="search" placeholder="Search &hellip;" value="" name="_search" style="color:<?= $txtCol; ?>">
+          <button type="submit"><i style="color:<?= $txtCol; ?>" class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+      </div>
+    </div>
+  <?php
+  } 
+?>  
 
 <?php get_template_part('templates/partials/off-canvas-menu'); ?>
 

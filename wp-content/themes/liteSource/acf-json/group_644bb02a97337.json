@@ -1,0 +1,71 @@
+{
+    "key": "group_644bb02a97337",
+    "title": "BLOCK: Separator",
+    "fields": [
+        {
+            "key": "field_644bb02a5bed1",
+            "label": "Theme",
+            "name": "theme",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_6408ad13ba71f"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
+            "key": "field_644bb0865bed2",
+            "label": "Add space",
+            "name": "add_space",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "Add spacing about and below this separator line.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "25px": "Small",
+                "50px": "Medium",
+                "100px": "Large"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/separator"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1682682632
+}

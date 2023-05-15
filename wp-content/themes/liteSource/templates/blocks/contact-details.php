@@ -55,21 +55,25 @@ else if($theme == 'accent'){
    
 ?>
 <div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?> <?php if($theme == 'none'){ echo 'no-theme';} ?>" <?php if($theme != 'none'){ ?> style="background-color:<?= $bg; ?>; color:<?= $textCol; ?>" <?php }  ?>>
-    <h5>Contact Details</h5>
+    <h4>Contact Details</h4>
     <div class="contact-details">
       <?php 
       if(isset($email)){ ?>
-        <p><a href="mailto:<?= $email; ?>"><i class="fa-solid fa-envelope"></i><?= $email; ?></a></p>
+        <h6>Email</h6>
+        <a href="mailto:<?= $email; ?>"><?= $email; ?></a>
       <?php
       } ?>
       <?php 
       if(isset($tel)){ ?>
-       <p><a href="tel:<?= $tel; ?>"><i class="fa-solid fa-phone"></i><?= $tel; ?></a></p>
+        <h6>Phone</h6>
+        <a href="tel:<?= $tel; ?>"><?= $tel; ?></a>
       <?php
       } ?>
       <?php 
       if(isset($address)){ ?>
-        <p><a target="_blank" href="https://www.google.com/maps/dir//<?= $address; ?>"><i class="fa-solid fa-location-dot"></i><?= $address; ?></a></p>
+        <h6>Address</h6>
+        <p><?= $address; ?></p>
+        <a target="_blank" href="https://www.google.com/maps/dir//<?= sanitize_title($address); ?>">Get Directions</a>
       <?php
       } ?>
     </div>

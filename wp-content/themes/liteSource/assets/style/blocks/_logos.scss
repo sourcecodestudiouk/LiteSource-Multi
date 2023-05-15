@@ -1,0 +1,11 @@
+.logos-block{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap:60px;
+    img{
+        height:90px;
+        object-fit: contain;
+    }
+}

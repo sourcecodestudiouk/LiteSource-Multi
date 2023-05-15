@@ -5,11 +5,11 @@
 .site-footer{
   width:100%;
   @include breakout();
-  padding:100px 0;
   .container{
     display:flex;
     justify-content: space-around;
     align-items: stretch;
+    padding:100px 15px;
     @include media("<=md") {
       flex-direction: column;
     }
@@ -109,6 +109,75 @@
         }
       }
     }
+    &.simple-layout{
+      justify-content: space-between;
+      align-items: center;
+      padding:50px 15px;
+      @include media("<=lg") {
+        flex-wrap:wrap;
+      }
+      .company-information{
+        width:15%;
+        @include media("<=lg") {
+          width:50%;
+          order:1;
+        }
+        img{
+          width:150px;
+          height:80px;
+          object-fit: contain;
+          object-position: left;
+        }
+      }
+      .menu-container{
+        width:70%;
+        @include media("<=lg") {
+          width:100%;
+          order:3;
+          margin-top: 50px;
+        }
+        .menu{
+          display:flex;
+          justify-content: center;
+          align-items: center;
+          gap:0 27px;
+          list-style:none;
+          padding-left:0;
+          margin-bottom:0;
+          @include media("<=sm") {
+            flex-direction: column;
+          }
+          li{
+            @include media("<=sm") {
+              margin-bottom:10px;
+            }
+            a{
+              font-weight:700;
+            }
+          }
+          
+        }
+      }
+      .social-channels{
+        width:15%;
+        display:flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap:24px;
+        flex-wrap:wrap;
+        @include media("<=lg") {
+          width:50%;
+          order:2;
+        }
+        @include media("<=sm") {
+          justify-content: center;
+          margin-top:25px;
+        }
+        i{
+          font-size:21px;
+        }
+      }
+    }
   }
 }
 
@@ -135,9 +204,12 @@
     @include media("<=sm") {
       text-align:center;
     }
+    span{
+      margin-right:10px;
+    }
   }
   a{
-    color:black;
+    color:inherit;
     text-decoration: underline;
     &:hover{
       color:#FFBAFA;

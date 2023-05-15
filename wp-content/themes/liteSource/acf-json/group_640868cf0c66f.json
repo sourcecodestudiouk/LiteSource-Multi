@@ -78,6 +78,40 @@
             "multiple": 1,
             "allow_null": 0,
             "ui": 1
+        },
+        {
+            "key": "field_645a5f8f1ecd4",
+            "label": "Profiles Per Row",
+            "name": "profiles_per_row",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_640868cfc5df7",
+                        "operator": "==",
+                        "value": "grid"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "three": "Three",
+                "four": "Four"
+            },
+            "default_value": false,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
         }
     ],
     "location": [
@@ -98,5 +132,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1678279704
+    "modified": 1683646633
 }

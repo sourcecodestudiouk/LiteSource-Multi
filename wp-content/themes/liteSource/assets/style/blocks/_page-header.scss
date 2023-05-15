@@ -25,6 +25,7 @@
         z-index: 4;;
         h1{
             margin:0;
+            font-size:46px;
         }
         .description{
             margin-top:10px;
@@ -34,12 +35,13 @@
             text-align: center;
         }
         &.small{
-            h1{
-                font-size:46px;
-            }
+            
         }
         &.medium{
             height:40vh;
+            h1{
+                font-size:72px;
+            }
         }
         &.large{
             min-height:70vh;
@@ -48,6 +50,9 @@
             .description{
                 font-weight:700;
                 font-size:24px;
+            }
+            h1{
+                font-size:72px;
             }
         }
     }

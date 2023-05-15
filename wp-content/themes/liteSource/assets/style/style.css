@@ -2444,6 +2444,7 @@ body a {
 }
 .page-header-block .container h1 {
   margin: 0;
+  font-size: 46px;
 }
 .page-header-block .container .description {
   margin-top: 10px;
@@ -2452,11 +2453,11 @@ body a {
   align-items: center;
   text-align: center;
 }
-.page-header-block .container.small h1 {
-  font-size: 46px;
-}
 .page-header-block .container.medium {
   height: 40vh;
+}
+.page-header-block .container.medium h1 {
+  font-size: 72px;
 }
 .page-header-block .container.large {
   min-height: 70vh;
@@ -2464,6 +2465,9 @@ body a {
 .page-header-block .container.medium .description, .page-header-block .container.large .description {
   font-weight: 700;
   font-size: 24px;
+}
+.page-header-block .container.medium h1, .page-header-block .container.large h1 {
+  font-size: 72px;
 }
 .page-header-block .overlay {
   position: absolute;

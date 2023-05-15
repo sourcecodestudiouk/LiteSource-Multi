@@ -34,7 +34,7 @@ $align = get_field('alignment');
 $theme = get_field('themes') ?: 'primary';
 $colours = get_field('site_colours', 'options');
 $img = get_field('background_image');
-$height = get_field('height');
+$height = get_field('height') ?: 'small';
 
 $theme = get_field('themes');
 $colours = get_theme_colours($theme); 

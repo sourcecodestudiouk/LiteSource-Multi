@@ -90,12 +90,9 @@ else if($theme == 'none'){
     else if($background['background_type'] == 'video'){ ?>
         <div class="video-background-container">
 			<?php
-			$video = $background['video_file']['url'];
-			if($video){ ?>
-			<video autoplay muted loop width="100%">
-				<source src="<?= $video; ?>" type="video/mp4">
-				Your browser does not support this video tag.
-			</video>)
+			$video = $background['video_file'];
+			if($video){ 
+            echo $video; ?>
 			<?php
 			}?>
 		</div>

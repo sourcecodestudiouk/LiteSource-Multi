@@ -37,7 +37,13 @@ function hide_editor() {
 
 function my_custom_js() {
 	$colours = get_field('site_colours', 'options'); 
-	$bg = $colours['background_colour'];
+	$bodyCol = $colours['body_colour'];
+	if($bodyCol == 'white'){
+		$bg = '#ffffff';
+	}
+	else{
+		$bg = $colours['background_colour'];
+	}
 	$textCol = getContrastColor($bg);
     echo '<style type="text/css">
 	.editor-styles-wrapper{

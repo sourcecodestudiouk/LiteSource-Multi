@@ -14,7 +14,7 @@
   $company = get_field('company_number', 'options');
 ?>
 
-<footer class="site-footer" role="contentinfo" style="background-color:<?= $colours['bg'] ?>; color:<?= $colors['textCol']; ?>">
+<footer class="site-footer" role="contentinfo" style="background-color:<?= $colours['bg'] ?>; color:<?= $colours['textCol']; ?>">
   <div class="container <?= $type . '-layout'; ?>">
     <div class="company-information">
     <?php $icon = get_field('company_logo', 'options'); ?>

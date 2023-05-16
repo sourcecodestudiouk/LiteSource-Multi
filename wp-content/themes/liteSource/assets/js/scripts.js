@@ -224,6 +224,10 @@
 				});
 			}
 
+			/////////////////////////////////////////////////////////////////////////////////
+			// Events Map
+			/////////////////////////////////////////////////////////////////////////////////
+
 			function initMap( $el ) {
 
 				// Find marker elements within map.
@@ -312,6 +316,35 @@
 				});
 			});
 
+			/////////////////////////////////////////////////////////////////////////////////
+			// AutoPlay Iframes
+			/////////////////////////////////////////////////////////////////////////////////
+
+			
+
+			//var url = $(".hero-header-block iframe")[0].src;
+			
+			// For testing.
+			var url = $(".hero-header-block iframe")[0].src;
+			if (url.indexOf("youtube") >= 0){
+				var urls = [
+					$(".hero-header-block iframe")[0].src,
+				];
+				
+				var i, r, rx = /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/|shorts\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/;
+				
+				for (i = 0; i < urls.length; ++i) {
+					r = urls[i].match(rx);
+				}
+				var url = r;
+	
+				var symbol = $(".hero-header-block iframe")[0].src.indexOf("?") > -1 ? "&" : "?";
+				$(".hero-header-block iframe")[0].src += symbol + "autoplay=1&controls=0&mute=1&loop=1&Version=3&playlist=" + url;
+			}
+			else{
+				$(".hero-header-block iframe")[0].src += symbol + "autoplay=1&background=1&muted=1&loop=1";
+			}
+			
 			
 			
 

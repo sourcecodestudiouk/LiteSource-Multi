@@ -1,20 +1,48 @@
+<?php 
+if(is_archive()){
+    if(is_post_type_archive('portfolio')){
+        $content = get_field('portfolio_archive', 'options');
+        $link = get_site_url() . '/portfolio';
+    }
+    if(is_post_type_archive('project')){
+        $content = get_field('projects_archive', 'options');
+        $link = get_site_url() . '/projects';
+    }
+    if(is_post_type_archive('service')){
+        $content = get_field('services_archive', 'options');
+        $link = get_site_url() . '/services';
+    }
+    if(is_post_type_archive('departments')){
+        $content = get_field('department_archive', 'options');
+        $link = get_site_url() . '/derpartments';
+    }
+    if(is_post_type_archive('news')){
+        $content = get_field('news_archive', 'options');
+        $link = get_site_url() . '/news';
+    }
+    $options = $content['archive_page_header_options'];
+    $type = $options['type'] ?: 'text';
+    $theme = $content['archive_theme'];
+    $colours = get_header_colours($theme, $type);
+} ?>
+
 <div class="facets-container">
-    <?php if(is_page('news') || is_page('events') || is_page('our-portfolio')){ ?>
+    <?php if(is_page('news') || is_page('events') || is_post_type_archive('portfolio')){ ?>
 		<div class="category-archive-filters">
 			<?php
-			if(isset($_GET['category'])){ ?> <p class="category reset"><a href="<?= get_permalink(); ?>">Reset</a></p> <?php }
+			if(isset($_GET['category'])){ ?> <p class="category reset"><a href="<?= $link; ?>">Reset</a></p> <?php }
             if(is_page('news')){
                 $cats = get_categories();
             }
-            if(is_page('our-portfolio')){
+            if(is_post_type_archive('portfolio')){
                 $cats = get_terms( 'portfolio_cat');
             }
             else if(is_page('events')){
                 $cats = get_terms( 'event_cat');
             }
-            if(is_page('news') || is_page('our-portfolio') || (is_page('events') && isset($_GET['view']) && $_GET['view'] == 'grid') OR !isset($_GET['view']))
+            if(is_page('news') || is_post_type_archive('portfolio') || (is_page('events') && isset($_GET['view']) && $_GET['view'] == 'grid') OR !isset($_GET['view']))
 			foreach($cats as $cat){ ?>
-				<p class="category" <?php if(isset($_GET['category'])){ if($_GET['category'] == $cat->slug){?> style="background-color:<?= $bg; ?>;" <?php } } ?>><a href="?category=<?= $cat->slug; ?>"><?= $cat->name; ?></a></p>
+				<p class="category" <?php if(isset($_GET['category'])){ if($_GET['category'] == $cat->slug){?> style="background-color:<?= $colours['bg']; ?>; color:<?= $colours['textCol']; ?>" <?php } } ?>><a href="?category=<?= $cat->slug; ?>"><?= $cat->name; ?></a></p>
 			<?php
 			} ?>
 		</div>	

@@ -344,6 +344,20 @@
 			else{
 				$(".hero-header-block iframe")[0].src += symbol + "autoplay=1&background=1&muted=1&loop=1";
 			}
+
+			var height = $('.hero-header-block').height();
+			var width = $('.hero-header-block').width();
+
+			if(height > width){
+				$(".hero-header-block iframe").height(height);
+				$(".hero-header-block iframe").css('width', '100vw');
+
+			}
+			else{
+				var newWidth = width;
+				$(".hero-header-block iframe").width(newWidth);
+				$(".hero-header-block iframe").css('aspect-ratio', '16/9');
+			}
 			
 			
 			

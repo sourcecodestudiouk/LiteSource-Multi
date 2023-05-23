@@ -2279,7 +2279,7 @@ body a {
 }
 .content-grid-slider .container:not(.outter-container) {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: stretch;
   margin-bottom: 40px;
   flex-wrap: wrap;

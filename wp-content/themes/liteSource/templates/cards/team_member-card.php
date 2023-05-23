@@ -12,35 +12,18 @@ $tel = get_field('telephone_number', get_the_ID());
 $email = get_field('email_address', get_the_ID());
 $jobTitle = get_field('job_title', get_the_ID());
 
-$theme = get_field('themes');
-    $colours = get_field('site_colours', 'options');
-    if($theme == 'primary'){
-        $bg = $colours['primary'];
-        $textCol = getContrastColor($bg);           
-    }
-    else if($theme == 'secondary'){
-        $bg = $colours['secondary'];
-        $textCol = getContrastColor($bg);          
-    }
-    else if($theme == 'accent'){
-        $bg = $colours['accent'];
-        $textCol = getContrastColor($bg);        
-    }
-    else if(is_null($theme) OR $theme == 'none'){
-        $bodyCol = $colours['body_colour'];
-        if($bodyCol == 'white'){
-            $bg = '#fff';
-        }
-        else{
-            $bg = $colours['background_colour'];
-        }  
-        $textCol = getContrastColor($bg);
-    }
+if(isset($args['theme'])){
+  $theme = $args['theme'];
+}
+else{
+  $theme = get_field('themes');
+}
+$colours = get_theme_colours($theme); 
 
 ?>
 
-<div class="team-member-card content-card" style="background-color:<?= $bg; ?>; color:<?= $textCol; ?>">
-  <a href="<?= the_permalink(); ?>" style="color:<?= $textCol; ?>">
+<div class="team-member-card content-card" style="background-color:<?= $colours['bg']; ?>; color:<?= $colours['textCol']; ?>">
+  <a href="<?= the_permalink(); ?>" style="color:<?= $colours['textCol']; ?>">
     <div class="image-container">
       <img src="<?= $url; ?>" alt="<?= $alt; ?>"/>
     </div>

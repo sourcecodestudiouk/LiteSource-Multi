@@ -34,15 +34,14 @@ if($profiles == 'selected'){
   $profiles = get_field('selected_profiles');
 }
 else{
-  $profiles = get_posts(array('post_type' => 'team_members', 'posts_per_page' => '-1', 'orderby'=>'menu_order'));
+  $profiles = get_posts(array('post_type' => 'team_members', 'posts_per_page' => '-1'));
 }
 
 ?>
 <div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?> content-grid-slider <?= $type; ?>">
   <?php if(!is_page('team')){ ?>
     <div class="container">
-      <h4>Team Members</h4>
-      <p class="btn btn-small"><a href="<?= get_site_url(); ?>/team">View All Team</a></p>
+
     </div>
 
   <?php
@@ -60,7 +59,7 @@ else{
   }?>
     <?php
     $currentID = get_the_ID();
-    $args = array( 'post_type' => array('team_member') , 'post__in' => $profiles, 'post__not_in' => array($currentID), 'posts_per_page' => '-1', 'order' => 'ASC', 'orderby' => 'menu_order');
+    $args = array( 'post_type' => array('team_member') , 'post__in' => $profiles, 'post__not_in' => array($currentID), 'posts_per_page' => '-1', 'orderby' => 'post__in');
     $post_query = new WP_Query($args);
     if($post_query->have_posts() ) {
       while($post_query->have_posts() ) { $post_query->the_post();

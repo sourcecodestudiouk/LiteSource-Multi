@@ -175,8 +175,8 @@
 				slider_controls(slider);
 			}
 
-			if ($('.sale-highlights-block').length){
-				var slider = document.querySelector('.sale-highlights-block .slider-content-container');
+			if ($('.portfolio-overview-block').length){
+				var slider = document.querySelector('.portfolio-overview-block .slider-content-container');
 				slider_controls(slider);
 			}
 

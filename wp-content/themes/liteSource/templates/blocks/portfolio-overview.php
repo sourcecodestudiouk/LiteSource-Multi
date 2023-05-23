@@ -45,7 +45,7 @@ $colours = get_theme_colours($theme);
   <?php    
   $cats = get_terms( 'portfolio_cat');
   foreach($cats as $cat){ ?>
-    <p class="category<?php if(isset($_GET['category'])){ if($_GET['category'] == $cat->slug){ echo ' current'; }; } ?>"><a href="<?= get_site_url(); ?>/our-portfolio?category=<?= $cat->slug; ?>"><?= $cat->name; ?></a></p>
+    <p class="category<?php if(isset($_GET['category'])){ if($_GET['category'] == $cat->slug){ echo ' current'; }; } ?>"><a href="<?= get_site_url(); ?>/portfolio?category=<?= $cat->slug; ?>"><?= $cat->name; ?></a></p>
   <?php
   } ?>
 </div>
@@ -87,7 +87,7 @@ $colours = get_theme_colours($theme);
     }
     if($portfolio == 'selected'){?>
       <div class="container">
-        <p class="btn view-all-btn" style="background-color:<?= $colours['bg']; ?>; color:<?= $colours['textCol']; ?>"><a href="<?= get_site_url(); ?>/our-portfolio">View More Portfolio</a></p>
+        <p class="btn view-all-btn" style="background-color:<?= $colours['bg']; ?>; color:<?= $colours['textCol']; ?>"><a href="<?= get_site_url(); ?>/portfolio">View More Portfolio</a></p>
       <?php } ?>
       </div>
   </div>

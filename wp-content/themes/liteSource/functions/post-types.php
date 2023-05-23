@@ -56,7 +56,7 @@ function scs_post_types() {
 				"rest_base" => "",
 				"rest_controller_class" => "WP_REST_Posts_Controller",
 				"rest_namespace" => "wp/v2",
-				"has_archive" => false,
+				"has_archive" => true,
 				"show_in_menu" => true,
 				"show_in_nav_menus" => true,
 				"delete_with_user" => false,
@@ -300,7 +300,7 @@ function scs_post_types() {
 			"show_in_rest" => true,
 			"rest_base" => "",
 			"rest_controller_class" => "WP_REST_Posts_Controller",
-			"has_archive" => false,
+			"has_archive" => true,
 			"show_in_menu" => true,
 			"show_in_nav_menus" => true,
 			"delete_with_user" => false,
@@ -309,7 +309,7 @@ function scs_post_types() {
 			"map_meta_cap" => true,
 			"hierarchical" => false,
 			"can_export" => false,
-			"rewrite" => [ "slug" => "service", "with_front" => true ],
+			"rewrite" => [ "slug" => "services", "with_front" => true ],
 			"query_var" => true,
 			"menu_icon" => "dashicons-admin-tools",
 			"supports" => [ "title", "editor", "thumbnail" ],
@@ -367,7 +367,7 @@ function scs_post_types() {
 			"show_in_rest" => true,
 			"rest_base" => "",
 			"rest_controller_class" => "WP_REST_Posts_Controller",
-			"has_archive" => false,
+			"has_archive" => true,
 			"show_in_menu" => true,
 			"show_in_nav_menus" => true,
 			"delete_with_user" => false,
@@ -376,7 +376,7 @@ function scs_post_types() {
 			"map_meta_cap" => true,
 			"hierarchical" => false,
 			"can_export" => false,
-			"rewrite" => [ "slug" => "project", "with_front" => true ],
+			"rewrite" => [ "slug" => "projects", "with_front" => true ],
 			"query_var" => true,
 			"menu_icon" => "dashicons-welcome-view-site",
 			"supports" => [ "title", "editor", "thumbnail" ],
@@ -389,6 +389,158 @@ function scs_post_types() {
 			}
 		}
 
+			/**
+			 * Post Type: Industries.
+			 */
+		
+			 $labels = [
+				"name" => esc_html__( "Industries", "sourcecodestudio-lite-source" ),
+				"singular_name" => esc_html__( "Industry", "sourcecodestudio-lite-source" ),
+				"menu_name" => esc_html__( "Industries", "sourcecodestudio-lite-source" ),
+				"all_items" => esc_html__( "All Industries", "sourcecodestudio-lite-source" ),
+				"add_new" => esc_html__( "Add new", "sourcecodestudio-lite-source" ),
+				"add_new_item" => esc_html__( "Add new Industry", "sourcecodestudio-lite-source" ),
+				"edit_item" => esc_html__( "Edit Industry", "sourcecodestudio-lite-source" ),
+				"new_item" => esc_html__( "New Industry", "sourcecodestudio-lite-source" ),
+				"view_item" => esc_html__( "View Industry", "sourcecodestudio-lite-source" ),
+				"view_items" => esc_html__( "View Industries", "sourcecodestudio-lite-source" ),
+				"search_items" => esc_html__( "Search Industries", "sourcecodestudio-lite-source" ),
+				"not_found" => esc_html__( "No Industries found", "sourcecodestudio-lite-source" ),
+				"not_found_in_trash" => esc_html__( "No Industries found in trash", "sourcecodestudio-lite-source" ),
+				"parent" => esc_html__( "Parent Industry:", "sourcecodestudio-lite-source" ),
+				"featured_image" => esc_html__( "Featured image for this Industry", "sourcecodestudio-lite-source" ),
+				"set_featured_image" => esc_html__( "Set featured image for this Industry", "sourcecodestudio-lite-source" ),
+				"remove_featured_image" => esc_html__( "Remove featured image for this Industry", "sourcecodestudio-lite-source" ),
+				"use_featured_image" => esc_html__( "Use as featured image for this Industry", "sourcecodestudio-lite-source" ),
+				"archives" => esc_html__( "Industry archives", "sourcecodestudio-lite-source" ),
+				"insert_into_item" => esc_html__( "Insert into Industry", "sourcecodestudio-lite-source" ),
+				"uploaded_to_this_item" => esc_html__( "Upload to this Industry", "sourcecodestudio-lite-source" ),
+				"filter_items_list" => esc_html__( "Filter Industries list", "sourcecodestudio-lite-source" ),
+				"items_list_navigation" => esc_html__( "Industries list navigation", "sourcecodestudio-lite-source" ),
+				"items_list" => esc_html__( "Industries list", "sourcecodestudio-lite-source" ),
+				"attributes" => esc_html__( "Industries attributes", "sourcecodestudio-lite-source" ),
+				"name_admin_bar" => esc_html__( "Industry", "sourcecodestudio-lite-source" ),
+				"item_published" => esc_html__( "Industry published", "sourcecodestudio-lite-source" ),
+				"item_published_privately" => esc_html__( "Industry published privately.", "sourcecodestudio-lite-source" ),
+				"item_reverted_to_draft" => esc_html__( "Industry reverted to draft.", "sourcecodestudio-lite-source" ),
+				"item_scheduled" => esc_html__( "Industry scheduled", "sourcecodestudio-lite-source" ),
+				"item_updated" => esc_html__( "Industry updated.", "sourcecodestudio-lite-source" ),
+				"parent_item_colon" => esc_html__( "Parent Industry:", "sourcecodestudio-lite-source" ),
+			];
+		
+			$args = [
+				"label" => esc_html__( "Industries", "sourcecodestudio-lite-source" ),
+				"labels" => $labels,
+				"description" => "",
+				"public" => true,
+				"publicly_queryable" => true,
+				"show_ui" => true,
+				"show_in_rest" => true,
+				"rest_base" => "",
+				"rest_controller_class" => "WP_REST_Posts_Controller",
+				"rest_namespace" => "wp/v2",
+				"has_archive" => true,
+				"show_in_menu" => true,
+				"show_in_nav_menus" => true,
+				"delete_with_user" => false,
+				"exclude_from_search" => false,
+				"capability_type" => "post",
+				"map_meta_cap" => true,
+				"hierarchical" => false,
+				"can_export" => false,
+				"rewrite" => [ "slug" => "industries", "with_front" => true ],
+				"query_var" => true,
+				"menu_icon" => "dashicons-bank",
+				"supports" => [ "title", "editor", "thumbnail" ],
+				"show_in_graphql" => false,
+			];
+
+			if(isset($postTypes)){
+				if(in_array('industries', $postTypes)){
+					register_post_type( "industries", $args );
+				}
+			}
+		
+			register_post_type( "industries", $args );
+
+			
+
+		
+
+		/**
+			 * Post Type: Departments.
+			 */
+		
+			 $labels = [
+				"name" => esc_html__( "Departments", "sourcecodestudio-lite-source" ),
+				"singular_name" => esc_html__( "Department", "sourcecodestudio-lite-source" ),
+				"menu_name" => esc_html__( "Departments", "sourcecodestudio-lite-source" ),
+				"all_items" => esc_html__( "All Departments", "sourcecodestudio-lite-source" ),
+				"add_new" => esc_html__( "Add new", "sourcecodestudio-lite-source" ),
+				"add_new_item" => esc_html__( "Add new Department", "sourcecodestudio-lite-source" ),
+				"edit_item" => esc_html__( "Edit Department", "sourcecodestudio-lite-source" ),
+				"new_item" => esc_html__( "New Department", "sourcecodestudio-lite-source" ),
+				"view_item" => esc_html__( "View Department", "sourcecodestudio-lite-source" ),
+				"view_items" => esc_html__( "View Departments", "sourcecodestudio-lite-source" ),
+				"search_items" => esc_html__( "Search Departments", "sourcecodestudio-lite-source" ),
+				"not_found" => esc_html__( "No Departments found", "sourcecodestudio-lite-source" ),
+				"not_found_in_trash" => esc_html__( "No Departments found in trash", "sourcecodestudio-lite-source" ),
+				"parent" => esc_html__( "Parent Department:", "sourcecodestudio-lite-source" ),
+				"featured_image" => esc_html__( "Featured image for this Department", "sourcecodestudio-lite-source" ),
+				"set_featured_image" => esc_html__( "Set featured image for this Department", "sourcecodestudio-lite-source" ),
+				"remove_featured_image" => esc_html__( "Remove featured image for this Department", "sourcecodestudio-lite-source" ),
+				"use_featured_image" => esc_html__( "Use as featured image for this Department", "sourcecodestudio-lite-source" ),
+				"archives" => esc_html__( "Department archives", "sourcecodestudio-lite-source" ),
+				"insert_into_item" => esc_html__( "Insert into Department", "sourcecodestudio-lite-source" ),
+				"uploaded_to_this_item" => esc_html__( "Upload to this Department", "sourcecodestudio-lite-source" ),
+				"filter_items_list" => esc_html__( "Filter Departments list", "sourcecodestudio-lite-source" ),
+				"items_list_navigation" => esc_html__( "Departments list navigation", "sourcecodestudio-lite-source" ),
+				"items_list" => esc_html__( "Departments list", "sourcecodestudio-lite-source" ),
+				"attributes" => esc_html__( "Departments attributes", "sourcecodestudio-lite-source" ),
+				"name_admin_bar" => esc_html__( "Department", "sourcecodestudio-lite-source" ),
+				"item_published" => esc_html__( "Department published", "sourcecodestudio-lite-source" ),
+				"item_published_privately" => esc_html__( "Department published privately.", "sourcecodestudio-lite-source" ),
+				"item_reverted_to_draft" => esc_html__( "Department reverted to draft.", "sourcecodestudio-lite-source" ),
+				"item_scheduled" => esc_html__( "Department scheduled", "sourcecodestudio-lite-source" ),
+				"item_updated" => esc_html__( "Department updated.", "sourcecodestudio-lite-source" ),
+				"parent_item_colon" => esc_html__( "Parent Department:", "sourcecodestudio-lite-source" ),
+			];
+		
+			$args = [
+				"label" => esc_html__( "Departments", "sourcecodestudio-lite-source" ),
+				"labels" => $labels,
+				"description" => "",
+				"public" => true,
+				"publicly_queryable" => true,
+				"show_ui" => true,
+				"show_in_rest" => true,
+				"rest_base" => "",
+				"rest_controller_class" => "WP_REST_Posts_Controller",
+				"rest_namespace" => "wp/v2",
+				"has_archive" => true,
+				"show_in_menu" => true,
+				"show_in_nav_menus" => true,
+				"delete_with_user" => false,
+				"exclude_from_search" => false,
+				"capability_type" => "post",
+				"map_meta_cap" => true,
+				"hierarchical" => false,
+				"can_export" => false,
+				"rewrite" => [ "slug" => "department", "with_front" => true ],
+				"query_var" => true,
+				"menu_icon" => "dashicons-networking",
+				"supports" => [ "title", "editor", "thumbnail" ],
+				"show_in_graphql" => false,
+			];
+
+			if(isset($postTypes)){
+				if(in_array('departments', $postTypes)){
+					register_post_type( "department", $args );
+				}
+			}
+		
+			
+		
 		if(isset($addons)){
 			if(in_array('events', $addons)){
 
@@ -438,7 +590,7 @@ function scs_post_types() {
 					"rest_base" => "",
 					"rest_controller_class" => "WP_REST_Posts_Controller",
 					"rest_namespace" => "wp/v2",
-					"has_archive" => false,
+					"has_archive" => true,
 					"show_in_menu" => true,
 					"show_in_nav_menus" => true,
 					"delete_with_user" => false,
@@ -499,25 +651,25 @@ if( function_exists('acf_add_options_page') ) {
 }
 
 function scs_get_post_type($post){
-	if($post->post_name == 'news'){
+	if($post == 'news'){
 		return 'post';
 	}
-	if($post->post_name == 'services'){
+	if($post == 'services'){
 		return 'service';
 	}
-	if($post->post_name == 'projects'){
+	if($post== 'projects'){
 		return 'project';
 	}
-	if($post->post_name == 'team'){
+	if($post == 'team'){
 		return 'team_member';
 	}
-	if($post->post_name == 'departments'){
+	if($post == 'departments'){
 		return 'department';
 	}
-	if($post->post_name == 'events'){
+	if($post == 'events'){
 		return 'event';
 	}
-	if($post->post_name == 'our-portfolio'){
+	if($post == 'portfolio'){
 		return 'portfolio';
 	}
 }

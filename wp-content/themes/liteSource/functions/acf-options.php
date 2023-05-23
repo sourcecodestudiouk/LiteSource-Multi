@@ -503,140 +503,6 @@ add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
 add_action('acf/save_post', 'my_acf_save_post');
 function my_acf_save_post( $post_id ) {
 
-  // ADDING CONTENT TYPES
-
-    $values = get_fields( $post_id );
-    $postTypes = get_field('post_types', 'options');
-
-    if($postTypes){
-      // Services Archives
-      if(in_array('services', $postTypes)){
-        $post_title = 'Services';
-        $data = array(
-              'post_title'   => $post_title,
-              'post_status'  => 'publish',
-              'post_type'    => 'page',
-        );
-        if(!post_exists($post_title)){
-          wp_insert_post( add_magic_quotes( $data ) );
-        }
-      }
-      else{
-        $post_title = 'Services';
-        $tPage = get_page_by_title($post_title);
-        wp_delete_post( $tPage->ID, $bypass_trash = true );
-      }
-
-      // Depertments Archive
-      if(in_array('departments', $postTypes)){
-        $post_title = 'Departments';
-        $data = array(
-              'post_title'   => $post_title,
-              'post_status'  => 'publish',
-              'post_type'    => 'page',
-        );
-        if(!post_exists($post_title)){
-          wp_insert_post( add_magic_quotes( $data ) );
-        }
-      }
-      else{
-        $post_title = 'Departments';
-        $tPage = get_page_by_title($post_title);
-        wp_delete_post( $tPage->ID, $bypass_trash = true );
-      }
-
-      // Portfolio Archive
-      if(in_array('portfolio', $postTypes)){
-        $post_title = 'Our Portfolio';
-        $data = array(
-              'post_title'   => $post_title,
-              'post_status'  => 'publish',
-              'post_type'    => 'page',
-        );
-        if(!post_exists($post_title)){
-          wp_insert_post( add_magic_quotes( $data ) );
-        }
-      }
-      else{
-        $post_title = 'Our Portfolio';
-        $tPage = get_page_by_title($post_title);
-        wp_delete_post( $tPage->ID, $bypass_trash = true );
-      }
-
-      // Team Members Archive
-      if(in_array('team', $postTypes)){
-        $post_title = 'Team';
-        $data = array(
-              'post_title'   => $post_title,
-              'post_status'  => 'publish',
-              'post_type'    => 'page',
-        );
-        if(!post_exists($post_title)){
-          wp_insert_post( add_magic_quotes( $data ) );
-        }
-      }
-      else{
-        $post_title = 'Team';
-        $tPage = get_page_by_title($post_title);
-        wp_delete_post( $tPage->ID, $bypass_trash = true );
-      }
-
-      // Projects Archive
-      if(in_array('projects', $postTypes)){
-        $post_title = 'Projects';
-        $data = array(
-              'post_title'   => $post_title,
-              'post_status'  => 'publish',
-              'post_type'    => 'page',
-        );
-        if(!post_exists($post_title)){
-          wp_insert_post( add_magic_quotes( $data ) );
-        }
-      }
-      else{
-        $post_title = 'Projects';
-        $tPage = get_page_by_title($post_title);
-        wp_delete_post( $tPage->ID, $bypass_trash = true );
-      }
-
-      // Projects Archive
-      if(in_array('news', $postTypes)){
-        $post_title = 'News';
-        $data = array(
-              'post_title'   => $post_title,
-              'post_status'  => 'publish',
-              'post_type'    => 'page',
-        );
-        if(!post_exists($post_title)){
-          wp_insert_post( add_magic_quotes( $data ) );
-        }
-      }
-      else{
-        $post_title = 'News';
-        $tPage = get_page_by_title($post_title);
-        wp_delete_post( $tPage->ID, $bypass_trash = true );
-      }
-
-      $search = get_field('site_search', 'options');
-
-      if($search){
-        $post_title = 'Search Results';
-        $data = array(
-              'post_title'   => $post_title,
-              'post_status'  => 'publish',
-              'post_type'    => 'page',
-        );
-        if(!post_exists($post_title)){
-          wp_insert_post( add_magic_quotes( $data ) );
-        }
-      } else{
-        $post_title = 'Search Results';
-        $tPage = get_page_by_title($post_title);
-        wp_delete_post( $tPage->ID, $bypass_trash = true );
-      }
-    }
-    
-
 ////////////////////////////////////////////////////////////////////////////////////////////////
 // Modular Addons
     $modules = get_field('modular_addons', 'admin-settings');
@@ -658,12 +524,11 @@ function my_acf_save_post( $post_id ) {
         $tPage = get_page_by_title($post_title);
         wp_delete_post( $tPage->ID, $bypass_trash = true );
       }
-  
-  
-      global $wp_rewrite;
-      $wp_rewrite->set_permalink_structure('/%postname%/');
-      $wp_rewrite->flush_rules();
+   
     }
+    global $wp_rewrite;
+    $wp_rewrite->set_permalink_structure('/%postname%/');
+    $wp_rewrite->flush_rules();
     
 }
 
@@ -673,9 +538,9 @@ function my_acf_save_post( $post_id ) {
 function wpsites_custom_post_states($states) {
     $post = get_post();
     if(isset($post)){
-      if( ('page'==get_post_type($post->ID) && ($post->post_name == 'our-portfolio' || $post->post_name == 'events' || $post->post_name == 'services' || $post->post_name == 'departments' || $post->post_name == 'team' || $post->post_name == 'news' || $post->post_name == 'projects')) ) {
+      if( is_archive() ) {
         $states[] = __('Archive');
-        update_post_meta( $post->ID, '_wp_page_template', 'content-archive.php' );
+        //update_post_meta( $post->ID, '_wp_page_template', 'content-archive.php' );
       }
       if($post->post_name == 'terms-of-service' || $post->post_name == 'privacy-policy'){
         $states[] = __('Legal');
@@ -690,7 +555,7 @@ add_filter('display_post_states', 'wpsites_custom_post_states');
 
 function remove_page_attribute_support() {
   global $post;
-    if( ('page' == get_post_type($post->ID) && ($post->post_name == 'terms-of-service' || $post->post_name == 'privacy-policy' || $post->post_name == 'search-results' || $post->post_name == 'events' || $post->post_name == 'our-portfolio' || $post->post_name == 'services' || $post->post_name == 'departments' || $post->post_name == 'team' || $post->post_name == 'news' || $post->post_name == 'projects')) ) {
+    if( ('page' == get_post_type($post->ID) && ($post->post_name == 'terms-of-service' || $post->post_name == 'privacy-policy' || $post->post_name == 'search-results' || $post->post_name == 'events' || $post->post_name == 'portfolio' || $post->post_name == 'services' || $post->post_name == 'departments' || $post->post_name == 'team' || $post->post_name == 'news' || $post->post_name == 'projects')) ) {
       remove_post_type_support('page','page-attributes');
       remove_post_type_support('page' ,'editor');
       remove_meta_box('pageparentdiv', 'page', 'side');
@@ -730,7 +595,7 @@ add_filter( 'page_row_actions', 'my_disable_quick_edit', 10, 2 );
 
 
 function disable_gutenberg( $can_edit, $post ) {
-  $disabled = array('services', 'departments', 'team', 'news', 'projects', 'events', 'search-results', 'terms-of-service', 'privacy-policy', 'our-portfolio');
+  $disabled = array('services', 'departments', 'team', 'news', 'projects', 'events', 'search-results', 'terms-of-service', 'privacy-policy', 'portfolio');
   if (empty($post->ID)) return $can_edit;
 	
 	if ('page' == get_post_type($post->ID) && in_array($post->post_name, $disabled)) return false;

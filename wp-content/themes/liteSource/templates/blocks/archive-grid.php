@@ -10,7 +10,16 @@
  */
 
 // Create id attribute allowing for custom "anchor" value.
-if(!is_page_template( 'content-archive.php' )){
+if(is_archive() || is_page('project')){
+    $archive = get_post_type();
+    $type = scs_get_post_type($archive);
+    $num = '-1';
+    
+    $content = get_field('projects_archive', 'options');
+    $theme = $content['archive_theme'];
+    $layout = $content['archive_layout'];
+}
+else{
     $id = 'archive-grid-' . $block['id'];
     if( !empty($block['anchor']) ) {
         $id = $block['anchor'];
@@ -18,16 +27,10 @@ if(!is_page_template( 'content-archive.php' )){
     $archive = get_field('post_type');
     $num = get_field('posts_to_show');
     $title = '<h3>' . get_field('title') . '</h3>';
-}
-else{
-    $archive = get_post();
-    $title = '<h1>' . $archive->post_title . '</h1>';
-    $type = scs_get_post_type($archive);
-    $num = '-1';
-    $layout = get_field('archive_layout');
+    $theme = get_field('archive_theme');
 }
 
-$theme = get_field('archive_theme');
+$colours = get_theme_colours($theme);
 
 
 // Create class attribute allowing for custom "className" and "align" values.
@@ -53,7 +56,7 @@ if( !empty($block['align']) ) {
                 if(isset($_GET['category']) && is_page('news')){
                     $args = array( 'post_type' => $type, 'posts_per_page' => $num, 'order' => 'ASC', 'orderby' => 'menu_order', 'tax_query' => array( array('taxonomy' => 'category', 'field' => 'slug', 'terms' => $_GET['category'], ), ),);
                 }
-                if(isset($_GET['category']) && is_page('our-portfolio')){
+                if(isset($_GET['category']) && is_post_type_archive('portfolio')){
                     $args = array( 'post_type' => $type, 'posts_per_page' => $num, 'order' => 'ASC', 'orderby' => 'menu_order', 'tax_query' => array( array('taxonomy' => 'portfolio_cat', 'field' => 'slug', 'terms' => $_GET['category'], ), ),);
                 }
                 if(isset($_GET['category']) && is_page('events')){

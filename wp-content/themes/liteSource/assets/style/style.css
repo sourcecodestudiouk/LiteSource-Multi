@@ -2024,6 +2024,7 @@ body a {
 }
 .facets-container .category-archive-filters .category a {
   font-size: 14px;
+  color: inherit;
 }
 .facets-container .category-archive-filters .category.current {
   background-color: #eee;
@@ -2169,40 +2170,21 @@ body a {
 }
 .hero-header-block .video-background-container {
   position: relative;
-  height: 100%;
-  height: 100%;
   position: absolute;
   top: 0;
   left: 0;
   z-index: 1;
-}
-@media (max-width: 992px) {
-  .hero-header-block .video-background-container {
-    min-height: calc(100vh - 30px);
-  }
-}
-.hero-header-block .video-background-container video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  height: auto;
-  width: auto;
-  z-index: 2;
-  transform: translateX(0%) translateY(-50%);
-  min-width: 100vw;
-  min-height: 100%;
-  mix-blend-mode: hard-light;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 .hero-header-block .video-background-container iframe {
   position: absolute;
-  top: 50%;
-  left: 50%;
   height: auto;
   width: auto;
   z-index: 2;
-  transform: translateX(0%) translateY(-50%);
-  min-width: 100vw;
-  min-height: 100vh;
   mix-blend-mode: hard-light;
 }
 .hero-header-block .overlay {
@@ -2828,6 +2810,7 @@ body a {
 }
 .portfolio-overview-block .container .category-archive-filters .category a {
   font-size: 14px;
+  color: inherit;
 }
 .portfolio-overview-block .container .category-archive-filters .category.current {
   background-color: #eee;

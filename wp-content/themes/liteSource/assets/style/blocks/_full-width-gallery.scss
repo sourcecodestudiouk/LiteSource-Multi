@@ -1,13 +1,14 @@
 .full-width-gallery-block{
     @include breakout();
     .container{
-  
+        position: relative;
     }
     .gallery-container{
         height:100vh;
         overflow:hidden;
         img{
             width:100%;
+            height:100vh;
             object-fit: cover;
             object-position: center;
           }

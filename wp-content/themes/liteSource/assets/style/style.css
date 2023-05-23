@@ -2724,12 +2724,16 @@ body a {
   position: relative;
   left: calc(-1 * (100vw - 100%) / 2);
 }
+.full-width-gallery-block .container {
+  position: relative;
+}
 .full-width-gallery-block .gallery-container {
   height: 100vh;
   overflow: hidden;
 }
 .full-width-gallery-block .gallery-container img {
   width: 100%;
+  height: 100vh;
   object-fit: cover;
   object-position: center;
 }

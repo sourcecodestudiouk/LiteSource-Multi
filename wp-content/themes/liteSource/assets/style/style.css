@@ -1799,30 +1799,16 @@ body a {
 .off-canvas-menu .off-canvas-menu-content .menu ul > li.menu-item-has-children > ul.sub-menu li a:hover, .off-canvas-menu .off-canvas-menu-content .main-menu ul > li.menu-item-has-children > ul.sub-menu li a:hover {
   text-decoration: none;
 }
-.off-canvas-menu .off-canvas-menu-content .secondary-menu {
-  padding: 40px 37px;
+.off-canvas-menu .off-canvas-menu-content .social-channels {
+  margin-top: 50px;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
 }
-.off-canvas-menu .off-canvas-menu-content .secondary-menu ul {
-  list-style: none;
-  padding-left: 0px;
-  margin-bottom: 0;
-}
-.off-canvas-menu .off-canvas-menu-content .secondary-menu ul li {
-  margin-bottom: 20px;
-}
-.off-canvas-menu .off-canvas-menu-content .secondary-menu ul li:last-of-type {
-  margin-bottom: 0;
-}
-.off-canvas-menu .off-canvas-menu-content .secondary-menu ul li a {
-  color: white;
-  font-size: 13px;
-}
-.off-canvas-menu .off-canvas-menu-content .secondary-menu .social-channels {
-  margin-top: 0;
+.off-canvas-menu .off-canvas-menu-content .social-channels i {
+  font-size: 26px;
 }
 .off-canvas-menu .off-canvas-menu-content .footer {
   padding: 0 37px 0px 37px;
@@ -1832,6 +1818,20 @@ body a {
 .off-canvas-menu .off-canvas-menu-content .footer .btn {
   max-width: 200px;
   margin: 25px auto 0;
+}
+.off-canvas-menu .off-canvas-menu-content .lower-footer {
+  width: 100%;
+  max-width: 100%;
+  left: auto;
+  text-align: center;
+}
+.off-canvas-menu .off-canvas-menu-content .lower-footer .container {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.off-canvas-menu .off-canvas-menu-content .lower-footer .container .legal-menu {
+  margin-top: 25px;
 }
 
 .search-container {

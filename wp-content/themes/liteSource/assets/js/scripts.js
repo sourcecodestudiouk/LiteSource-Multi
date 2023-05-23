@@ -350,7 +350,6 @@
 
 			if(height > width){
 				var newHeight = $(".hero-header-block iframe").height(height + 200);
-				alert('hello');
 				$(".hero-header-block iframe").css('height', newHeight);
 				$(".hero-header-block iframe").css('width', '200vh');
 				$(".hero-header-block iframe").css('aspect-ratio', '1/1');

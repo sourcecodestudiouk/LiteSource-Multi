@@ -192,29 +192,15 @@
           }
         }
       }
-      .secondary-menu{
-        padding:40px 37px;
+      .social-channels{
+        margin-top:50px;
         display:flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        width:100%;
-        ul{
-          list-style: none;
-          padding-left:0px;
-          margin-bottom:0;
-          li{
-            margin-bottom:20px;
-            &:last-of-type{
-              margin-bottom:0;
-            }
-            a{
-              color:white;
-              font-size:13px;
-            }
-          }
-        }
-        .social-channels{
-          margin-top:0;
+        justify-content: center;
+        align-items: center;
+        gap:16px;
+        flex-wrap:wrap;
+        i{
+          font-size:26px;
         }
       }
       .footer{
@@ -224,6 +210,20 @@
         .btn{
           max-width:200px;
           margin:25px auto 0;
+        }
+      }
+      .lower-footer{
+        width:100%;
+        max-width:100%;
+        left: auto;
+        text-align: center;
+        .container{
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          .legal-menu{
+            margin-top:25px;
+          }
         }
       }
     }

@@ -33,7 +33,8 @@ $ctaTxt = getContrastColor($secondary);
        <p class="btn" style="background-color:<?= $ctaBg; ?>; color:<?= $ctaTxt; ?>"><span style="background-color:<?= $ctaTxt; ?>;" class="background"></span><a href="<?= $cta['call_to_action_button']['url'] ?>"><?= $cta['call_to_action_button']['title'] ?></a></p> 
       <?php
       } ?>
-      <?php get_template_part('templates/partials/lower-footer'); ?>
+      <?php get_template_part('templates/partials/social-media'); ?>
     </div>
+    <?php get_template_part('templates/partials/lower-footer'); ?>
   </div>
 </section>

@@ -60,6 +60,7 @@ $brand: #7539A4;
 @import 'cards/_service-card';
 @import 'cards/_post-card';
 @import 'cards/_portfolio-card';
+@import 'cards/_industry-card';
 
 // Pages
 @import 'pages/_search-results';
@@ -73,19 +74,19 @@ html{
 }
 
 body.curved-border-radius{
-  p.btn, .testimonial-card.multiple-slider, .testimonial-card.single-slider, .event-card, .portfolio-card, .search-result-card, .project-card, .service-card, .post-card, .accordion-container .information-container, .share-buttons .buttons a, .forminator-ui .forminator-textarea, .forminator-ui .forminator-input, .forminator-ui .forminator-button, .contact-details-block, .slider-arrows .previous, .slider-arrows .next, .single-image-block img, .call-to-action-block{
+  p.btn, .testimonial-card.multiple-slider, .testimonial-card.single-slider, .event-card, .portfolio-card, .search-result-card, .project-card, .service-card, .post-card, .accordion-container .information-container, .share-buttons .buttons a, .forminator-ui .forminator-textarea, .forminator-ui .forminator-input, .forminator-ui .forminator-button, .contact-details-block, .slider-arrows .previous, .slider-arrows .next, .single-image-block img, .call-to-action-block, .industry-card{
       border-radius:8px!important;
   }
 }
 
 body.subtle-border-radius{
-  p.btn, .testimonial-card.multiple-slider, .testimonial-card.single-slider, .event-card, .portfolio-card, .search-result-card, .project-card, .service-card, .post-card, .accordion-container .information-container, .share-buttons .buttons a, .forminator-ui .forminator-textarea, .forminator-ui .forminator-input, .forminator-ui .forminator-button, .contact-details-block, .slider-arrows .previous, .slider-arrows .next, .single-image-block img, .call-to-action-block{
+  p.btn, .testimonial-card.multiple-slider, .testimonial-card.single-slider, .event-card, .portfolio-card, .search-result-card, .project-card, .service-card, .post-card, .accordion-container .information-container, .share-buttons .buttons a, .forminator-ui .forminator-textarea, .forminator-ui .forminator-input, .forminator-ui .forminator-button, .contact-details-block, .slider-arrows .previous, .slider-arrows .next, .single-image-block img, .call-to-action-block, .industry-card{
       border-radius:3px!important;
   }
 }
 
 body.rounded-border-radius{
-  p.btn, .testimonial-card.multiple-slider, .testimonial-card.single-slider, .event-card, .portfolio-card, .search-result-card, .project-card, .service-card, .post-card, .accordion-container .information-container, .share-buttons .buttons a, .forminator-ui .forminator-textarea, .forminator-ui .forminator-input, .forminator-ui .forminator-button, .contact-details-block, .slider-arrows .previous, .slider-arrows .next, .single-image-block img, .call-to-action-block{
+  p.btn, .testimonial-card.multiple-slider, .testimonial-card.single-slider, .event-card, .portfolio-card, .search-result-card, .project-card, .service-card, .post-card, .accordion-container .information-container, .share-buttons .buttons a, .forminator-ui .forminator-textarea, .forminator-ui .forminator-input, .forminator-ui .forminator-button, .contact-details-block, .slider-arrows .previous, .slider-arrows .next, .single-image-block img, .call-to-action-block, .industry-card{
       border-radius:40px!important;
   }
   .forminator-ui .forminator-textarea, .forminator-ui .forminator-input, .forminator-ui .forminator-button{

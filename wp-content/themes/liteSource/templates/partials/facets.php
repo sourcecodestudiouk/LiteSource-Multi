@@ -20,6 +20,10 @@ if(is_archive()){
         $content = get_field('news_archive', 'options');
         $link = get_site_url() . '/news';
     }
+    if(is_post_type_archive('industries')){
+        $content = get_field('industries_archive', 'options');
+        $link = get_site_url() . '/industries';
+    }
     $options = $content['archive_page_header_options'];
     $type = $options['type'] ?: 'text';
     $theme = $content['archive_theme'];

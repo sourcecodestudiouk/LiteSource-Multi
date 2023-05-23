@@ -26,15 +26,21 @@ if(is_archive() || is_page('project')){
     if(is_post_type_archive('news')){
         $content = get_field('news_archive', 'options');
     }
-    $options = $content['archive_page_header_options'];
-    $type = $options['type'] ?: 'text';
-    $align = $options['alignment'];
-    $img = $options['background_image'];
-    $height = $options['height'] ?: 'small';
-    $title = $options['title'] ?: get_the_archive_title();
-    $desc = $options['description'];
-    $theme = $content['archive_theme'];
-    $colours = get_header_colours($theme, $type);
+    if(is_post_type_archive('industries')){
+        $content = get_field('industries_archive', 'options');
+    }
+    if($content){
+        $options = $content['archive_page_header_options'];
+        $type = $options['type'] ?: 'text';
+        $align = $options['alignment'];
+        $img = $options['background_image'];
+        $height = $options['height'] ?: 'small';
+        $title = $options['title'] ?: get_the_archive_title();
+        $desc = $options['description'];
+        $theme = $content['archive_theme'];
+        $colours = get_header_colours($theme, $type);
+    }
+    
 }
 else{
     $id = 'page-header' . $block['id'];
@@ -66,13 +72,13 @@ if( !empty($block['align']) ) {
 ?>
 <div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?> <?= $type . '-header'; ?>" style="<?php if($type == 'image' && $img){?>background-image:url('<?= $img['url']; ?>);  <?php }; ?>">
     <div class="container <?= $align; ?> <?= $height; ?>" style="color:<?= $colours['textCol']; ?>">
-        <?php if($type == 'text'){ get_template_part('templates/partials/breadcrumbs'); } ?>
+        <?php if(isset($type) && $type == 'text'){ get_template_part('templates/partials/breadcrumbs'); } ?>
         <h1><?= $title; ?></h1>
         <?php 
-        if($desc){ ?>
+        if(isset($desc) && $desc){ ?>
         <p class="description"><?= $desc; ?></p>
         <?php } ?>
     </div>
-    <?php if($type == 'image' || $type == 'block'){?><div class="overlay" style="background-color:<?= $colours['bg']; ?>"></div> <?php } ?>
+    <?php if(isset($type) && ($type == 'image' || $type == 'block')){?><div class="overlay" style="background-color:<?= $colours['bg']; ?>"></div> <?php } ?>
 </div>
-<?php if($type != 'text'){ get_template_part('templates/partials/breadcrumbs'); } ?>
+<?php if(isset($type) && $type != 'text'){ get_template_part('templates/partials/breadcrumbs'); } ?>

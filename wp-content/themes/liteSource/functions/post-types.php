@@ -672,5 +672,8 @@ function scs_get_post_type($post){
 	if($post == 'portfolio'){
 		return 'portfolio';
 	}
+	if($post == 'industries'){
+		return 'industries';
+	}
 }
 ?>

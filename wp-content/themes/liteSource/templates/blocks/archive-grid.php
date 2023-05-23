@@ -10,12 +10,28 @@
  */
 
 // Create id attribute allowing for custom "anchor" value.
-if(is_archive() || is_page('project')){
+if(is_archive()){
     $archive = get_post_type();
     $type = scs_get_post_type($archive);
     $num = '-1';
-    
-    $content = get_field('projects_archive', 'options');
+    if(is_post_type_archive('portfolio')){
+        $content = get_field('portfolio_archive', 'options');
+    }
+    if(is_post_type_archive('project')){
+        $content = get_field('projects_archive', 'options');
+    }
+    if(is_post_type_archive('service')){
+        $content = get_field('services_archive', 'options');
+    }
+    if(is_post_type_archive('departments')){
+        $content = get_field('department_archive', 'options');
+    }
+    if(is_post_type_archive('news')){
+        $content = get_field('news_archive', 'options');
+    }
+    if(is_post_type_archive('industries')){
+        $content = get_field('industries_archive', 'options');
+    }
     $theme = $content['archive_theme'];
     $layout = $content['archive_layout'];
 }

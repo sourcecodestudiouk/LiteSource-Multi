@@ -226,7 +226,7 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "content-archive.php"
+                "value": "default"
             }
         ]
     ],
@@ -239,5 +239,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1684314751
+    "modified": 1684841879
 }

@@ -235,6 +235,16 @@ function my_acf_init_block_types() {
         ));
 
         acf_register_block_type(array(
+          'name'              => 'Button',
+          'title'             => __('Button'),
+          'description'       => __('Button Custom Block'),
+          'render_template'   => 'templates/blocks/button.php',
+          'category'          => 'custom-layout',
+          'icon'              => $icon,
+          'keywords'          => array( 'button', 'component' ),
+        ));
+
+        acf_register_block_type(array(
             'name'              => 'Full Width Gallery',
             'title'             => __('Full Width Gallery'),
             'description'       => __('Full Width Gallery Custom Block'),

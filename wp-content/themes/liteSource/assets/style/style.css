@@ -2833,6 +2833,11 @@ body a {
   object-fit: contain;
 }
 
+.button-block {
+  display: flex;
+  align-items: flex-start;
+}
+
 /** overall width = width+padding-right**/
 div#calendar {
   margin: 0px auto;

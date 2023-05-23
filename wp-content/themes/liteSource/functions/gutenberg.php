@@ -109,6 +109,7 @@ function allowed_block_types( $allowed_blocks, $editor_context ) {
 		'acf/portfolio-overview',
 		'acf/single-image',
 		'acf/logos',
+		'acf/button',
 
 
 		// Team Content

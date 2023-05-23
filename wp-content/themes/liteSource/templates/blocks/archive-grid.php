@@ -33,7 +33,7 @@ if(is_archive()){
         $content = get_field('industries_archive', 'options');
     }
     $theme = $content['archive_theme'];
-    $layout = $content['archive_layout'];
+    $layout = $content['archive_layout'] ?: 'list';
 }
 else{
     $id = 'archive-grid-' . $block['id'];
@@ -47,7 +47,6 @@ else{
 }
 
 $colours = get_theme_colours($theme);
-
 
 // Create class attribute allowing for custom "className" and "align" values.
 $className = 'archive-grid-block';
@@ -107,6 +106,7 @@ if( !empty($block['align']) ) {
                         }
                         else{ 
                             if($layout == 'list'){
+
                                 get_template_part('/templates/list-items/' . $type . '', 'card', ['theme' => $theme]);
                             }   
                             else{

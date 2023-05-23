@@ -654,10 +654,10 @@ function scs_get_post_type($post){
 	if($post == 'news'){
 		return 'post';
 	}
-	if($post == 'services'){
+	if($post == 'service'){
 		return 'service';
 	}
-	if($post== 'projects'){
+	if($post== 'project'){
 		return 'project';
 	}
 	if($post == 'team'){

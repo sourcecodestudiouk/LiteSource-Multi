@@ -16,7 +16,6 @@
     }
 
     $colours = get_theme_colours($theme); 
-    
 ?> 
 
 <div class="service-card content-card <?= $class; ?>" style="background-color:<?= $bg; ?>; color:<?= $textCol; ?>">

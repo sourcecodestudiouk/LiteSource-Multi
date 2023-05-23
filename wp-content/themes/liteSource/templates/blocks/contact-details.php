@@ -34,6 +34,7 @@ else if($info == 'custom'){
     $contact = get_field('custom_contact');
     $email = $contact['email_address'];
     $tel = $contact['telephone_number'];
+    $address = '';
 }
 
 
@@ -58,19 +59,19 @@ else if($theme == 'accent'){
     <h4>Contact Details</h4>
     <div class="contact-details">
       <?php 
-      if(isset($email)){ ?>
+      if($email){ ?>
         <h6>Email</h6>
         <a href="mailto:<?= $email; ?>"><?= $email; ?></a>
       <?php
       } ?>
       <?php 
-      if(isset($tel)){ ?>
+      if($tel){ ?>
         <h6>Phone</h6>
         <a href="tel:<?= $tel; ?>"><?= $tel; ?></a>
       <?php
       } ?>
       <?php 
-      if(isset($address)){ ?>
+      if($address){ ?>
         <h6>Address</h6>
         <p><?= $address; ?></p>
         <a target="_blank" href="https://www.google.com/maps/dir//<?= sanitize_title($address); ?>">Get Directions</a>

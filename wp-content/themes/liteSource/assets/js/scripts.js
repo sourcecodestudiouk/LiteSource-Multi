@@ -349,9 +349,11 @@
 			var width = $('.hero-header-block').width();
 
 			if(height > width){
-				$(".hero-header-block iframe").height(height);
-				$(".hero-header-block iframe").css('width', '100vw');
-
+				var newHeight = $(".hero-header-block iframe").height(height + 200);
+				alert('hello');
+				$(".hero-header-block iframe").css('height', newHeight);
+				$(".hero-header-block iframe").css('width', '200vh');
+				$(".hero-header-block iframe").css('aspect-ratio', '1/1');
 			}
 			else{
 				var newWidth = width;

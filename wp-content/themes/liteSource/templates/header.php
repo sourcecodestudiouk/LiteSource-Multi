@@ -92,7 +92,7 @@ if(current_user_can( 'edit_posts' )){ ?>
       <?php
       } ?>
       <div class="off-canvas-menu-trigger">
-        <span class="label" style="color:<?= $textCol; ?>">Menu</span>
+        <h6 class="label" style="color:<?= $textCol; ?>">Menu</h6>
         <i class="fa-solid fa-bars"></i>
       </div>
     </div>

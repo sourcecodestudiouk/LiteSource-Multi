@@ -1624,6 +1624,7 @@ body a {
 .off-canvas-menu-trigger .label {
   color: white;
   margin-right: 10px;
+  margin-bottom: 0;
 }
 .off-canvas-menu-trigger:hover {
   cursor: pointer;
@@ -1715,18 +1716,19 @@ body a {
   left: 0;
 }
 .off-canvas-menu .off-canvas-menu-content .logo-container {
-  height: 92px;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   border-top: 1px solid;
   border-bottom: 1px solid;
+  padding: 10px 10px;
 }
 .off-canvas-menu .off-canvas-menu-content .logo-container .logo {
-  width: 50%;
-  max-width: 164px;
+  width: 100%;
+  height: 70px;
   margin: 26px auto;
+  object-fit: contain;
 }
 .off-canvas-menu .off-canvas-menu-content .menu, .off-canvas-menu .off-canvas-menu-content .main-menu {
   width: 100%;

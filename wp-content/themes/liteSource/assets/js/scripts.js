@@ -356,7 +356,7 @@
 			}
 			else{
 				var newWidth = width;
-				$(".hero-header-block iframe").width(newWidth);
+				$(".hero-header-block iframe").css('width', '200vh');
 				$(".hero-header-block iframe").css('aspect-ratio', '16/9');
 			}
 			

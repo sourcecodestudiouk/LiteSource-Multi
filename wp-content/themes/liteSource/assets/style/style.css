@@ -2114,11 +2114,13 @@ body a {
 @media (max-width: 768px) {
   .hero-header-block .container h1, .hero-header-block .container p {
     max-width: 80%;
+    text-align: center;
   }
 }
 @media (max-width: 576px) {
   .hero-header-block .container h1, .hero-header-block .container p {
-    max-width: 100%;
+    max-width: 90%;
+    margin-left: 5%;
   }
 }
 .hero-header-block .container h1 {

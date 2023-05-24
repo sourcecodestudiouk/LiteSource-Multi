@@ -27,9 +27,11 @@
             max-width:65%;
             @include media("<=md") {
                 max-width:80%;
+                text-align: center;
             }
             @include media("<=sm") {
-                max-width:100%;
+                max-width:90%;
+                margin-left:5%;
             }
         }
         h1{

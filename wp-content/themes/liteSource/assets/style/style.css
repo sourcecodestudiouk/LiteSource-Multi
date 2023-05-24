@@ -2281,7 +2281,7 @@ body a {
 }
 .content-grid-slider .container:not(.outter-container) {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: stretch;
   margin-bottom: 40px;
   flex-wrap: wrap;

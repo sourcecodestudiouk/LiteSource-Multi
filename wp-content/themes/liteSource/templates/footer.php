@@ -71,4 +71,4 @@
   
   </div>
 </footer>
-<?php get_template_part('templates/partials/lower_footer'); ?>
+<?php get_template_part('templates/partials/lower-footer'); ?>

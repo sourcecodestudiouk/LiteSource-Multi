@@ -34,7 +34,7 @@ function scs_login_logo() {
       text-align: center;
     }
     body.login div#login h1 a {
-      background-image: url('/wp-content/themes/litesource/assets/img/lite-source-logo.png');
+      background-image: url('/wp-content/themes/liteSource/assets/img/lite-source-logo.png');
       background-position: center;
       margin-bottom:0px;
       padding:24px;

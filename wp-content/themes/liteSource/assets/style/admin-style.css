@@ -194,7 +194,7 @@ html.wp-toolbar {
 
 /* adds a custom image */
 .edit-post-header a.components-button:before {
-  background-image: url("/wp-content/themes/litesource/assets/img/lite-source-icon.png");
+  background-image: url("/wp-content/themes/liteSource/assets/img/lite-source-icon.png");
   background-size: 90%;
   background-repeat: no-repeat;
   background-position: center;

@@ -1600,6 +1600,12 @@ body a {
   justify-content: center;
   flex-direction: column;
 }
+@media (max-width: 576px) {
+  .error404 .page-content {
+    align-items: center;
+    text-align: center;
+  }
+}
 .error404 .page-content svg {
   width: 120px;
   height: auto;
@@ -1607,6 +1613,17 @@ body a {
 }
 .error404 .flex-content {
   border-top: 1px solid #000;
+}
+.error404 .btns {
+  display: flex;
+  gap: 16px;
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+@media (max-width: 576px) {
+  .error404 .btns {
+    flex-direction: column;
+  }
 }
 
 .off-canvas-menu-trigger {
@@ -3561,7 +3578,7 @@ div#calendar:focus {
   border: 2px solid;
   position: relative;
   padding: 15px;
-  margin: 25px 0;
+  margin: 75px 0 150px;
 }
 .search-results main .nothing-found .background {
   position: absolute;

@@ -70,7 +70,7 @@ if( !empty($block['align']) ) {
 
 
 ?>
-<div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?> <?= $type . '-header'; ?>" style="<?php if($type == 'image' && $img){?>background-image:url('<?= $img['url']; ?>);  <?php }; ?>">
+<div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?> <?= $type . '-header'; ?>" style="<?php if($type == 'image' && $img){?>background-image:url('<?= $img['url']; ?>');  <?php }; ?>">
     <div class="container <?= $align; ?> <?= $height; ?>" style="color:<?= $colours['textCol']; ?>">
         <?php if(isset($type) && $type == 'text'){ get_template_part('templates/partials/breadcrumbs'); } ?>
         <h1><?= $title; ?></h1>

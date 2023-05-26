@@ -18,8 +18,8 @@
     $colours = get_theme_colours($theme); 
 ?> 
 
-<div class="service-card content-card <?= $class; ?>" style="background-color:<?= $bg; ?>; color:<?= $textCol; ?>">
-    <a href="<?= the_permalink(); ?>" style="color:<?= $textCol; ?>">
+<div class="service-card content-card <?= $class; ?>" style="background-color:<?= $colours['bg']; ?>; color:<?= $colours['textCol']; ?>">
+    <a href="<?= the_permalink(); ?>" style="color:<?= $colours['textCol']; ?>">
          <div class="image-container">
             <img src="<?= $url; ?>" alt="<?= $alt; ?>">
         </div>

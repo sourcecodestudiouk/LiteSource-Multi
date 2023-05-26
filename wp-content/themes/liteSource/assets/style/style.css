@@ -2800,7 +2800,7 @@ body a {
 .contact-form-block.underlined-form .forminator-ui .forminator-row .forminator-field label {
   color: inherit !important;
 }
-.contact-form-block.underlined-form .forminator-ui .forminator-row .forminator-field input.forminator-input, .contact-form-block.underlined-form .forminator-ui .forminator-row .forminator-field textarea.forminator-textarea {
+.contact-form-block.underlined-form .forminator-ui .forminator-row .forminator-field input.forminator-input, .contact-form-block.underlined-form .forminator-ui .forminator-row .forminator-field textarea.forminator-textarea, .contact-form-block.underlined-form .forminator-ui .forminator-row .forminator-field .forminator-select--field {
   background-color: rgba(0, 0, 0, 0) !important;
   color: inherit !important;
   border-radius: 0 !important;
@@ -2809,6 +2809,9 @@ body a {
   border-right: 0 !important;
   border-top: 0 !important;
   padding-left: 0 !important;
+}
+.contact-form-block.underlined-form .forminator-ui .forminator-row .forminator-field .forminator-checkbox__label {
+  color: inherit !important;
 }
 
 .portfolio-overview-block {

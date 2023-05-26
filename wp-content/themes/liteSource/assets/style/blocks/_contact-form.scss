@@ -23,7 +23,7 @@
                     label{
                         color:inherit!important;
                     }
-                    input.forminator-input, textarea.forminator-textarea{
+                    input.forminator-input, textarea.forminator-textarea, .forminator-select--field{
                         background-color:rgba(0,0,0,0)!important;
                         color:inherit!important;
                         border-radius:0!important;
@@ -32,6 +32,9 @@
                         border-right:0!important;
                         border-top:0!important;
                         padding-left:0!important;
+                    }
+                    .forminator-checkbox__label{
+                        color:inherit!important;
                     }
                 }
             }

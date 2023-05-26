@@ -221,13 +221,6 @@
                 "operator": "==",
                 "value": "acf\/page-header"
             }
-        ],
-        [
-            {
-                "param": "page_template",
-                "operator": "==",
-                "value": "default"
-            }
         ]
     ],
     "menu_order": 5,
@@ -239,5 +232,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1684841879
+    "modified": 1685111805
 }

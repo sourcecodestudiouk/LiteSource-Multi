@@ -4,9 +4,60 @@ add_filter( 'block_categories_all' , function( $categories ) {
 
   // Adding a new category.
 $categories[] = array(
-  'slug'  => 'optimised-blocks',
-  'title' => 'Optimised Blocks'
+  'slug'  => 'buttons',
+  'title' => 'Buttons',
 );
+
+$categories[] = array(
+  'slug'  => 'custom-layout',
+  'title' => 'Custom Layout',
+);
+
+$categories[] = array(
+  'slug'  => 'contact',
+  'title' => 'Contact',
+);
+
+$categories[] = array(
+  'slug'  => 'header',
+  'title' => 'Header',
+);
+
+$categories[] = array(
+  'slug'  => 'image',
+  'title' => 'Images / Gallery',
+);
+
+$categories[] = array(
+  'slug'  => 'team',
+  'title' => 'Team',
+);
+
+$categories[] = array(
+  'slug'  => 'testimonials',
+  'title' => 'Testimonials',
+);
+
+$categories[] = array(
+  'slug'  => 'portfolio',
+  'title' => 'Portfolio',
+);
+
+$categories[] = array(
+  'slug'  => 'service',
+  'title' => 'Service',
+);
+
+$categories[] = array(
+  'slug'  => 'events-module',
+  'title' => 'Events',
+);
+
+$categories[] = array(
+  'slug'  => 'news',
+  'title' => 'News / Blog',
+);
+
 
 return $categories;
 } );
@@ -34,8 +85,8 @@ function my_acf_init_block_types() {
             'title'             => __('Events Card Slider'),
             'description'       => __('Events card slider block for use within the events addon module.'),
             'render_template'   => 'templates/blocks/events-slider.php',
-            'category'          => 'Opimtised Blocks',
-            'icon'              => $icon,
+            'category'          => 'events-module',
+            'icon'              => 'slides',
             'keywords'          => array( 'events', 'slider' ),
           ));
 
@@ -70,8 +121,9 @@ function my_acf_init_block_types() {
               'title'             => __('Team Profiles'),
               'description'       => __('A block to display the team profiles in either a slider or a grid'),
               'render_template'   => 'templates/blocks/team-profiles.php',
-              'category'          => 'team-content',
-              'icon'              => $icon,
+              'category'          => 'team',
+              'icon'              => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path
+                d="M15.5 9.5a1 1 0 100-2 1 1 0 000 2zm0 1.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zm-2.25 6v-2a2.75 2.75 0 00-2.75-2.75h-4A2.75 2.75 0 003.75 15v2h1.5v-2c0-.69.56-1.25 1.25-1.25h4c.69 0 1.25.56 1.25 1.25v2h1.5zm7-2v2h-1.5v-2c0-.69-.56-1.25-1.25-1.25H15v-1.5h2.5A2.75 2.75 0 0120.25 15zM9.5 8.5a1 1 0 11-2 0 1 1 0 012 0zm1.5 0a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" fillRule="evenodd"/> </svg>',
               'keywords'          => array( 'team', 'slider', 'grid', 'content' ),
             ));
           }
@@ -87,7 +139,7 @@ function my_acf_init_block_types() {
               'title'             => __('Services Overview'),
               'description'       => __('A block to display the service cards in either a slider or a grid'),
               'render_template'   => 'templates/blocks/services-overview.php',
-              'category'          => 'team-content',
+              'category'          => 'service',
               'icon'              => $icon,
               'keywords'          => array( 'services', 'slider', 'grid', 'content' ),
             ));
@@ -104,7 +156,7 @@ function my_acf_init_block_types() {
               'description'       => __('A block to display the portfolio in either a grid view or full width view'),
               'render_template'   => 'templates/blocks/portfolio-overview.php',
               'category'          => 'portfolio',
-              'icon'              => $icon,
+              'icon'              => 'slides',
               'keywords'          => array( 'portfolio', 'full-width', 'grid', 'content' ),
             ));
           }
@@ -120,7 +172,7 @@ function my_acf_init_block_types() {
               'description'       => __('A block to display the customer testimonials in either a slider or a full width block'),
               'render_template'   => 'templates/blocks/testimonials.php',
               'category'          => 'testimonials',
-              'icon'              => $icon,
+              'icon'              => 'format-quote',
               'keywords'          => array( 'testimonials', 'slider', 'grid', 'content' ),
             ));
           }
@@ -136,7 +188,7 @@ function my_acf_init_block_types() {
               'description'       => __('A block to display the news in either a slider or a full width block'),
               'render_template'   => 'templates/blocks/latest-news.php',
               'category'          => 'news',
-              'icon'              => $icon,
+              'icon'              => 'slides',
               'keywords'          => array( 'news', 'slider', 'grid', 'content' ),
             ));
           }
@@ -199,8 +251,8 @@ function my_acf_init_block_types() {
             'title'             => __('Contact Form'),
             'description'       => __('Contact Form Custom Block'),
             'render_template'   => 'templates/blocks/contact-form.php',
-            'category'          => 'custom-layout',
-            'icon'              => $icon,
+            'category'          => 'contact',
+            'icon'              => 'feedback',
             'keywords'          => array( 'contact', 'form' ),
         ));
 
@@ -209,8 +261,8 @@ function my_acf_init_block_types() {
           'title'             => __('Logos'),
           'description'       => __('Logos Custom Block'),
           'render_template'   => 'templates/blocks/logos.php',
-          'category'          => 'custom-layout',
-          'icon'              => $icon,
+          'category'          => 'image',
+          'icon'              => 'screenoptions',
           'keywords'          => array( 'logos', 'gallery' ),
       ));
 
@@ -219,8 +271,8 @@ function my_acf_init_block_types() {
           'title'             => __('Single Image'),
           'description'       => __('Single Image Custom Block'),
           'render_template'   => 'templates/blocks/single-image.php',
-          'category'          => 'custom-layout',
-          'icon'              => $icon,
+          'category'          => 'image',
+          'icon'              => '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM5 4.5h14c.3 0 .5.2.5.5v8.4l-3-2.9c-.3-.3-.8-.3-1 0L11.9 14 9 12c-.3-.2-.6-.2-.8 0l-3.6 2.6V5c-.1-.3.1-.5.4-.5zm14 15H5c-.3 0-.5-.2-.5-.5v-2.4l4.1-3 3 1.9c.3.2.7.2.9-.1L16 12l3.5 3.4V19c0 .3-.2.5-.5.5z" /></svg>',
           'keywords'          => array( 'image' ),
       ));
 
@@ -229,8 +281,8 @@ function my_acf_init_block_types() {
             'title'             => __('Full Width Image'),
             'description'       => __('Full Width Image Custom Block'),
             'render_template'   => 'templates/blocks/full-width-image.php',
-            'category'          => 'custom-layout',
-            'icon'              => $icon,
+            'category'          => 'image',
+            'icon'              => '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM5 4.5h14c.3 0 .5.2.5.5v8.4l-3-2.9c-.3-.3-.8-.3-1 0L11.9 14 9 12c-.3-.2-.6-.2-.8 0l-3.6 2.6V5c-.1-.3.1-.5.4-.5zm14 15H5c-.3 0-.5-.2-.5-.5v-2.4l4.1-3 3 1.9c.3.2.7.2.9-.1L16 12l3.5 3.4V19c0 .3-.2.5-.5.5z" /></svg>',
             'keywords'          => array( 'image', 'full width' ),
         ));
 
@@ -239,8 +291,8 @@ function my_acf_init_block_types() {
           'title'             => __('Button'),
           'description'       => __('Button Custom Block'),
           'render_template'   => 'templates/blocks/button.php',
-          'category'          => 'custom-layout',
-          'icon'              => $icon,
+          'category'          => 'buttons',
+          'icon'              => '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.5H5c-1.1 0-2 .9-2 2v7c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7c0-1.1-.9-2-2-2zm.5 9c0 .3-.2.5-.5.5H5c-.3 0-.5-.2-.5-.5v-7c0-.3.2-.5.5-.5h14c.3 0 .5.2.5.5v7zM8 12.8h8v-1.5H8v1.5z" /></svg>',
           'keywords'          => array( 'button', 'component' ),
         ));
 
@@ -249,8 +301,8 @@ function my_acf_init_block_types() {
             'title'             => __('Full Width Gallery'),
             'description'       => __('Full Width Gallery Custom Block'),
             'render_template'   => 'templates/blocks/full-width-gallery.php',
-            'category'          => 'custom-layout',
-            'icon'              => $icon,
+            'category'          => 'image',
+            'icon'              => '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.375 4.5H4.625a.125.125 0 0 0-.125.125v8.254l2.859-1.54a.75.75 0 0 1 .68-.016l2.384 1.142 2.89-2.074a.75.75 0 0 1 .874 0l2.313 1.66V4.625a.125.125 0 0 0-.125-.125Zm.125 9.398-2.75-1.975-2.813 2.02a.75.75 0 0 1-.76.067l-2.444-1.17L4.5 14.583v1.792c0 .069.056.125.125.125h11.75a.125.125 0 0 0 .125-.125v-2.477ZM4.625 3C3.728 3 3 3.728 3 4.625v11.75C3 17.273 3.728 18 4.625 18h11.75c.898 0 1.625-.727 1.625-1.625V4.625C18 3.728 17.273 3 16.375 3H4.625ZM20 8v11c0 .69-.31 1-.999 1H6v1.5h13.001c1.52 0 2.499-.982 2.499-2.5V8H20Z" fillRule="evenodd" clipRule="evenodd"/></svg>',
             'keywords'          => array( 'image', 'full width', 'gallery' ),
         ));
 
@@ -260,7 +312,7 @@ function my_acf_init_block_types() {
           'description'       => __('Separator Custom Block'),
           'render_template'   => 'templates/blocks/separator.php',
           'category'          => 'custom-layout',
-          'icon'              => $icon,
+          'icon'              => '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.2 7v4H3.8V7H2.2v9h1.6v-3.5h16.4V16h1.6V7z" /></svg>',
           'keywords'          => array( 'separator', 'spacing' ),
         ));
 
@@ -269,8 +321,8 @@ function my_acf_init_block_types() {
           'title'             => __('Contact Details'),
           'description'       => __('Contact Details Custom Block'),
           'render_template'   => 'templates/blocks/contact-details.php',
-          'category'          => 'custom-layout',
-          'icon'              => $icon,
+          'category'          => 'contact',
+          'icon'              => 'phone',
           'keywords'          => array( 'contact', 'details', 'content' ),
         ));
 
@@ -279,8 +331,8 @@ function my_acf_init_block_types() {
           'title'             => __('Page Header'),
           'description'       => __('Page Header Block'),
           'render_template'   => 'templates/blocks/page-header.php',
-          'category'          => 'custom-layout',
-          'icon'              => $icon,
+          'category'          => 'header',
+          'icon'              => 'align-center',
           'keywords'          => array( 'header', 'title', 'page' ),
         ));
 
@@ -289,8 +341,8 @@ function my_acf_init_block_types() {
           'title'             => __('Hero Header'),
           'description'       => __('Hero Header Block'),
           'render_template'   => 'templates/blocks/hero-header.php',
-          'category'          => 'custom-layout',
-          'icon'              => $icon,
+          'category'          => 'header',
+          'icon'              => 'align-center',
           'keywords'          => array( 'header', 'title', 'hero' ),
         ));
 
@@ -300,7 +352,9 @@ function my_acf_init_block_types() {
           'description'       => __('Number Counter Block'),
           'render_template'   => 'templates/blocks/number-counter.php',
           'category'          => 'custom-layout',
-          'icon'              => $icon,
+          'icon'              => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M11.1 15.8H20v-1.5h-8.9v1.5zm0-8.6v1.5H20V7.2h-8.9zM5 6.7V10h1V5.3L3.8 6l.4 1 .8-.3zm-.4 5.7c-.3.1-.5.2-.7.3l.1 1.1c.2-.2.5-.4.8-.5.3-.1.6 0 .7.1.2.3 0 .8-.2 1.1-.5.8-.9 1.6-1.4 2.5h2.7v-1h-1c.3-.6.8-1.4.9-2.1.1-.3 0-.8-.2-1.1-.5-.6-1.3-.5-1.7-.4z" />
+        </svg>',
           'keywords'          => array( 'numbers', 'counter', 'icon' ),
         ));
 
@@ -310,7 +364,7 @@ function my_acf_init_block_types() {
           'description'       => __('Accordion Block'),
           'render_template'   => 'templates/blocks/accordion.php',
           'category'          => 'custom-layout',
-          'icon'              => $icon,
+          'icon'              => 'image-flip-vertical',
           'keywords'          => array( 'accordion', 'layout', 'text' ),
         ));
 
@@ -319,8 +373,8 @@ function my_acf_init_block_types() {
           'title'             => __('Image Gallery'),
           'description'       => __('Image Gallery Block'),
           'render_template'   => 'templates/blocks/image-gallery.php',
-          'category'          => 'custom-layout',
-          'icon'              => $icon,
+          'category'          => 'image',
+          'icon'              => '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.375 4.5H4.625a.125.125 0 0 0-.125.125v8.254l2.859-1.54a.75.75 0 0 1 .68-.016l2.384 1.142 2.89-2.074a.75.75 0 0 1 .874 0l2.313 1.66V4.625a.125.125 0 0 0-.125-.125Zm.125 9.398-2.75-1.975-2.813 2.02a.75.75 0 0 1-.76.067l-2.444-1.17L4.5 14.583v1.792c0 .069.056.125.125.125h11.75a.125.125 0 0 0 .125-.125v-2.477ZM4.625 3C3.728 3 3 3.728 3 4.625v11.75C3 17.273 3.728 18 4.625 18h11.75c.898 0 1.625-.727 1.625-1.625V4.625C18 3.728 17.273 3 16.375 3H4.625ZM20 8v11c0 .69-.31 1-.999 1H6v1.5h13.001c1.52 0 2.499-.982 2.499-2.5V8H20Z" fillRule="evenodd" clipRule="evenodd"/></svg>',
           'keywords'          => array( 'gallery', 'images' ),
         ));
 
@@ -329,8 +383,8 @@ function my_acf_init_block_types() {
           'title'             => __('Call To Action'),
           'description'       => __('Call to action block as part of the standard system.'),
           'render_template'   => 'templates/blocks/call-to-action.php',
-          'category'          => 'call-to-action',
-          'icon'              => $icon,
+          'category'          => 'custom-layout',
+          'icon'              => 'megaphone',
           'keywords'          => array( 'cta', 'divider', 'link' ),
         ));
 
@@ -340,7 +394,9 @@ function my_acf_init_block_types() {
           'description'       => __('Icon Blocks Block'),
           'render_template'   => 'templates/blocks/icon-blocks.php',
           'category'          => 'custom-layout',
-          'icon'              => $icon,
+          'icon'              => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M12 3c-5 0-9 4-9 9s4 9 9 9 9-4 9-9-4-9-9-9zm0 1.5c4.1 0 7.5 3.4 7.5 7.5v.1c-1.4-.8-3.3-1.7-3.4-1.8-.2-.1-.5-.1-.8.1l-2.9 2.1L9 11.3c-.2-.1-.4 0-.6.1l-3.7 2.2c-.1-.5-.2-1-.2-1.5 0-4.2 3.4-7.6 7.5-7.6zm0 15c-3.1 0-5.7-1.9-6.9-4.5l3.7-2.2 3.5 1.2c.2.1.5 0 .7-.1l2.9-2.1c.8.4 2.5 1.2 3.5 1.9-.9 3.3-3.9 5.8-7.4 5.8z" />
+        </svg>',
           'keywords'          => array( 'icons', 'features', 'page' ),
         ));
 
@@ -349,8 +405,8 @@ function my_acf_init_block_types() {
           'title'             => __('Content Slider'),
           'description'       => __('content slider block as part of the standard system.'),
           'render_template'   => 'templates/blocks/content-slider.php',
-          'category'          => 'content',
-          'icon'              => $icon,
+          'category'          => 'custom-layout',
+          'icon'              => 'slides',
           'keywords'          => array( 'content', 'posts', 'slider' ),
         ));
     }

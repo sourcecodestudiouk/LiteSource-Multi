@@ -4,10 +4,10 @@
     "fields": [
         {
             "key": "field_64466ad81a0ce",
-            "label": "Header Theme",
+            "label": "Theme",
             "name": "header_theme",
             "aria-label": "",
-            "type": "button_group",
+            "type": "clone",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,16 +16,13 @@
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "primary": "Primary",
-                "secondary": "Secondary",
-                "accent": "Accent",
-                "none": "None"
-            },
-            "default_value": "",
-            "return_format": "value",
-            "allow_null": 0,
-            "layout": "horizontal"
+            "clone": [
+                "field_6408ad13ba71f"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
         },
         {
             "key": "field_63ef6472012d6",
@@ -44,6 +41,29 @@
             "choices": {
                 "row": "Logo - Menu - CTA",
                 "row-reverse": "CTA - Menu - Logo"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_647df5f16c846",
+            "label": "Header Width",
+            "name": "header_width",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "full-width": "Full Width",
+                "contained": "Within Container"
             },
             "default_value": "",
             "return_format": "value",
@@ -191,5 +211,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1682694091
+    "modified": 1685978258
 }

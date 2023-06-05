@@ -4,39 +4,24 @@ if( function_exists('acf_add_options_page') ) {
   $logo = get_field('company_logo', 'options');
   $icon = get_field('company_icon', 'options');
   $layout = get_field('header_layout', 'options');
+  $width = get_field('header_width', 'options');
 
   $theme = get_field('header_theme', 'options');
-  $colours = get_field('site_colours', 'options');
+  $colours = get_theme_colours($theme['themes']);
 
-  if($theme == 'primary'){
-      $bg = $colours['primary'];
-      $textCol = getContrastColor($bg);           
-  }
-  else if($theme == 'secondary'){
-      $bg = $colours['secondary'];
-      $textCol = getContrastColor($bg);          
-  }
-  else if($theme == 'accent'){
-      $bg = $colours['accent'];
-      $textCol = getContrastColor($bg);        
-  }
-  else if($theme == 'none'){
-    $bg = '';
-    $textCol = 'white';
-  }
+  $cols = get_field('site_colours', 'options');
 
   $cta = get_field('call_to_action_options', 'options');
   if(isset($cta)){
-    if($theme == 'primary' || $theme == 'none'){
-      $ctaBg = $colours['secondary'];
+    if($theme['themes'] == 'primary' || $theme['themes'] == 'none'){
+      $ctaBg = $cols['secondary'];
       $ctaTxt = getContrastColor($ctaBg);
     }
-    else if(isset($cta) && ($theme == 'secondary' || $theme == 'accent')){
-      $ctaBg = $colours['primary'];
+    else if(isset($cta) && ($theme['themes'] == 'secondary' || $theme['themes'] == 'accent')){
+      $ctaBg = $cols['primary'];
       $ctaTxt = getContrastColor($ctaBg);
     }
   }
-
 
   $search = get_field('site_search', 'options');
 
@@ -63,8 +48,8 @@ if(current_user_can( 'edit_posts' )){ ?>
 } ?>
 
 
-<header class="site-header <?php if(isset($fixed)){ echo 'fixed-header'; } ?> <?php if(!$cta['add_call_to_action_button']){ echo 'no-cta'; } else if($cta['add_email']){ echo 'cta-with-email'; } ;?> <?= $theme; ?>" style="background-color:<?= $bg; ?>; color:<?= $textCol; ?>;">
-  <div class="container <?= $layout; ?>">
+<header class="site-header <?php if(isset($fixed)){ echo 'fixed-header'; } ?> <?php if(!$cta['add_call_to_action_button']){ echo 'no-cta'; } else if($cta['add_email']){ echo 'cta-with-email'; } ;?> <?= $theme['themes']; ?>" style="background-color:<?= $colours['bg']; ?>; color:<?= $colours['textCol']; ?>;">
+  <div class="inside-container<?php  if($width == 'contained'){ echo 'container'; }; ?> <?= $layout; ?>">
     <a class="logo-container" href="<?php echo get_home_url(); ?>">
     <?php if(isset($logo)){ ?>
       <img draggable="false" class="logo" src="<?= $logo['url']; ?>" alt="<?= $logo['alt']; ?>"/>

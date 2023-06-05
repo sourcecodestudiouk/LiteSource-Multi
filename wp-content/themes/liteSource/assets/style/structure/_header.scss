@@ -4,7 +4,7 @@
 .site-header{
   width:100%;
   @include breakout();
-  z-index: 260;
+  z-index: 99999;
   position: absolute;
   &.fixed-header{
     position: fixed;
@@ -16,12 +16,15 @@
       background-color:rgba(0,0,0,0.5);
     }
   }
-  .container{
+  .inside-container{
     display:flex;
     justify-content: space-between;
     align-items: center;
     height:100px;
     padding:25px 15px;
+    &:not(&.container){
+      padding:0 25px;
+    }
     .logo-container{
       height:100%;
       .logo{
@@ -195,7 +198,7 @@
     }
   }
   &.no-cta{
-    .container{
+    .inside-container{
      .desktop-navigation{
       ul{
         justify-content: flex-end;
@@ -211,7 +214,7 @@
     }
   }
   &.cta-with-email{
-    .container{
+    .inside-container{
       .logo-container{
         img{
           height:55px;
@@ -247,7 +250,7 @@
   display:flex;
   justify-content: space-between;
   align-items:center;
-  z-index:9999;
+  z-index:99999;
   padding:0 15px;
   border-bottom:1px solid white;
   position: fixed;

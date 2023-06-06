@@ -49,7 +49,7 @@ if(current_user_can( 'edit_posts' )){ ?>
 
 
 <header class="site-header <?php if(isset($fixed)){ echo 'fixed-header'; } ?> <?php if(!$cta['add_call_to_action_button']){ echo 'no-cta'; } else if($cta['add_email']){ echo 'cta-with-email'; } ;?> <?= $theme['themes']; ?>" style="background-color:<?= $colours['bg']; ?>; color:<?= $colours['textCol']; ?>;">
-  <div class="inside-container<?php  if($width == 'contained'){ echo 'container'; }; ?> <?= $layout; ?>">
+  <div class="inside-container <?php if($width == 'contained'){ echo 'container'; }; ?> <?= $layout; ?>">
     <a class="logo-container" href="<?php echo get_home_url(); ?>">
     <?php if(isset($logo)){ ?>
       <img draggable="false" class="logo" src="<?= $logo['url']; ?>" alt="<?= $logo['alt']; ?>"/>

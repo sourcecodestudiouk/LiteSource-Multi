@@ -65,7 +65,7 @@
                 "full-width": "Full Width",
                 "contained": "Within Container"
             },
-            "default_value": "",
+            "default_value": "contained",
             "return_format": "value",
             "allow_null": 0,
             "layout": "horizontal"
@@ -211,5 +211,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1685978258
+    "modified": 1686052187
 }

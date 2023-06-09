@@ -56,7 +56,21 @@ $events = get_posts(array('post_type' => 'events', 'posts_per_page' => '10', 'or
     $post_query = new WP_Query($args);
     if($post_query->have_posts() ) {
       while($post_query->have_posts() ) { $post_query->the_post();
-        get_template_part('/templates/cards/event', 'card');
+        $today = intval(date('Ymd'));
+        $blocks = parse_blocks( get_the_content() ); 
+        foreach($blocks as $block){
+            if($block['blockName'] == 'acf/events-information'){
+                $date = intval(date($block['attrs']['data']['date_time_0_event_date']));
+                if($today <= $date){
+                  get_template_part('/templates/cards/event', 'card');
+                }
+                else if($today <= $date){
+                  echo 'hello';
+              }
+                
+            }
+        }                      
+        
       }
     }
     wp_reset_postdata();

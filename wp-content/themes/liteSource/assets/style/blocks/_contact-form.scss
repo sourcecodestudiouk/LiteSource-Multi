@@ -1,4 +1,8 @@
 .contact-form-block{
+    color:black;
+    .forminator-label{
+        color:black;
+    }
     &.borded-form{
         .forminator-ui{
             .forminator-row{
@@ -33,11 +37,25 @@
                         border-top:0!important;
                         padding-left:0!important;
                     }
-                    .forminator-checkbox__label{
-                        color:inherit!important;
-                    }
+                    
                 }
             }
         }
     }
+   &.white{
+    .forminator-ui{
+        .forminator-row{
+            .forminator-field{
+                .forminator-checkbox__label p{
+                    color:white!important;
+                }
+                .forminator-label{
+                    color:white!important;
+                }
+            }
+        }
+    }
+    
+    
+   } 
 }

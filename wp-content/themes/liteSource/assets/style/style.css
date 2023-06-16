@@ -2791,6 +2791,12 @@ body a {
   object-position: center;
 }
 
+.contact-form-block {
+  color: black;
+}
+.contact-form-block .forminator-label {
+  color: black;
+}
 .contact-form-block.borded-form .forminator-ui .forminator-row .forminator-field label {
   color: inherit !important;
 }
@@ -2813,8 +2819,11 @@ body a {
   border-top: 0 !important;
   padding-left: 0 !important;
 }
-.contact-form-block.underlined-form .forminator-ui .forminator-row .forminator-field .forminator-checkbox__label {
-  color: inherit !important;
+.contact-form-block.white .forminator-ui .forminator-row .forminator-field .forminator-checkbox__label p {
+  color: white !important;
+}
+.contact-form-block.white .forminator-ui .forminator-row .forminator-field .forminator-label {
+  color: white !important;
 }
 
 .portfolio-overview-block {
@@ -3785,17 +3794,17 @@ html {
   overflow-x: hidden;
 }
 
-body.curved-border-radius p.btn, body.curved-border-radius .testimonial-card.multiple-slider, body.curved-border-radius .testimonial-card.single-slider, body.curved-border-radius .event-card, body.curved-border-radius .portfolio-card, body.curved-border-radius .search-result-card, body.curved-border-radius .project-card, body.curved-border-radius .service-card, body.curved-border-radius .post-card, body.curved-border-radius .accordion-container .information-container, body.curved-border-radius .share-buttons .buttons a, body.curved-border-radius .forminator-ui .forminator-textarea, body.curved-border-radius .forminator-ui .forminator-input, body.curved-border-radius .forminator-ui .forminator-button, body.curved-border-radius .contact-details-block, body.curved-border-radius .slider-arrows .previous, body.curved-border-radius .slider-arrows .next, body.curved-border-radius .single-image-block img, body.curved-border-radius .call-to-action-block, body.curved-border-radius .industry-card {
+body.curved-border-radius p.btn, body.curved-border-radius .testimonial-card.multiple-slider, body.curved-border-radius .testimonial-card.single-slider, body.curved-border-radius .event-card, body.curved-border-radius .portfolio-card, body.curved-border-radius .search-result-card, body.curved-border-radius .project-card, body.curved-border-radius .service-card, body.curved-border-radius .post-card, body.curved-border-radius .accordion-container .information-container, body.curved-border-radius .share-buttons .buttons a, body.curved-border-radius .forminator-ui .forminator-textarea, body.curved-border-radius .forminator-ui .forminator-input, body.curved-border-radius .forminator-ui .forminator-button, body.curved-border-radius .contact-details-block, body.curved-border-radius .slider-arrows .previous, body.curved-border-radius .slider-arrows .next, body.curved-border-radius .single-image-block img, body.curved-border-radius .call-to-action-block, body.curved-border-radius .industry-card, body.curved-border-radius .select2-selection {
   border-radius: 8px !important;
 }
 
-body.subtle-border-radius p.btn, body.subtle-border-radius .testimonial-card.multiple-slider, body.subtle-border-radius .testimonial-card.single-slider, body.subtle-border-radius .event-card, body.subtle-border-radius .portfolio-card, body.subtle-border-radius .search-result-card, body.subtle-border-radius .project-card, body.subtle-border-radius .service-card, body.subtle-border-radius .post-card, body.subtle-border-radius .accordion-container .information-container, body.subtle-border-radius .share-buttons .buttons a, body.subtle-border-radius .forminator-ui .forminator-textarea, body.subtle-border-radius .forminator-ui .forminator-input, body.subtle-border-radius .forminator-ui .forminator-button, body.subtle-border-radius .contact-details-block, body.subtle-border-radius .slider-arrows .previous, body.subtle-border-radius .slider-arrows .next, body.subtle-border-radius .single-image-block img, body.subtle-border-radius .call-to-action-block, body.subtle-border-radius .industry-card {
+body.subtle-border-radius p.btn, body.subtle-border-radius .testimonial-card.multiple-slider, body.subtle-border-radius .testimonial-card.single-slider, body.subtle-border-radius .event-card, body.subtle-border-radius .portfolio-card, body.subtle-border-radius .search-result-card, body.subtle-border-radius .project-card, body.subtle-border-radius .service-card, body.subtle-border-radius .post-card, body.subtle-border-radius .accordion-container .information-container, body.subtle-border-radius .share-buttons .buttons a, body.subtle-border-radius .forminator-ui .forminator-textarea, body.subtle-border-radius .forminator-ui .forminator-input, body.subtle-border-radius .forminator-ui .forminator-button, body.subtle-border-radius .contact-details-block, body.subtle-border-radius .slider-arrows .previous, body.subtle-border-radius .slider-arrows .next, body.subtle-border-radius .single-image-block img, body.subtle-border-radius .call-to-action-block, body.subtle-border-radius .industry-card, body.subtle-border-radius .select2-selection {
   border-radius: 3px !important;
 }
 
 body.rounded-border-radius p.btn, body.rounded-border-radius .testimonial-card.multiple-slider, body.rounded-border-radius .testimonial-card.single-slider, body.rounded-border-radius .event-card, body.rounded-border-radius .portfolio-card, body.rounded-border-radius .search-result-card, body.rounded-border-radius .project-card, body.rounded-border-radius .service-card, body.rounded-border-radius .post-card, body.rounded-border-radius .accordion-container .information-container, body.rounded-border-radius .share-buttons .buttons a, body.rounded-border-radius .forminator-ui .forminator-textarea, body.rounded-border-radius .forminator-ui .forminator-input, body.rounded-border-radius .forminator-ui .forminator-button, body.rounded-border-radius .contact-details-block, body.rounded-border-radius .slider-arrows .previous, body.rounded-border-radius .slider-arrows .next, body.rounded-border-radius .single-image-block img, body.rounded-border-radius .call-to-action-block, body.rounded-border-radius .industry-card {
   border-radius: 40px !important;
 }
-body.rounded-border-radius .forminator-ui .forminator-textarea, body.rounded-border-radius .forminator-ui .forminator-input, body.rounded-border-radius .forminator-ui .forminator-button {
+body.rounded-border-radius .forminator-ui .forminator-textarea, body.rounded-border-radius .forminator-ui .forminator-input, body.rounded-border-radius .forminator-ui .forminator-button, body.rounded-border-radius .select2-selection {
   border-radius: 12px !important;
 }

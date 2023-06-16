@@ -26,7 +26,6 @@ if( !empty($block['align']) ) {
 
 // Load values and assign defaults.
 
-
     $colours = get_field('site_colours', 'options');
 	$bodyCol = $colours['body_colour'];
         if($bodyCol == 'white'){
@@ -41,6 +40,6 @@ $form = get_field('contact_form');
 $style = get_field('form_styling', 'options');
 
 ?>
-<div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?> <?= $style; ?>" style="color:<?= $textCol; ?>; border-color:<?= 'red'; ?>;">
+<div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?> <?= $textCol; ?> <?= $style; ?>" style="color:<?= $textCol; ?>; border-color:<?= 'red'; ?>;">
     <?= do_shortcode('[forminator_form id="' . $form->ID . '"]'); ?> 
 </div>

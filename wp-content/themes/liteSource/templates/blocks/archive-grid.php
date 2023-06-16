@@ -32,6 +32,9 @@ if(is_archive()){
     if(is_post_type_archive('industries')){
         $content = get_field('industries_archive', 'options');
     }
+    if(is_post_type_archive('events')){
+        $content = get_field('events_archive', 'options');
+    }
     $theme = $content['archive_theme'];
     $layout = $content['archive_layout'] ?: 'list';
 }

@@ -599,7 +599,7 @@ function scs_post_types() {
 					"map_meta_cap" => true,
 					"hierarchical" => false,
 					"can_export" => false,
-					"rewrite" => [ "slug" => "event", "with_front" => true ],
+					"rewrite" => [ "slug" => "events", "with_front" => true ],
 					"menu_icon" => "dashicons-calendar-alt",
 					"query_var" => true,
 					"supports" => [ "title", "editor", "thumbnail" ],

@@ -32,11 +32,18 @@ if(is_archive()){
     if(is_post_type_archive('industries')){
         $content = get_field('industries_archive', 'options');
     }
-    if(is_post_type_archive('events')){
-        $content = get_field('events_archive', 'options');
+    if(is_post_type_archive('event')){
+        $content = array();
+        $content["archive_theme"] = "primary"; 
+        $content["archive_page_header_options"] = array(); 
+        $content["archive_page_header_options"]["type"] = "text";
+        $content["archive_layout"] = "grid";
+        $content['archive_theme'] = 'primary';
     }
-    $theme = $content['archive_theme'];
+    $theme = $content['archive_theme'] ?: 'primary';
     $layout = $content['archive_layout'] ?: 'list';
+
+    
 }
 else{
     $id = 'archive-grid-' . $block['id'];
@@ -50,6 +57,7 @@ else{
 }
 
 $colours = get_theme_colours($theme);
+
 
 // Create class attribute allowing for custom "className" and "align" values.
 $className = 'archive-grid-block';
@@ -77,7 +85,7 @@ if( !empty($block['align']) ) {
                 if(isset($_GET['category']) && is_post_type_archive('portfolio')){
                     $args = array( 'post_type' => $type, 'posts_per_page' => $num, 'order' => 'ASC', 'orderby' => 'menu_order', 'tax_query' => array( array('taxonomy' => 'portfolio_cat', 'field' => 'slug', 'terms' => $_GET['category'], ), ),);
                 }
-                if(isset($_GET['category']) && is_page('events')){
+                if(isset($_GET['category']) && is_post_type_archive('event')){
                     $args = array( 'post_type' => $type, 'posts_per_page' => $num, 'order' => 'ASC', 'orderby' => 'menu_order', 'tax_query' => array( array('taxonomy' => 'category', 'field' => 'slug', 'terms' => $_GET['category'], ), ),);
                 }
                 else{
@@ -86,10 +94,11 @@ if( !empty($block['align']) ) {
                 $post_query = new WP_Query($args);
                 if($post_query->have_posts() ) {
                     while($post_query->have_posts() ) { $post_query->the_post();
-                        if(is_page_template( 'content-archive.php' ) && is_page('events')){
+                        if(is_post_type_archive('events')){
                             $today = intval(date('Ymd'));
                             $blocks = parse_blocks( $post->post_content ); 
                             foreach($blocks as $block){
+                                
                                 if($block['blockName'] == 'acf/events-information'){
                                     $date = intval(date($block['attrs']['data']['date_time_0_event_date']));
                                     if(isset($_GET['events']) && $_GET['events'] == 'past'){

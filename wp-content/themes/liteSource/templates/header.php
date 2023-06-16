@@ -87,15 +87,15 @@ if(current_user_can( 'edit_posts' )){ ?>
 
 <?php
   if($search){ ?>
-    <div class="search-container <?php if(isset($fixed)){ echo 'fixed-header'; } ?> <?= $theme; ?>" style="background-color:<?= $bg; ?>; color:<?= $textCol; ?>">
+    <div class="search-container <?php if(isset($fixed)){ echo 'fixed-header'; } ?> <?= $theme['themes']; ?>" style="background-color:<?= $colours['bg']; ?>; color:<?= $colours['textCol']; ?>">
       <div class="close-button">
         <i class="fa-solid fa-xmark"></i>
       </div>
       <div class="search-form-container">
         <h6>Search Site:</h6>
         <form action="<?= get_site_url(); ?>/search-results/"  method="get" class="search-form">
-          <input type="search" placeholder="Search &hellip;" value="" name="_search" style="color:<?= $txtCol; ?>">
-          <button type="submit"><i style="color:<?= $txtCol; ?>" class="fa-solid fa-magnifying-glass"></i></button>
+          <input type="search" placeholder="Search &hellip;" value="" name="_search" style="color:<?= $colours['txtCol']; ?>">
+          <button type="submit"><i style="color:<?= $colours['txtCol']; ?>" class="fa-solid fa-magnifying-glass"></i></button>
         </form>
       </div>
     </div>

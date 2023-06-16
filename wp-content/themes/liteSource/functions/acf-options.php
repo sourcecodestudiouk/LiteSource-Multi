@@ -574,22 +574,7 @@ function my_acf_save_post( $post_id ) {
     $modules = get_field('modular_addons', 'admin-settings');
     // Projects Archive
     if($modules){
-      if(in_array('events', $modules)){
-        $post_title = 'Events';
-        $data = array(
-              'post_title'   => $post_title,
-              'post_status'  => 'publish',
-              'post_type'    => 'page',
-        );
-        if(!post_exists($post_title)){
-          wp_insert_post( add_magic_quotes( $data ) );
-        }
-      }
-      else{
-        $post_title = 'Events';
-        $tPage = get_page_by_title($post_title);
-        wp_delete_post( $tPage->ID, $bypass_trash = true );
-      }
+      
    
     }
     global $wp_rewrite;
@@ -642,7 +627,7 @@ add_filter( 'get_sample_permalink_html', 'wpse_125800_sample_permalink' );
 
 function my_disable_quick_edit( $actions = array(), $post = null ) {
   global $post;
-  if( ('page' == get_post_type($post->ID) && ( $post->post_name == 'terms-of-service' || $post->post_name == 'privacy-policy' || $post->post_name == 'search-results'  || $post->post_name == 'events' || $post->post_name == 'our-portfolio' || $post->post_name == 'services' || $post->post_name == 'departments' || $post->post_name == 'team' || $post->post_name == 'news' || $post->post_name == 'projects')) ) {
+  if( ('page' == get_post_type($post->ID) && ( $post->post_name == 'terms-of-service' || $post->post_name == 'privacy-policy' || $post->post_name == 'search-results'  || $post->post_name == 'our-portfolio' || $post->post_name == 'services' || $post->post_name == 'departments' || $post->post_name == 'team' || $post->post_name == 'news' || $post->post_name == 'projects')) ) {
     if ( isset( $actions['inline hide-if-no-js'] ) ) {
       unset( $actions['inline hide-if-no-js'] );
       unset( $actions['trash']);

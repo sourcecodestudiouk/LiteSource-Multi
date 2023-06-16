@@ -29,18 +29,29 @@ if(is_archive() || is_page('project')){
     if(is_post_type_archive('industries')){
         $content = get_field('industries_archive', 'options');
     }
+    if(is_post_type_archive('event')){
+        $content = array();
+        $content["archive_theme"] = "primary"; 
+        $content["archive_page_header_options"] = array(); 
+        $content["archive_page_header_options"]["type"] = "text";
+        $content["archive_page_header_options"]["background_image"] = "";
+        $content["archive_page_header_options"]["height"] = "small";
+        $content["archive_page_header_options"]["title"] = get_the_archive_title();
+        $content["archive_page_header_options"]["description"] = '';
+        $content["archive_page_header_options"]["alignment"] = 'flex-start';
+        $link = get_site_url() . '/events';
+    }
     if($content){
         $options = $content['archive_page_header_options'];
         $type = $options['type'] ?: 'text';
         $align = $options['alignment'];
-        $img = $options['background_image'];
+        $img = $options['background_image'] ?: '';
         $height = $options['height'] ?: 'small';
         $title = $options['title'] ?: get_the_archive_title();
         $desc = $options['description'];
         $theme = $content['archive_theme'];
         $colours = get_header_colours($theme, $type);
     }
-    
 }
 else{
     $id = 'page-header' . $block['id'];

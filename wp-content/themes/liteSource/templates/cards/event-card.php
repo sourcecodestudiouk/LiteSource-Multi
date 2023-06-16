@@ -13,13 +13,16 @@
     $theme = get_field('events_theme', 'options')['themes'];
     $colours = get_field('site_colours', 'options');
     if($theme == 'primary'){
-        $textCol = $colours['primary'];          
+        $bg = $colours['primary'];
+        $textCol = getContrastColor($bg);         
     }
     else if($theme == 'secondary'){
-        $textCol = $colours['secondary'];         
+        $bg = $colours['secondary'];
+        $textCol = getContrastColor($bg);          
     }
     else if($theme == 'accent'){
-        $textCol = $colours['accent'];    
+        $bg = $colours['accent']; 
+        $textCol = getContrastColor($bg);   
     }
     
     $blocks = parse_blocks( $post->post_content ); 
@@ -57,13 +60,12 @@
     }
 ?> 
 
-<div class="event-card content-card <?= $class; ?>">
+<div class="event-card content-card <?= $class; ?>" style="background-color:<?= $bg; ?>">
     <a href="<?= the_permalink(); ?>">
          <div class="image-container">
-            
-            <img src="<?= $url; ?>" alt="<?= $alt; ?>">
+            <img src="<?= $url; ?>" alt="<?= $alt;?>">
         </div>
-        <div class="card-content">
+        <div class="card-content" style="color:<?= $textCol; ?>">
             <h5><?= get_the_title(); ?></h5>
             <?php 
              if(isset($dates)){ 

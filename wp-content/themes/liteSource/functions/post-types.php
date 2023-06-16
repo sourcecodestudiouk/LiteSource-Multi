@@ -666,7 +666,7 @@ function scs_get_post_type($post){
 	if($post == 'departments'){
 		return 'department';
 	}
-	if($post == 'events'){
+	if($post == 'event'){
 		return 'event';
 	}
 	if($post == 'portfolio'){

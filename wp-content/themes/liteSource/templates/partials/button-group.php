@@ -22,7 +22,7 @@ $colours = get_field('site_colours', 'options');?>
         else if($style == 'ghost'){
             $bg = '';
             $tc = '';
-            $bc = $colours['accent'];
+            $bc = '';
         }?>
         <p style="background-color:<?= $bg; ?>; border-color:<?= $bc; ?>" class="btn <?= $style; ?>"><a style="color:<?= $tc; ?>" target="<?= $btn['target'];?>" href="<?= $btn['url']; ?>"><?= $btn['title']; ?></a></p>
     <?php

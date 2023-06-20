@@ -25,6 +25,8 @@
         </div>
         <div class="card-content">
             <h6><?= get_the_title(); ?></h6>
+            
+            
         </div>
     </a>
 </div>

@@ -44,12 +44,12 @@ if(is_archive() || is_page('project')){
     if($content){
         $options = $content['archive_page_header_options'];
         $type = $options['type'] ?: 'text';
-        $align = $options['alignment'];
+        $align = $options['alignment'] ?: 'flex-start';
         $img = $options['background_image'] ?: '';
         $height = $options['height'] ?: 'small';
         $title = $options['title'] ?: get_the_archive_title();
         $desc = $options['description'];
-        $theme = $content['archive_theme'];
+        $theme = $content['archive_theme'] ?: 'primary';
         $colours = get_header_colours($theme, $type);
     }
 }
@@ -60,13 +60,13 @@ else{
     }
     // Load values and assign defaults.
     $type = get_field('type') ?: 'text';
-    $align = get_field('alignment');
-    $img = get_field('background_image');
+    $align = get_field('alignment') ?: 'flex-start';
+    $img = get_field('background_image') ?: '';
     $height = get_field('height') ?: 'small';
     $title = get_field('title') ?: get_the_title();
     $desc = get_field('description');
     $theme = get_field('themes') ?: 'primary';
-    $colours = get_theme_colours($theme); 
+    $colours = get_header_colours($theme, $type); 
 }
 
 // Create class attribute allowing for custom "className" and "align" values.

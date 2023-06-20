@@ -591,7 +591,7 @@ p.btn {
   margin: 0;
   width: auto;
 }
-p.btn a {
+p.btn a, p.btn span {
   color: inherit;
   padding: 10px 25px;
   z-index: 3;
@@ -599,7 +599,7 @@ p.btn a {
   width: 100%;
   text-align: center;
 }
-p.btn a:hover {
+p.btn a:hover, p.btn span:hover {
   text-decoration: none;
 }
 p.btn .background {
@@ -3072,7 +3072,6 @@ div#calendar:focus {
   -webkit-box-shadow: 4px 5px 8px 2px rgba(0, 0, 0, 0.16);
   -moz-box-shadow: 4px 5px 8px 2px rgba(0, 0, 0, 0.16);
   box-shadow: 4px 5px 8px 2px rgba(0, 0, 0, 0.16);
-  border: 1px solid #eee;
 }
 .event-card .image-container {
   aspect-ratio: 2/1;
@@ -3142,7 +3141,6 @@ div#calendar:focus {
   -webkit-box-shadow: 4px 5px 8px 2px rgba(0, 0, 0, 0.16);
   -moz-box-shadow: 4px 5px 8px 2px rgba(0, 0, 0, 0.16);
   box-shadow: 4px 5px 8px 2px rgba(0, 0, 0, 0.16);
-  border: 1px solid #eee;
 }
 .project-card .image-container {
   aspect-ratio: 2/1;
@@ -3206,12 +3204,19 @@ div#calendar:focus {
     align-items: center;
   }
   .project-card.list-card a .image-container {
-    width: 40%;
+    width: 50%;
     aspect-ratio: 4/3;
   }
   .project-card.list-card a .card-content {
-    flex-grow: 2;
     padding: 35px;
+    width: 50%;
+  }
+  .project-card.list-card a .card-content .description {
+    margin-bottom: 25px;
+  }
+  .project-card.list-card a .card-content .btn {
+    float: left;
+    background-color: #eee;
   }
 }
 
@@ -3221,7 +3226,6 @@ div#calendar:focus {
   -webkit-box-shadow: 4px 5px 8px 2px rgba(0, 0, 0, 0.16);
   -moz-box-shadow: 4px 5px 8px 2px rgba(0, 0, 0, 0.16);
   box-shadow: 4px 5px 8px 2px rgba(0, 0, 0, 0.16);
-  border: 1px solid #eee;
 }
 .service-card .image-container {
   aspect-ratio: 2/1;
@@ -3285,12 +3289,19 @@ div#calendar:focus {
     align-items: center;
   }
   .service-card.list-card a .image-container {
-    width: 40%;
+    width: 50%;
     aspect-ratio: 4/3;
   }
   .service-card.list-card a .card-content {
-    flex-grow: 2;
     padding: 35px;
+    width: 50%;
+  }
+  .service-card.list-card a .card-content .description {
+    margin-bottom: 25px;
+  }
+  .service-card.list-card a .card-content .btn {
+    float: left;
+    background-color: #eee;
   }
 }
 
@@ -3300,7 +3311,6 @@ div#calendar:focus {
   -webkit-box-shadow: 4px 5px 8px 2px rgba(0, 0, 0, 0.16);
   -moz-box-shadow: 4px 5px 8px 2px rgba(0, 0, 0, 0.16);
   box-shadow: 4px 5px 8px 2px rgba(0, 0, 0, 0.16);
-  border: 1px solid #eee;
 }
 .post-card .image-container {
   aspect-ratio: 2/1;
@@ -3444,12 +3454,19 @@ div#calendar:focus {
     align-items: center;
   }
   .portfolio-card.list-card a .image-container {
-    width: 40%;
+    width: 50%;
     aspect-ratio: 4/3;
   }
   .portfolio-card.list-card a .card-content {
-    flex-grow: 2;
     padding: 35px;
+    width: 50%;
+  }
+  .portfolio-card.list-card a .card-content .description {
+    margin-bottom: 25px;
+  }
+  .portfolio-card.list-card a .card-content .btn {
+    float: left;
+    background-color: #eee;
   }
 }
 
@@ -3459,7 +3476,6 @@ div#calendar:focus {
   -webkit-box-shadow: 4px 5px 8px 2px rgba(0, 0, 0, 0.16);
   -moz-box-shadow: 4px 5px 8px 2px rgba(0, 0, 0, 0.16);
   box-shadow: 4px 5px 8px 2px rgba(0, 0, 0, 0.16);
-  border: 1px solid #eee;
 }
 .industry-card .image-container {
   aspect-ratio: 2/1;
@@ -3523,12 +3539,19 @@ div#calendar:focus {
     align-items: center;
   }
   .industry-card.list-card a .image-container {
-    width: 40%;
+    width: 50%;
     aspect-ratio: 4/3;
   }
   .industry-card.list-card a .card-content {
-    flex-grow: 2;
     padding: 35px;
+    width: 50%;
+  }
+  .industry-card.list-card a .card-content .description {
+    margin-bottom: 25px;
+  }
+  .industry-card.list-card a .card-content .btn {
+    float: left;
+    background-color: #eee;
   }
 }
 

@@ -40,7 +40,7 @@ if(is_archive()){
         $content["archive_layout"] = "grid";
         $content['archive_theme'] = 'primary';
     }
-    $theme = $content['archive_theme'] ?: 'primary';
+    $theme = $content['archive_card_theme'] ?: 'accent';
     $layout = $content['archive_layout'] ?: 'list';
 
     

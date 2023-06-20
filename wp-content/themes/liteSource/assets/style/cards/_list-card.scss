@@ -1,16 +1,25 @@
 &.list-card{
     width:100%!important;
+
     a{
       display:flex;
       min-height:250px;
       align-items: center;
       .image-container{
-        width:40%;
+        width:50%;
         aspect-ratio:4/3;
       }
       .card-content{
-        flex-grow:2;
         padding:35px;
+        width:50%;
+        .description{
+          margin-bottom:25px;
+
+        }
+        .btn{
+          float:left;
+          background-color:#eee;
+        }
       }
     }
   }

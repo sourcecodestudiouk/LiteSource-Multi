@@ -47,3 +47,18 @@ function get_header_colours($theme, $type){
     $cols['textCol'] = getContrastColor($cols['bg']);
     return $cols;
 }
+
+function get_button_colours($theme){
+    $colours = get_field('site_colours', 'options');
+    if($theme == 'primary'){
+        $cols['bg'] = $colours['secondary'];          
+    }
+    else if($theme == 'secondary'){
+        $cols['bg'] = $colours['primary'];      
+    }
+    else if($theme == 'accent'){
+        $cols['bg'] = $colours['primary'];       
+    }
+    $cols['textCol'] = getContrastColor($cols['bg']);
+    return $cols;
+}

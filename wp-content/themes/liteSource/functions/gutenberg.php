@@ -129,4 +129,13 @@ function allowed_block_types( $allowed_blocks, $editor_context ) {
 	);
 }
 
+function get_short_description($content){
+	$blocks = parse_blocks( $content ); 
+    foreach($blocks as $block){
+		if($block['blockName'] == 'core/paragraph'){
+			$content = $block['innerContent'][0];
+			return wp_trim_words($content, 25, '...');
+		}
+	}
+}
 ?>

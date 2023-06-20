@@ -5,7 +5,7 @@ function header_nav() {
   if( function_exists('acf_add_options_page') ) {
     $theme = get_field('header_theme', 'options')['themes'];
     $colours = get_field('site_colours', 'options');
-  
+    
     if($theme == 'primary'){
         $bg = $colours['primary'];
         $textCol = getContrastColor($bg);   

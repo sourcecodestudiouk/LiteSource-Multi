@@ -14,10 +14,10 @@ function get_theme_colours($theme){
     else if(is_null($theme) OR $theme == 'none'){
         $bodyCol = $colours['body_colour'];
         if($bodyCol == 'white'){
-            $cols['bg'] = '#ffffff';
+            $cols['bg'] = '';
         }
         else{
-            $cols['bg'] = $colours['background_colour'];
+            $cols['bg'] = ''; 
         }    
     }
     $cols['textCol'] = getContrastColor($cols['bg']);

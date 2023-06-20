@@ -6,22 +6,22 @@ function header_nav() {
     $theme = get_field('header_theme', 'options');
     $colours = get_field('site_colours', 'options');
   
-    if($theme == 'primary'){
+    if($theme['themes'] == 'primary'){
         $bg = $colours['primary'];
         $textCol = getContrastColor($bg);   
         $accent = $colours['accent'];        
     }
-    else if($theme == 'secondary'){
+    else if($theme['themes'] == 'secondary'){
         $bg = $colours['secondary'];
         $textCol = getContrastColor($bg);
         $accent = $colours['accent'];        
     }
-    else if($theme == 'accent'){
+    else if($theme['themes'] == 'accent'){
         $bg = $colours['accent'];
         $textCol = getContrastColor($bg);  
         $accent = $colours['secondary'];
     }
-    else if($theme == 'none'){
+    else if($theme['themes'] == 'none'){
       $bg = '';
       $textCol = 'white';
       $accent = $colours['secondary'];
@@ -69,7 +69,7 @@ function header_nav() {
                                           
                                         </a>
                                     </li>
-                                  <?php if ( $menuitems[ $count + 1 ]->menu_item_parent != $parent_id && $submenu ):
+                                  <?php if ( $menuitems[ $count ]->menu_item_parent != $parent_id && $submenu ):
                                     ?>
                                   
                               </ul>
@@ -77,7 +77,7 @@ function header_nav() {
                        <?php endif; ?>
                       <?php 
                       if($item->menu_item_parent){ 
-                        if ($menuitems[ $count + 1 ]->menu_item_parent != $parent_id ): ?>
+                        if ($menuitems[ $count ]->menu_item_parent != $parent_id ): ?>
                           </li>
                       <?php $submenu = false; endif; 
                       }
@@ -94,7 +94,7 @@ function header_nav() {
                 <li class="item parent-link">
                     <p class="title"><a href="<?php echo $link; ?>"><span class="text">More</span></a> </p>
                     <i class="fa-solid fa-chevron-down"></i>
-                    <ul class="sub-menu" style="background-color:<?= $secondary; ?>">
+                    <ul class="sub-menu" style="background-color:<?= $bg; ?>">
                     <?php
                        foreach($menuitems as $item){ 
                           $title = $item->title;

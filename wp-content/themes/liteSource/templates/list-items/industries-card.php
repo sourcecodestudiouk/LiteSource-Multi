@@ -15,6 +15,7 @@
         $theme = get_field('themes');
     }
     $colours = get_theme_colours($theme); 
+    $btnCols = get_button_colours($theme);
 
 ?> 
 
@@ -25,6 +26,10 @@
         </div>
         <div class="card-content">
             <h6><?= get_the_title(); ?></h6>
+            <div class="description">
+                <?= get_short_description($post->post_content); ?>
+            </div>
+            <p class="btn" style="background-color:<?= $btnCols['bg']; ?>"><span style="color:<?= $btnsCols['textCol']; ?>" href="#">View <?= get_the_title(); ?></span></p>
             
             
         </div>

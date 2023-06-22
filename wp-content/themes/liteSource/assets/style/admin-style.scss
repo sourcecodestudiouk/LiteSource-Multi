@@ -95,7 +95,12 @@ html.wp-toolbar{
   }
 
   #wpadminbar{
-    display:none;
+    //display:none;
+  }
+
+  #wp-admin-bar-wp-logo{
+
+    display:none!important;
   }
 
   #adminmenu li.wp-menu-separator {

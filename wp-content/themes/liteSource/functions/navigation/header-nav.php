@@ -61,7 +61,7 @@ function header_nav() {
                               <?php if ( !$submenu ): $submenu = true;?>
                               <i class="fa-solid fa-chevron-down"></i>
                               <ul class="sub-menu" style="background-color:<?= $bg; ?>; border-color:<?= $accent; ?>">
-                              
+                            
                                   <?php endif; ?>
                                     <li class="item child-link" >
                                         <a href="<?php echo $link; ?>" class="title">
@@ -81,20 +81,20 @@ function header_nav() {
                           </li>
                       <?php $submenu = false; endif; 
                       }
-                      if($topCount == 6){
+                      if($topCount == 5){
                         break;
                       }
               $count++; endforeach; ?>
               
             <?php
-
+            
             if($topCount == 5){
               $menuitems = array_slice($menuitems, $totalCount - 1); 
               if(count($menuitems) > 1){ ?>
                 <li class="item parent-link">
                     <p class="title"><a href="<?php echo $link; ?>"><span class="text">More</span></a> </p>
                     <i class="fa-solid fa-chevron-down"></i>
-                    <ul class="sub-menu" style="background-color:<?= $secondary; ?>">
+                    <ul class="sub-menu" style="background-color:<?= $bg; ?>; border-color:<?= $accent; ?>">
                     <?php
                        foreach($menuitems as $item){ 
                           $title = $item->title;
@@ -110,12 +110,7 @@ function header_nav() {
                 </li>
               <?php 
               }
-              else{ ?>
-               <li class="item parent-link">
-                <p class="title"><a href="<?php echo $menuitems[0]->url; ?>" class="title"><span class="text"><?php echo $menuitems[0]->title; ?></span></a></p>
-              </li>
-              <?php
-              }?>
+              ?>
                
             <?php
             }

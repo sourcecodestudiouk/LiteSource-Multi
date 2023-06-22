@@ -35,7 +35,8 @@ if(is_archive()){
         $options = $content['archive_page_header_options'];
         $type = $options['type'] ?: 'text';
         $theme = $content['archive_theme'];
-        $colours = get_header_colours($theme, $type);
+        $colours = get_theme_colours($theme); 
+        $btnCols = get_button_colours($theme);
     }
     
 } ?>
@@ -56,7 +57,7 @@ if(is_archive()){
             }
             if(is_page('news') || is_post_type_archive('portfolio') || (is_post_type_archive('event') && isset($_GET['view']) && $_GET['view'] == 'grid') OR !isset($_GET['view']))
 			foreach($cats as $cat){ ?>
-				<p class="category" <?php if(isset($_GET['category'])){ if($_GET['category'] == $cat->slug){?> style="background-color:<?= $colours['bg']; ?>; color:<?= $colours['textCol']; ?>" <?php } } ?>><a href="?category=<?= $cat->slug; ?>"><?= $cat->name; ?></a></p>
+				<p class="category" <?php if(isset($_GET['category'])){ if($_GET['category'] == $cat->slug){?> style="background-color:<?= $btnCols['bg']; ?>; color:<?= $btnCols['textCol']; ?>" <?php } } ?>><a href="?category=<?= $cat->slug; ?>"><?= $cat->name; ?></a></p>
 			<?php
 			} ?>
 		</div>	

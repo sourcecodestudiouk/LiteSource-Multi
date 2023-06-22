@@ -16,30 +16,8 @@
         $theme = get_field('themes');
     }
 
-    
-    $colours = get_field('site_colours', 'options');
-    if($theme == 'primary'){
-        $bg = $colours['primary'];
-        $textCol = getContrastColor($bg);           
-    }
-    else if($theme == 'secondary'){
-        $bg = $colours['secondary'];
-        $textCol = getContrastColor($bg);          
-    }
-    else if($theme == 'accent'){
-        $bg = $colours['accent'];
-        $textCol = getContrastColor($bg);        
-    }
-    else if(is_null($theme) OR $theme == 'none'){
-        $bodyCol = $colours['body_colour'];
-        if($bodyCol == 'white'){
-            $bg = '#fff';
-        }
-        else{
-            $bg = $colours['background_colour'];
-        }  
-        $textCol = getContrastColor($bg);
-    }
+    $colours = get_theme_colours($theme); 
+    $btnCols = get_button_colours($theme);
 
     $terms = get_the_terms( get_the_ID(), 'portfolio_cat' ); 
     if($terms){
@@ -47,8 +25,8 @@
     }
 ?> 
 
-<div class="portfolio-card list-card <?php if(isset($class)){ echo $class; } ?>" style="background-color:<?= $bg; ?>; color:<?= $textCol; ?>">
-    <a href="<?= the_permalink(); ?>" style="color:<?= $textCol; ?>">
+<div class="portfolio-card list-card <?php if(isset($class)){ echo $class; } ?>" style="background-color:<?= $colours['bg']; ?>; color:<?= $colours['textCol']; ?>">
+    <a href="<?= the_permalink(); ?>" style="color:<?= $colours['textCol']; ?>">
         <div class="image-container">
             <img src="<?= $url; ?>" alt="<?= $alt; ?>">
         </div>
@@ -72,7 +50,13 @@
                     ?>
                 </div>
             <?php
+            
             } ?>
+            <div class="description">
+                <?= get_short_description($post->post_content); ?>
+            </div>
+            <p class="btn" style="background-color:<?= $btnCols['bg']; ?>"><span style="color:<?= $btnCols['textCol']; ?>" href="#">View <?= get_the_title(); ?></span></p>
+
         </div>
     </a>
 </div>

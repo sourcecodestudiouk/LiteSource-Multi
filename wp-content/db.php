@@ -1,0 +1,1 @@
+/Users/connorbanksgd/Local Sites/litesource-multisite/app/public/wp-content/plugins/query-monitor/wp-content/db.php

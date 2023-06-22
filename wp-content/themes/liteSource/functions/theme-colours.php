@@ -57,8 +57,15 @@ function get_button_colours($theme){
         $cols['bg'] = $colours['primary'];      
     }
     else if($theme == 'accent'){
-        $cols['bg'] = $colours['primary'];       
+        $cols['bg'] = $colours['secondary'];       
     }
+    $cols['textCol'] = getContrastColor($cols['bg']);
+    return $cols;
+}
+
+function get_accent_colours(){
+    $colours = get_field('site_colours', 'options');
+    $cols['bg'] = $colours['accent']; 
     $cols['textCol'] = getContrastColor($cols['bg']);
     return $cols;
 }

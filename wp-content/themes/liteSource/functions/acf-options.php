@@ -495,7 +495,7 @@ if( function_exists('acf_add_options_page') ) {
 
   $args = array(
     'page_title'  => __('Integrations'),
-    'menu_title'  => __('Intergrations'),
+    'menu_title'  => __('Integrations'),
     'parent_slug' => 'site-options',
   );
   acf_add_options_sub_page( $args );

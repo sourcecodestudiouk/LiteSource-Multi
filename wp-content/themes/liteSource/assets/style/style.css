@@ -2024,6 +2024,37 @@ body a {
   text-decoration: underline;
 }
 
+.litesource-splash-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  background-color: #170E28;
+  z-index: 2147483647;
+}
+.litesource-splash-page img {
+  width: 270px;
+  margin-bottom: 50px;
+}
+.litesource-splash-page h3 {
+  color: white;
+  margin-bottom: 25px;
+}
+.litesource-splash-page p {
+  max-width: 720px;
+  color: white;
+}
+.litesource-splash-page p.btn {
+  margin-top: 25px;
+  background-color: #EDABED;
+}
+
 .facets-container {
   display: flex;
   justify-content: space-between;

@@ -9,7 +9,9 @@ function remove_admin_bar() {
   }
 }
 
-add_filter('show_admin_bar', 'remove_admin_bar'); // Remove Admin bar
+if(!is_admin()){
+  add_filter('show_admin_bar', 'remove_admin_bar'); // Remove Admin bar
+}
 
 // Add page slug to body class
 function add_slug_to_body_class($classes) {

@@ -310,3 +310,9 @@ body.one-page-subscription:not(.scs-admin-login){
   }
 }
 
+body.scs-admin-login{
+  #wpadminbar{
+    display:none!important;
+  }
+}
+

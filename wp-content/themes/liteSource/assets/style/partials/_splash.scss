@@ -1,0 +1,30 @@
+.litesource-splash-page{
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    background-color:#170E28;
+    z-index: 2147483647;
+    img{
+        width:270px;
+        margin-bottom:50px;
+    }
+    h3{
+        color:white;
+        margin-bottom:25px;
+    }
+    p{
+        max-width:720px;
+        color:white;
+    }
+    p.btn{
+        margin-top:25px;
+        background-color:#EDABED;
+    }
+}

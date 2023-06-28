@@ -24,3 +24,25 @@ function is_sub_lapsed(){
         }
     }
 }
+
+function show_splash(){
+    if(is_main_site()){
+        $user = wp_get_current_user();
+        $hide = false;
+        if(in_array( 'editor', (array) $user->roles )){
+            $hide = true;
+        }
+        if(!is_user_logged_in()){
+            $hide = true;
+        }
+        if($hide){ ?>
+            <div class="litesource-splash-page">
+                <img src="/wp-content/themes/litesource/assets/img/lite-source-logo.png"/>
+                <h3>The All-in-one Website Builder for Businesses</h3>
+                <p>Helping your small businesses to dominate the digital realm in an instant with professional agency support at an affordable price.</p>
+                <p class="btn"><a href="https://www.sourcecodestudio.co.uk">Find Out More</a></p>
+            </div>
+        <?php
+        }
+    }
+}

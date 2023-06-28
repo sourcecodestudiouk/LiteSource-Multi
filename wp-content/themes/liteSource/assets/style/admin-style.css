@@ -245,3 +245,7 @@ body.one-page-subscription:not(.scs-admin-login) .row-actions .duplicate, body.o
 body.one-page-subscription:not(.scs-admin-login) #menu-pages .wp-submenu {
   display: none;
 }
+
+body.scs-admin-login #wpadminbar {
+  display: none !important;
+}

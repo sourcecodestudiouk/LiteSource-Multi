@@ -591,7 +591,7 @@ p.btn {
   margin: 0;
   width: auto;
 }
-p.btn a, p.btn span {
+p.btn a, p.btn span:not(.background) {
   color: inherit;
   padding: 10px 25px;
   z-index: 3;

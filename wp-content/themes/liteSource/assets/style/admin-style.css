@@ -235,3 +235,13 @@ html.wp-toolbar {
 body.search-results-admin #major-publishing-actions #delete-action, body.departments-admin #major-publishing-actions #delete-action {
   display: none !important;
 }
+
+body.one-page-subscription:not(.scs-admin-login) .page-title-action {
+  display: none !important;
+}
+body.one-page-subscription:not(.scs-admin-login) .row-actions .duplicate, body.one-page-subscription:not(.scs-admin-login) .row-actions .inline {
+  display: none !important;
+}
+body.one-page-subscription:not(.scs-admin-login) #menu-pages .wp-submenu {
+  display: none;
+}

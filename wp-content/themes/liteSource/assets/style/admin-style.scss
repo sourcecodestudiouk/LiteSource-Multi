@@ -288,3 +288,25 @@ body.search-results-admin, body.departments-admin{
     }
   }
 }
+
+////////////////////////////////////////////////////////////////////////////////
+// Single Page Subscription Styles
+
+body.one-page-subscription:not(.scs-admin-login){
+  .page-title-action { 
+    display: none !important;
+  }
+
+  .row-actions{
+    .duplicate, .inline{
+      display:none!important;
+    }
+  }
+  
+  #menu-pages{
+    .wp-submenu{
+      display:none;
+    }
+  }
+}
+

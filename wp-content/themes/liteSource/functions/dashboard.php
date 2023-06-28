@@ -34,14 +34,15 @@ function post_remove(){
  remove_menu_page( 'appearance.php');
  remove_menu_page( 'themes.php' );
  remove_menu_page( 'edit.php' );
- remove_menu_page( 'edit.php?post_type=page' );
  remove_menu_page( 'plugins.php' );
  remove_menu_page( 'tools.php' );
  remove_menu_page( 'options-general.php' );
+ remove_menu_page( 'edit-comments.php' );
+ remove_menu_page( 'profile.php' );
 
 }
-if(!current_user_can( 'edit_posts' )){
-	add_action('admin_menu', 'post_remove');   //adding action for triggering function call
+if(!is_scs()){
+  add_action('admin_menu', 'post_remove');   //adding action for triggering function call
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////

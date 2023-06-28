@@ -32,10 +32,17 @@ function base_admin_body_class( $classes )
 {   
     if(isset($_GET['post'])){
       $classes .= ' ';
-      $classes .= sanitize_title(get_the_title($_GET['post'])) . '-admin';
-      // Return the $classes array
-      return $classes;
+      $classes .= sanitize_title(get_the_title($_GET['post'])) . '-admin ';
     }
+
+    if(is_scs()){
+      $classes .= ' scs-admin-login ';
+    }
+
+    $sub = get_field('subscription_status', 'admin-settings');
+    $classes .= ' ' . $sub . '-subscription ';
+      // Return the $classes array
+    return $classes;
     
 }
 add_filter('admin_body_class', 'base_admin_body_class');
